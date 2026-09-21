@@ -11,11 +11,11 @@ import Reveal from '../common/Reveal';
  */
 export default function IntegrationsSection() {
   return (
-    <CustomBackground variant="custom">
+    <CustomBackground variant="plain">
       <div>
         <PageAnchor id="integrations" />
         <section
-          className="integrations theme-dark section-space spacer-large bottom-spacer-large"
+          className="integrations theme-dark section-space pad-top-lg pad-bottom-lg"
           data-type="obelus"
           aria-labelledby="integrations_heading"
         >

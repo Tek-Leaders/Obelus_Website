@@ -95,30 +95,30 @@ h6, .h6 {
 }
 
 /* Footer navigation text */
-.nav-headline,
-.nav-subheader,
-.nav-list {
+.footer-heading,
+.footer-subheading,
+.footer-text {
   font-family: var(--font-primary);
   line-height: 140%;
   letter-spacing: 0.02rem;
   color: var(--c-ink);
 }
 
-.nav-headline {
+.footer-heading {
   font-size: var(--t-nav-headline);
   font-weight: 600;
 }
 
-.nav-subheader,
-.nav-list {
+.footer-subheading,
+.footer-text {
   font-size: var(--t-nav-list);
 }
 
-.nav-subheader {
+.footer-subheading {
   font-weight: 600;
 }
 
-.nav-list {
+.footer-text {
   font-weight: 500;
 }
 

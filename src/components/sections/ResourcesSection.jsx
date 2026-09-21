@@ -10,7 +10,7 @@ export default function ResourcesSection() {
       <div>
         <PageAnchor id="resources" />
         <section
-          className="heading-branded section-heading text-left theme-light section-space spacer-xlarge tablet-spacer-large mobile-spacer-medium bottom-spacer-none"
+          className="heading-branded section-heading text-left theme-light section-space pad-top-xl tablet-pad-top-lg mobile-pad-top-md pad-bottom-0"
           data-type="obelus"
         >
           <div
@@ -32,14 +32,14 @@ export default function ResourcesSection() {
 
       <div>
         <section
-          className="resource-carousel d-flex flex-wrap theme-dark section-space spacer-none tablet-spacer-medium mobile-spacer-medium bottom-spacer-medium"
+          className="resource-carousel d-flex flex-wrap theme-dark section-space pad-top-0 tablet-pad-top-md mobile-pad-top-md pad-bottom-md"
           data-type="obelus"
           data-theme="dark"
           aria-labelledby="featured_resources_heading"
         >
           <div className="container-fluid">
             <div className="row">
-              <div className="col-12 col-md-12 card-container pr-0">
+              <div className="col-12 col-md-12 carousel-column pr-0">
                 <Carousel
                   label="Featured resources"
                   trackPrefix="obelus:resources:"

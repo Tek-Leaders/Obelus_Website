@@ -2,7 +2,7 @@
  * Landing hero and the fixed night-sky background behind every section.
  *
  * On load the heading drops in from above and the product video slides in
- * from the right; useHeroAnimation adds .step-1 to trigger both.
+ * from the right; useHeroAnimation adds .is-intro to trigger both.
  */
 
 /* ---------- Fixed page background ---------- */
@@ -64,7 +64,7 @@
   transition: visibility 0.25s ease-out, opacity 0.25s ease-out, transform 1s ease-out;
 }
 
-.obelus-hero.step-1 .heading {
+.obelus-hero.is-intro .heading {
   visibility: visible;
   opacity: 1;
 }
@@ -86,11 +86,11 @@
 }
 
 /* Video frame */
-.main-image-wrap {
+.hero-media-wrap {
   position: relative;
 }
 
-.obelus-hero .main-image {
+.obelus-hero .hero-media {
   position: relative;
   width: 100%;
   margin-bottom: 0;
@@ -101,7 +101,7 @@
   transition: transform 1s ease-out;
 }
 
-.obelus-hero .hero_video {
+.obelus-hero .hero-video {
   position: absolute;
   top: 0;
   left: 0;
@@ -111,15 +111,15 @@
   background: var(--c-night);
 }
 
-.obelus-hero .main-image:fullscreen,
-.obelus-hero .main-image:-webkit-full-screen {
+.obelus-hero .hero-media:fullscreen,
+.obelus-hero .hero-media:-webkit-full-screen {
   width: 100vw;
   height: 100vh;
   background: #000;
 }
 
-.obelus-hero .main-image:fullscreen .hero_video,
-.obelus-hero .main-image:-webkit-full-screen .hero_video {
+.obelus-hero .hero-media:fullscreen .hero-video,
+.obelus-hero .hero-media:-webkit-full-screen .hero-video {
   top: 0;
   width: 100%;
   height: 100%;
@@ -169,15 +169,15 @@
 
 /* Below 1200px the video starts off-screen to the right. */
 @media (max-width: 1199.98px) {
-  .obelus-hero .main-image {
+  .obelus-hero .hero-media {
     transform: translate(120%, 0);
   }
 
-  .obelus-hero.step-1 .main-image {
+  .obelus-hero.is-intro .hero-media {
     transform: translate(0, 0);
   }
 
-  .obelus-hero.step-1 .heading {
+  .obelus-hero.is-intro .heading {
     transform: translateY(0);
   }
 }
@@ -188,7 +188,7 @@
     font-size: calc(1.984375rem + 9.75 * (100vw - 768px) / 432);
   }
 
-  .obelus-hero .main-image {
+  .obelus-hero .hero-media {
     margin-top: 3rem;
   }
 }
@@ -199,14 +199,14 @@
   }
 
   /* On phones the video bleeds off the right edge. */
-  .obelus-hero .main-image {
+  .obelus-hero .hero-media {
     width: calc(100% + 30px);
     aspect-ratio: 1.222222;
     border-radius: 0.5rem 0 0 0.5rem;
     transform: translate(100%, 1rem);
   }
 
-  .obelus-hero.step-1 .main-image {
+  .obelus-hero.is-intro .hero-media {
     transform: translate(0, 0);
   }
 }
@@ -223,15 +223,15 @@
     font-size: calc(1.984375rem + 16.25 * (100vw - 1200px) / 720) !important;
   }
 
-  .obelus-hero .main-image {
+  .obelus-hero .hero-media {
     transform: translateX(120%);
   }
 
-  .obelus-hero.step-1 .main-image {
+  .obelus-hero.is-intro .hero-media {
     transform: translateX(0);
   }
 
-  .obelus-hero.step-1 .heading {
+  .obelus-hero.is-intro .heading {
     transform: translateY(0);
   }
 }
@@ -241,7 +241,7 @@
     padding-bottom: 100px;
   }
 
-  .obelus-hero .main-image {
+  .obelus-hero .hero-media {
     border-radius: 0.75rem;
   }
 }

@@ -2,7 +2,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 
-// Routes that render without the shared mega-footer.
+// Routes that render without the shared site footer.
 const NO_FOOTER_PATHS = ['/', '/request-demo', '/products'];
 
 /**

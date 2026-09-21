@@ -80,7 +80,7 @@ export default function Header() {
   return (
     <div>
       <div
-        className="site-header dark absolute default"
+        className="site-header dark absolute"
         data-type="obelus"
         id="OBELUS_NAV"
       >
@@ -90,14 +90,14 @@ export default function Header() {
         >
           <button
             type="button"
-            className="btn nav-open"
-            aria-label="open mobile navigation"
+            className="btn menu-toggle"
+            aria-label="Open menu"
             aria-expanded={mobileOpen}
             aria-controls="site_nav_panel"
             onClick={() => setMobileOpen(true)}
           />
           <Link
-            className="mobile-header-logo"
+            className="bar-logo"
             to="/"
             aria-label="Obelus"
             data-analytics="obelusNav:mobile:home"
@@ -110,9 +110,9 @@ export default function Header() {
           </Link>
           <button
             type="button"
-            className="btn mobile-search"
+            className="btn search-toggle"
             aria-label="search"
-            data-analytics="init-nav:mobile:search"
+            data-analytics="obelusNav:mobile:search"
             onClick={openSearch}
           />
 
@@ -121,12 +121,12 @@ export default function Header() {
             className={`site-nav-panel ${mobileOpen ? 'open' : ''}`.trim()}
             aria-label="product main"
           >
-            <div className="mobile-header">
+            <div className="panel-header">
               <button
                 type="button"
-                className="btn nav-close"
+                className="btn menu-close"
                 data-analytics="obelusNav:mobile:close nav"
-                aria-label="close mobile navigation"
+                aria-label="Close menu"
                 onClick={() => setMobileOpen(false)}
               >
                 <img
@@ -138,7 +138,7 @@ export default function Header() {
               </button>
               <Link
                 to="/"
-                className="nav-logo"
+                className="panel-logo"
                 data-analytics="obelusNav:mobile:logo"
                 aria-label="Obelus"
               >
@@ -152,7 +152,7 @@ export default function Header() {
               </Link>
               <button
                 type="button"
-                className="btn mobile-search"
+                className="btn search-toggle"
                 data-analytics="obelusNav:mobile:search"
                 aria-label="search"
                 onClick={openSearch}
@@ -167,7 +167,7 @@ export default function Header() {
             </div>
 
             <div className="container-fluid">
-              <ul className="nav-left" role="menubar" aria-label="left">
+              <ul className="nav-primary" role="menubar" aria-label="left">
                 <li className="link logo" role="none">
                   {/*
                     The logo is a real <img>; styles/brand.css sizes it for
@@ -231,7 +231,7 @@ export default function Header() {
                         {item.label}
                       </NavToggle>
                       <div
-                        className="mega-dropdown-menu"
+                        className="nav-dropdown"
                         aria-labelledby={item.id}
                         data-type={item.type}
                         hidden={openMenu !== item.id}
@@ -242,20 +242,20 @@ export default function Header() {
               </ul>
 
               <ul
-                className="nav-right align-items-center d-flex list-unstyled mb-0"
+                className="nav-actions align-items-center d-flex list-unstyled mb-0"
                 role="list"
                 aria-label="toolbar dynamic interactions"
               >
-                <li className="search me-3" role="listitem">
+                <li className="search" role="listitem">
                   <NavToggle
                     className="d-block"
-                    data-analytics="nav:Search"
+                    data-analytics="obelusNav:search"
                     aria-label="search"
                     expanded={searchOpen}
                     onActivate={openSearch}
                   />
                 </li>
-                <li className="cta cta-primary-wrapper" role="listitem">
+                <li className="cta" role="listitem">
                   {navCta.internal ? (
                     <Link
                       to={navCta.href}
@@ -278,8 +278,8 @@ export default function Header() {
                 </li>
               </ul>
 
-              <div className={`nav-mobile-toolbar ${mobileOpen ? '' : 'd-none'}`.trim()}>
-                <ul className="mobile-toolbar nav-left" role="list" aria-label="mobile left">
+              <div className={`panel-links ${mobileOpen ? '' : 'd-none'}`.trim()}>
+                <ul className="panel-link-list nav-primary" role="list" aria-label="mobile left">
                   {mobileToolbarPrimary.map((item) => (
                     <li role="listitem" className={item.className} key={item.label}>
                       <a href={item.href} data-analytics={item.track}>
@@ -288,7 +288,7 @@ export default function Header() {
                     </li>
                   ))}
                 </ul>
-                <ul className="mobile-toolbar nav-left" role="list">
+                <ul className="panel-link-list nav-primary" role="list">
                   {mobileToolbarSecondary.map((item) => (
                     <li role="listitem" className="link" key={item.label}>
                       <a

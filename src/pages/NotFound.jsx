@@ -4,11 +4,11 @@ export default function NotFound() {
   return (
     <div>
       <section
-        className="section-bg custom"
+        className="section-bg plain"
         style={{ backgroundColor: '#141414' }}
       >
         <div className="section-bg-content" style={{ zIndex: 1 }}>
-          <section className="section-heading text-center theme-light section-space spacer-xlarge bottom-spacer-large">
+          <section className="section-heading text-center theme-light section-space pad-top-xl pad-bottom-lg">
             <div className="container-fluid">
               <div className="row justify-content-center">
                 <div className="col-12 col-xl-8">

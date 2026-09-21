@@ -54,12 +54,12 @@ export default function SearchOverlay({ open, onClose }) {
             >
               <div className="obelus-search-header">
                 <div className="container">
-                  <div className="logo-placeholder" />
-                  <span className="searchtext">Search</span>
+                  <div className="search-logo" />
+                  <span className="search-label">Search</span>
                   <div className="obelus-search-container">
                     <div className={`dropdown ${scopeOpen ? 'open' : ''}`.trim()}>
                       <button
-                        className="btn btn-default dropdown-toggle"
+                        className="btn dropdown-toggle"
                         type="button"
                         id="search_scope_toggle"
                         aria-haspopup="true"
@@ -92,7 +92,7 @@ export default function SearchOverlay({ open, onClose }) {
                         hidden={!scopeOpen}
                       >
                         <li>
-                          <a href={TECH_DOCS_URL} id="tech-docs" rel="nofollow">
+                          <a href={TECH_DOCS_URL} id="search_docs_link" rel="nofollow">
                             Tech Docs
                           </a>
                         </li>

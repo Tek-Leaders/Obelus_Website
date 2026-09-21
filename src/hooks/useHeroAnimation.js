@@ -1,17 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 
 /**
- * Replaces js/13-main-nav.js.
+ * Hero intro animation. Returns `step1`, which Hero.jsx turns into the
+ * `is-intro` class 500ms after load. Scrolling the zero-height
+ * `.obelus-hero-waypoint` element past the middle of the viewport resets it,
+ * and scrolling back up plays it again.
  *
- * The original added a `step-1` class to `.obelus-hero` 500ms after load, and
- * registered a Waypoint on the zero-height `.obelus-hero-waypoint` element with
- * `offset: '50%'`: scrolling down past the middle of the viewport ran
- * cleanUp() and scrolling back up re-ran startAnimation().
- *
- * No waypoint library is used; the crossing test is done
- * directly. IntersectionObserver is deliberately not used here: the waypoint
- * element has no height, and a zero-area target does not report intersection
- * reliably across browsers, which left the hero stuck without `step-1`.
+ * The crossing test is done directly on scroll. IntersectionObserver is
+ * deliberately not used: the waypoint element has no height, and a zero-area
+ * target does not report intersection reliably across browsers.
  */
 export function useHeroAnimation() {
   const waypointRef = useRef(null);

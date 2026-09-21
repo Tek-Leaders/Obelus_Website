@@ -53,19 +53,19 @@ export default function ResourceCard({ card }) {
           {badgeIcon}
         </span>
       )}
-      <div className="image-container">
-        <figure className="desktop-image ar-16-9 contain">
+      <div className="tile-media">
+        <figure className="media-desktop ratio-16x9 contain">
           <PlaceholderImage src={card.image} alt="" label={card.eyebrow} />
         </figure>
-        <figure className="mobile-image ar-16-9 contain">
+        <figure className="media-mobile ratio-16x9 contain">
           <PlaceholderImage src={card.image} alt="" label={card.eyebrow} />
         </figure>
       </div>
-      <div className="text-container">
+      <div className="card-body">
         <div className="mb-3 text-dark">
-          <span className="card-small-title eyebrow text-dark">{card.eyebrow}</span>
+          <span className="tile-eyebrow eyebrow text-dark">{card.eyebrow}</span>
         </div>
-        <div className="heading-sm card-title mb-3 text-dark">{card.title}</div>
+        <div className="heading-sm tile-title mb-3 text-dark">{card.title}</div>
         {/* Presentational: the whole card is the link, so this must not be a
             second tab stop or a nested interactive element. */}
         <span

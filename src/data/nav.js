@@ -17,7 +17,7 @@ export const navCta = {
 
 export const mobileToolbarPrimary = [
   { label: 'Accounts & Support', href: '#', track: 'obelusNav:mobile:Sign In', className: 'account' },
-  { label: 'EN', href: '#', track: 'nav:mobile:language' },
+  { label: 'EN', href: '#', track: 'obelusNav:mobile:language' },
 ];
 
 // TODO: replace /support with the real Obelus support portal URL.
@@ -40,7 +40,7 @@ export const mobileToolbarSecondary = [
   },
 ];
 
-// Anchor sub-nav. `label` preserves the original casing; the CSS uppercases it.
+// Anchor sub-nav. The CSS uppercases `label`.
 export const anchorNavItems = [
   { id: 'challenges', label: 'Challenges', track: 'challenges' },
   { id: 'capabilities', label: 'why obelus', track: 'why obelus' },

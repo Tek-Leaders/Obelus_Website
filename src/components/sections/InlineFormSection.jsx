@@ -49,7 +49,7 @@ function Field({ form, name, label, id, type = 'text', options, autoComplete }) 
   const describedBy = invalid ? `${id}_error` : undefined;
 
   return (
-    <label className="form-field" htmlFor={id}>
+    <label className="field" htmlFor={id}>
       <span className="sr-only">{label}</span>
       {options ? (
         <select
@@ -88,7 +88,7 @@ function Field({ form, name, label, id, type = 'text', options, autoComplete }) 
       )}
       <div
         id={`${id}_error`}
-        className="form-validation validation serif-sm"
+        className="field-error validation serif-sm"
         role={invalid ? 'alert' : undefined}
       >
         {message}
@@ -158,25 +158,25 @@ export default function InlineFormSection() {
         className="section-bg gradient"
       >
         <LazyBackground
-          className="section-bg-image auto"
+          className="section-bg-image"
           image="/assets/img/ui/form-pattern.svg"
         />
 
         <div className="section-bg-content" style={{ zIndex: 1 }}>
           <div>
-            <span className="page-anchor" id="engage" />
+            <span className="anchor" id="engage" />
             <section
-              className="inline-form theme-dark two-column section-space spacer-xlarge tablet-spacer-medium mobile-spacer-small bottom-spacer-large"
+              className="lead-form theme-dark two-column section-space pad-top-xl tablet-pad-top-md mobile-pad-top-sm pad-bottom-lg"
               data-type="obelus"
               aria-labelledby="engage_heading"
             >
               <div className="container-fluid">
-                <div className="row main-row align-items-center">
+                <div className="row align-items-center">
                   <div className="col-12 col-xl-6">
-                    <h2 className="h3 form-title mb-2 text-dark" id="engage_heading">
+                    <h2 className="h3 form-heading mb-2 text-dark" id="engage_heading">
                       Speak to an <span className="accent-text">OBELUS expert</span>
                     </h2>
-                    <p className="form-desc text-md mb-4 text-dark">
+                    <p className="form-intro text-md mb-4 text-dark">
                       <span className="heading-sm text-white">
                         Your security challenges deserve expert answers. Get a tailored
                         demo and see how OBELUS helps your team detect, investigate and
@@ -197,7 +197,7 @@ export default function InlineFormSection() {
                       noValidate
                       onSubmit={handleSubmit}
                     >
-                      <div className="form-row two d-flex flex-wrap">
+                      <div className="field-row stacked d-flex flex-wrap">
                         <Field form={form} name="firstName" label="First Name" id="lead_first_name" autoComplete="given-name" />
                         <Field form={form} name="lastName" label="Last Name" id="lead_last_name" autoComplete="family-name" />
                         <Field form={form} name="email" label="Email" id="lead_email" type="email" autoComplete="email" />
@@ -226,9 +226,9 @@ export default function InlineFormSection() {
                         )}
                       </div>
 
-                      <div className="form-row">
+                      <div className="field-row">
                         <label className="checkbox">
-                          <span className="checkbox-icon">
+                          <span className="checkbox-box">
                             <input
                               type="checkbox"
                               name="marketingOptIn"
@@ -245,7 +245,7 @@ export default function InlineFormSection() {
                       </div>
 
                       <div className="legal mt-2">
-                        <p className="label form-legal text-dark text-500">
+                        <p className="label consent-text text-dark text-500">
                           We will only use your details as described in the{' '}
                           <a
                             href="/privacy"
@@ -278,9 +278,9 @@ export default function InlineFormSection() {
                     )}
 
                     {submitted && (
-                      <div className="thank-you-msg" role="status">
-                        <h2 className="thank-you-msg-header h3">Success!</h2>
-                        <p className="thank-you-msg-body subheading">
+                      <div className="form-success" role="status">
+                        <h2 className="form-success-title h3">Success!</h2>
+                        <p className="form-success-body subheading">
                           Thanks - an OBELUS specialist will be in touch shortly.
                         </p>
                       </div>

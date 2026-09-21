@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 /**
- * Replaces the `glider.js` track that the original page references but never
- * ships. Uses native scroll-snap on the track, so a drag/swipe works for free
- * and the arrows just scroll by one slide.
+ * Carousel state for a native scroll-snap track: a drag/swipe works for
+ * free and the arrows just scroll by one slide.
  */
 export function useCarousel(slideCount) {
   const trackRef = useRef(null);
@@ -11,7 +10,8 @@ export function useCarousel(slideCount) {
   const [perView, setPerView] = useState(1);
 
   // Slide pitch is measured from the offset between two slides so the 3rem
-  // margin-right that site/sections.css puts on .glider-slide is included in the step.
+  // margin-right that site/sections.css puts on .carousel-slide is included in
+  // the step.
   const measure = useCallback(() => {
     const track = trackRef.current;
     const first = track && track.children[0];

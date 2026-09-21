@@ -1,6 +1,6 @@
 // Footer content. `sub: true` renders the <li class="sub-title nav-subheader">
 // variant. In the first column, the first group's opening sub-title spans
-// both of the first two lists (see the #collapse_col_0 rules in
+// both of the first two lists (see the #footer_col_0 rules in
 // styles/site/footer.css), so the second list starts below it.
 //
 // TODO: the /about, /careers, /blog, /news, /security, /trust, /privacy,

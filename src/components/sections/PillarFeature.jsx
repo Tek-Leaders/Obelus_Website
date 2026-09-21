@@ -1,9 +1,8 @@
 import GradientText from '../common/GradientText';
 import PlaceholderImage from '../common/PlaceholderImage';
 
-// The original markup reused one id across all three blocks, which is invalid
-// HTML; the index keeps them unique without changing any styling hook.
-const PILLAR_ID = 'id_0d91c9c0-542d-40f8-a601-752188966065';
+// Each pillar section gets a unique id: pillar-0, pillar-1, ...
+const PILLAR_ID = 'pillar';
 
 function Media({ pillar, columnClass }) {
   return (
@@ -16,13 +15,13 @@ function Media({ pillar, columnClass }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <figure className="ar-16-9 show-mag top-right contain">
+          <figure className="ratio-16x9 has-zoom-badge contain">
             <PlaceholderImage
               src={pillar.image}
               alt={pillar.imageAlt}
               label={pillar.imageLabel}
             />
-            <i className="icon magnifying-glass" aria-hidden="true" />
+            <i className="icon zoom-badge" aria-hidden="true" />
           </figure>
         </a>
       </div>
@@ -60,7 +59,7 @@ export default function PillarFeature({ pillar, index }) {
   return (
     <div>
       <section
-        className={`pillar-feature layout-${pillar.layout} side section-space spacer-large ${pillar.bottomSpacer}`}
+        className={`pillar-feature layout-${pillar.layout} split section-space pad-top-lg ${pillar.bottomSpacer}`}
         data-type="obelus"
         id={`${PILLAR_ID}-${index}`}
       >
@@ -70,22 +69,22 @@ export default function PillarFeature({ pillar, index }) {
               <>
                 <Media
                   pillar={pillar}
-                  columnClass="media-container col-12 col-md-6 col-xl-6"
+                  columnClass="pillar-media col-12 col-md-6 col-xl-6"
                 />
                 <Copy
                   pillar={pillar}
-                  columnClass="right-text text-content col-12 offset-md-1 col-md-5 col-xl-4"
+                  columnClass=" pillar-copy col-12 offset-md-1 col-md-5 col-xl-4"
                 />
               </>
             ) : (
               <>
                 <Copy
                   pillar={pillar}
-                  columnClass="left-text text-content col-12 offset-xl-1 col-md-5 col-xl-4 order-1 order-md-0"
+                  columnClass=" pillar-copy col-12 offset-xl-1 col-md-5 col-xl-4 order-1 order-md-0"
                 />
                 <Media
                   pillar={pillar}
-                  columnClass="media-container col-12 col-md-6 offset-md-1 col-xl-6"
+                  columnClass="pillar-media col-12 col-md-6 offset-md-1 col-xl-6"
                 />
               </>
             )}

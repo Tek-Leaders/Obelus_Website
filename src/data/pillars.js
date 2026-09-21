@@ -15,7 +15,7 @@ export const pillarsHeading = {
 export const pillars = [
   {
     layout: 'leftImage',
-    bottomSpacer: 'bottom-spacer-medium',
+    bottomSpacer: 'pad-bottom-md',
     icon: '/assets/img/ui/icons/detect.svg',
     image: '/assets/img/obelus/image.png',
     imageAlt: 'OBELUS detection dashboard',
@@ -29,7 +29,7 @@ export const pillars = [
   },
   {
     layout: 'rightImage',
-    bottomSpacer: 'bottom-spacer-medium',
+    bottomSpacer: 'pad-bottom-md',
     icon: '/assets/img/ui/icons/hunt.svg',
     image: '/assets/img/obelus/investge.png',
     imageAlt: 'OBELUS threat hunting workspace',
@@ -43,7 +43,7 @@ export const pillars = [
   },
   {
     layout: 'leftImage',
-    bottomSpacer: 'bottom-spacer-medium',
+    bottomSpacer: 'pad-bottom-md',
     icon: '/assets/img/ui/icons/investigate.svg',
     image: '/assets/img/obelus/case.png',
     imageAlt: 'OBELUS graph investigation view',
@@ -57,7 +57,7 @@ export const pillars = [
   },
   {
     layout: 'rightImage',
-    bottomSpacer: 'bottom-spacer-large',
+    bottomSpacer: 'pad-bottom-lg',
     icon: '/assets/img/ui/icons/respond.svg',
     image: '/assets/img/obelus/settings.png',
     imageAlt: 'OBELUS automated response playbook',

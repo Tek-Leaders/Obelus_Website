@@ -35,7 +35,7 @@
   border-radius: 2.25rem;
   text-align: left;
   text-decoration: none;
-  background-color: var(--c-accent);
+  background-color: var(--c-brand);
   color: #000;
 }
 
@@ -48,11 +48,6 @@
   height: var(--btn-icon);
   margin-left: var(--btn-icon-gap);
   background: url('/assets/img/ui/arrow-right-black.svg') center / contain no-repeat;
-}
-
-/* Inside a brand-themed section the primary button takes the brand green. */
-[data-type="obelus"] .btn-primary {
-  background-color: var(--c-brand);
 }
 
 /* Ghost variant: no fill, white text and icon. */
@@ -108,17 +103,17 @@
 
 /* ---------- Carousel ---------- */
 
-.glider-contain {
+.carousel {
   position: relative;
   width: 100%;
   margin: 0 auto;
 }
 
-.glider-wrapper {
+.carousel-track {
   width: 100%;
 }
 
-.glider {
+.carousel-scroll {
   position: relative;
   margin: 0 auto;
   overflow-y: hidden;
@@ -126,13 +121,13 @@
   transform: translateZ(0);
 }
 
-.glider::-webkit-scrollbar,
-.glider-wrapper::-webkit-scrollbar {
+.carousel-scroll::-webkit-scrollbar,
+.carousel-track::-webkit-scrollbar {
   height: 0;
   opacity: 0;
 }
 
-.glider-slide {
+.carousel-slide {
   position: relative;
   width: 100%;
   min-width: 150px;
@@ -141,11 +136,11 @@
   user-select: none;
 }
 
-.glider-slide img {
+.carousel-slide img {
   max-width: 100%;
 }
 
-.glider-dots {
+.carousel-dots {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -155,8 +150,8 @@
 }
 
 /* Round prev/next arrows */
-.glider-prev,
-.glider-next {
+.carousel-prev,
+.carousel-next {
   position: absolute;
   top: 50%;
   z-index: 10;
@@ -165,43 +160,38 @@
   justify-content: center;
   width: 50px;
   height: 50px;
-  border: 2px solid var(--c-accent-strong);
+  border: 2px solid var(--c-brand);
   border-radius: 50px;
-  background-color: var(--c-accent-strong);
+  background-color: var(--c-brand);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 24px 24px;
 }
 
-.glider-prev {
+.carousel-prev {
   left: 15px;
   right: auto;
   background-image: url('/assets/img/ui/chevron-left-black.svg');
 }
 
-.glider-next {
+.carousel-next {
   right: 15px;
   left: auto;
   background-image: url('/assets/img/ui/chevron-right-black.svg');
 }
 
 /* Outline variant for dark sections (class doubled to outrank the themes) */
-.glider-prev.glider-button-white.glider-button-white,
-.glider-next.glider-button-white.glider-button-white {
+.carousel-prev.carousel-btn-outline.carousel-btn-outline,
+.carousel-next.carousel-btn-outline.carousel-btn-outline {
   border-color: #fff;
   background-color: transparent;
 }
 
-.glider-prev.glider-button-white.glider-button-white {
+.carousel-prev.carousel-btn-outline.carousel-btn-outline {
   background-image: url('/assets/img/ui/chevron-left-white.svg');
 }
 
-.glider-next.glider-button-white.glider-button-white {
+.carousel-next.carousel-btn-outline.carousel-btn-outline {
   background-image: url('/assets/img/ui/chevron-right-white.svg');
 }
 
-[data-type="obelus"] .glider-prev,
-[data-type="obelus"] .glider-next {
-  border-color: var(--c-brand);
-  background-color: var(--c-brand);
-}

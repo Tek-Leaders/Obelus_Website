@@ -35,13 +35,13 @@ export default function FooterSubscribeForm() {
   return (
     <LazyBackground
       as="section"
-      className="footer-form"
-      image="/assets/img/ui/footer-form-bg.svg"
+      className="newsletter"
+      image="/assets/img/ui/newsletter-bg.svg"
     >
       <div className="container-fluid">
         <div className="row">
           <div className="col-12 col-md-4 col-xl-6">
-            <div className="h4 form-title text-white mb-0">
+            <div className="h4 form-heading text-white mb-0">
               Threat research and OBELUS updates, straight to your inbox
             </div>
           </div>
@@ -55,15 +55,13 @@ export default function FooterSubscribeForm() {
               data-lang="en_US"
               onSubmit={handleSubmit}
             >
-              <div className="footer-form-input-container d-flex flex-column">
+              <div className="newsletter-field d-flex flex-column">
                 <div className="d-flex">
-                  <label className="form-field" htmlFor="OBELUS_FOOTER_EMAIL_FIELD">
+                  <label className="field" htmlFor="OBELUS_FOOTER_EMAIL_FIELD">
                     {/*
-                      `display: none` is carried over from the original markup
-                      and is load-bearing: .sr-only is not positioned out of
-                      flow here, so showing this span makes the field 24px
-                      taller. The input carries its own aria-label so it still
-                      has an accessible name.
+                      `display: none` is load-bearing: showing this span makes
+                      the field 24px taller. The input carries its own
+                      aria-label so it still has an accessible name.
                     */}
                     <span className="sr-only" style={{ display: 'none' }}>
                       Your work email
@@ -85,12 +83,12 @@ export default function FooterSubscribeForm() {
                     />
                     <div
                       id="footer_email_error"
-                      className="form-validation validation serif-sm"
+                      className="field-error validation serif-sm"
                       role={showError ? 'alert' : undefined}
                     >
                       {showError ? 'Please enter a valid email address.' : ''}
                     </div>
-                    <div className="validation-icon" />
+                    <div className="field-status-icon" />
                   </label>
                   <div className="actions d-none d-md-block">
                     <SubmitButton
@@ -108,7 +106,7 @@ export default function FooterSubscribeForm() {
               </div>
 
               <div className="legal">
-                <p className="label-sm text-400 text-white form-legal">
+                <p className="label-sm text-400 text-white consent-text">
                   We will only use your details as described in the{' '}
                   <a
                     href="/privacy"
@@ -126,7 +124,7 @@ export default function FooterSubscribeForm() {
                 </p>
               </div>
 
-              <div className="mobile-actions d-block d-md-none">
+              <div className="newsletter-mobile-actions d-block d-md-none">
                 <SubmitButton
                   className="ml-0"
                   track="obelus:footer:mobile:Sign up"

@@ -29,8 +29,8 @@
  * flow to fill it. The fallback box is a <div>, so it needs the same
  * treatment or it collapses to a thin strip at the top of the figure.
  */
-.site [class^="ar-"] > .img-placeholder,
-.site [class*=" ar-"] > .img-placeholder {
+.site [class^="ratio-"] > .img-placeholder,
+.site [class*=" ratio-"] > .img-placeholder {
   position: absolute;
   top: 0;
   left: 0;

@@ -222,9 +222,9 @@
   .mb-xl-5 { margin-bottom: 3rem !important; }
 }
 
-/* ---------- Fixed aspect-ratio media frames (.ar-W-H) ---------- */
+/* ---------- Fixed aspect-ratio media frames (.ratio-WxH) ---------- */
 
-.site :is([class^="ar-"], [class*=" ar-"]) {
+.site :is([class^="ratio-"], [class*=" ratio-"]) {
   position: relative;
   display: inline-block;
   width: 100%;
@@ -233,7 +233,7 @@
   overflow: hidden;
 }
 
-.site :is([class^="ar-"], [class*=" ar-"]) img {
+.site :is([class^="ratio-"], [class*=" ratio-"]) img {
   position: absolute;
   left: 0;
   width: 100%;
@@ -241,31 +241,31 @@
   object-fit: contain;
 }
 
-.site .ar-1-1 { padding-bottom: 100%; }
-.site .ar-16-9 { padding-bottom: 56.25%; }
+.site .ratio-1x1 { padding-bottom: 100%; }
+.site .ratio-16x9 { padding-bottom: 56.25%; }
 
 /* ---------- Section spacing ----------
    Each section carries a top/bottom spacer size, optionally overridden on
    tablet (< 992px) and mobile (< 768px). */
 
-.site .section-space.spacer-none { padding-top: 0; }
-.site .section-space.spacer-large { padding-top: 6rem; }
-.site .section-space.spacer-xlarge { padding-top: 8rem; }
-.site .section-space.bottom-spacer-none { padding-bottom: 0; }
-.site .section-space.bottom-spacer-medium { padding-bottom: 4rem; }
-.site .section-space.bottom-spacer-large { padding-bottom: 6rem; }
+.site .section-space.pad-top-0 { padding-top: 0; }
+.site .section-space.pad-top-lg { padding-top: 6rem; }
+.site .section-space.pad-top-xl { padding-top: 8rem; }
+.site .section-space.pad-bottom-0 { padding-bottom: 0; }
+.site .section-space.pad-bottom-md { padding-bottom: 4rem; }
+.site .section-space.pad-bottom-lg { padding-bottom: 6rem; }
 
 @media (max-width: 991.98px) {
-  .site .section-space.tablet-spacer-medium { padding-top: 4rem !important; }
-  .site .section-space.tablet-spacer-large { padding-top: 6rem !important; }
+  .site .section-space.tablet-pad-top-md { padding-top: 4rem !important; }
+  .site .section-space.tablet-pad-top-lg { padding-top: 6rem !important; }
 }
 
 @media (max-width: 767.98px) {
-  .site .section-space.mobile-spacer-small { padding-top: 2rem !important; }
-  .site .section-space.mobile-spacer-medium { padding-top: 4rem !important; }
+  .site .section-space.mobile-pad-top-sm { padding-top: 2rem !important; }
+  .site .section-space.mobile-pad-top-md { padding-top: 4rem !important; }
 }
 
-.site.site-shell .section-space.spacer-none {
+.site.site-shell .section-space.pad-top-0 {
   height: auto !important;
   overflow: hidden;
 }
@@ -274,7 +274,7 @@
   height: auto !important;
 }
 
-.site .hero-block .block-space.spacer-none {
+.site .hero-block .block-space.pad-top-0 {
   padding-top: 0;
 }
 

@@ -41,14 +41,14 @@ export default function Hero() {
 
   return (
     <div className="hero-block">
-      <div className="block-space spacer-none" />
-      <div className={`obelus-hero ${step1 ? 'step-1' : ''}`.trim()} data-type="obelus">
+      <div className="block-space pad-top-0" />
+      <div className={`obelus-hero ${step1 ? 'is-intro' : ''}`.trim()} data-type="obelus">
         <div className="container-fluid">
           <div className="row">
             <div className="col-12 col-xl-5">
               <div className="heading mt-3 mb-5 my-md-0">
                 <span className="eyebrow obelus-hero-icon">{hero.eyebrow}</span>
-                <div className="copy-block">
+                <div className="hero-copy">
                   <h1 className="h1 title text-white">
                     {hero.titleLines[0]} <br className="d-none d-xl-inline" />
                     {hero.titleLines[1]}
@@ -60,7 +60,7 @@ export default function Hero() {
                     <br />
                   </span>
                   <div>
-                    <div className="block-space spacer-none" />
+                    <div className="block-space pad-top-0" />
                     <ul className="list-unstyled" data-type="">
                       <li>
                         <Link
@@ -90,11 +90,11 @@ export default function Hero() {
             </div>
 
             <div className="col-12 col-lg-10 offset-lg-1 col-xl-7 offset-xl-0">
-              <div className="main-image-wrap">
-                <div className="main-image ar-16-9" ref={mediaFrameRef}>
+              <div className="hero-media-wrap">
+                <div className="hero-media ratio-16x9" ref={mediaFrameRef}>
                   <video
                     ref={videoRef}
-                    className="hero_video"
+                    className="hero-video"
                     autoPlay
                     muted
                     playsInline

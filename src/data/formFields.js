@@ -23,8 +23,8 @@ export const jobRoles = [
   'Other',
 ];
 
-// Countries that reveal an extra sub-region field, mirroring the original
-// markup's hidden #usa_list / #province_list / #zip_code / #department_field.
+// Countries that reveal an extra sub-region field (US state, Canadian
+// province, postal code, or department).
 export const COUNTRY_US = 'United States';
 export const COUNTRY_CANADA = 'Canada';
 export const DEPARTMENT_COUNTRIES = ['Japan'];
@@ -59,5 +59,5 @@ export const canadianProvinces = [
   'Yukon',
 ];
 
-// Same pattern the original inputs carry in their `pattern` attribute.
+// Basic email shape check used by both forms.
 export const EMAIL_PATTERN = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;

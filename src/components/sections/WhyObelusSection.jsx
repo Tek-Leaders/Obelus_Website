@@ -9,7 +9,7 @@ export default function WhyObelusSection() {
       <div>
         <PageAnchor id="capabilities" />
         <section
-          className="heading-branded section-heading text-center theme-light section-space spacer-xlarge bottom-spacer-none center-on-tablet"
+          className="heading-branded section-heading text-center theme-light section-space pad-top-xl pad-bottom-0 center-on-tablet"
           data-type="obelus"
         >
           <div

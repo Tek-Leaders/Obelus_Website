@@ -1,15 +1,15 @@
 /*
- * Mega-dropdown visibility fixes, shared by every `nav-left` item that opens
- * a `.mega-dropdown-menu` panel (currently just "Products", left as an empty
+ * Mega-dropdown visibility fixes, shared by every `nav-primary` item that opens
+ * a `.nav-dropdown` panel (currently just "Products", left as an empty
  * placeholder - see the note in Header.jsx).
  *
- * site/header.css hides `.mega-dropdown-menu` unconditionally, with no `.open`
+ * site/header.css hides `.nav-dropdown` unconditionally, with no `.open`
  * state override. `!important` is required to outrank that rule, since normal
  * cascade only breaks the tie by specificity/order, and this needs to win
  * whenever the state says it should.
  */
 
-.site .site-nav .nav-left > li.open .mega-dropdown-menu {
+.site .site-nav .nav-primary > li.open .nav-dropdown {
   display: block !important;
 }
 

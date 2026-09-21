@@ -29,7 +29,7 @@ export default function FooterBottom() {
   }, [langOpen]);
 
   return (
-    <footer className="footer-bottom">
+    <footer className="footer-bar">
       <div className="container-fluid">
         <div className="row align-items-center">
           <div className="col-12 col-md-6 order-md-1 col-xxl-12">
@@ -42,7 +42,7 @@ export default function FooterBottom() {
           </div>
 
           <div className="col-12 col-md-12 order-md-3 col-xxl-8 order-xxl-2">
-            <ul className="list-unstyled bottom-links nav-list d-flex flex-column flex-md-row">
+            <ul className="list-unstyled legal-links footer-text d-flex flex-column flex-md-row">
               {footerBottomLinks.map((link) => (
                 <li key={link.href}>
                   <a
@@ -55,19 +55,19 @@ export default function FooterBottom() {
                 </li>
               ))}
             </ul>
-            <p className="copyright text-black nav-list mb-3 mb-md-0">
+            <p className="copyright text-black footer-text mb-3 mb-md-0">
               {footerCopyright}
             </p>
           </div>
 
           <div className="col-12 col-md-6 order-md-2 col-xxl-4 order-xxl-3">
-            <ul className="list-unstyled social-icons d-flex justify-content-start justify-content-md-end align-items-center">
+            <ul className="list-unstyled social-links d-flex justify-content-start justify-content-md-end align-items-center">
               {footerSocials.map((social) => (
                 <li key={social.href}>
                   <a
                     href={social.href}
                     target="_blank"
-                    className="social-icon d-flex"
+                    className="social-link d-flex"
                     aria-label={social.alt}
                     data-analytics={social.track}
                     rel="noopener noreferrer"
@@ -82,9 +82,9 @@ export default function FooterBottom() {
                   ref={langRef}
                 >
                   <button
-                    className="btn btn-language d-inline-flex align-items-center"
+                    className="btn language-button d-inline-flex align-items-center"
                     type="button"
-                    id="language_dropdown_menu_button"
+                    id="language_menu_button"
                     aria-haspopup="true"
                     aria-expanded={langOpen}
                     aria-label="Select your language"
@@ -98,13 +98,13 @@ export default function FooterBottom() {
                   </button>
                   <div
                     className={`dropdown-menu dropdown-menu-right ${langOpen ? "show" : ""}`.trim()}
-                    aria-labelledby="language_dropdown_menu_button"
+                    aria-labelledby="language_menu_button"
                     hidden={!langOpen}
                   >
                     <span className="heading-xs title d-flex pb-2">
                       Select your language
                     </span>
-                    <ul className="list-unstyled nav-list p-0 d-block d-md-flex flex-wrap">
+                    <ul className="list-unstyled footer-text p-0 d-block d-md-flex flex-wrap">
                       {footerLanguages.map((lang) => (
                         <li key={lang.localTitle}>
                           <a href={lang.localLink}>{lang.localTitle}</a>

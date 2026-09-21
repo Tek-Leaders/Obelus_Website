@@ -4,11 +4,11 @@ const TOUR_VIDEO = '/assets/video/Obelus-Product-Tour.mp4';
 
 export default function ProductTourSection() {
   return (
-    <CustomBackground variant="custom">
+    <CustomBackground variant="plain">
       <div>
         <PageAnchor id="tour" />
         <section
-          className="product-tour-cards theme-dark section-space spacer-large bottom-spacer-large"
+          className="product-tour-cards theme-dark section-space pad-top-lg pad-bottom-lg"
           data-type="obelus"
           aria-labelledby="product_tour_heading"
         >
@@ -16,12 +16,8 @@ export default function ProductTourSection() {
             <div className="row justify-content-center">
               <div className="col-12 text-center mb-5">
                 {/*
-                  The original nested an <h3 class="h2"> around an
-                  <h3 class="h3">, which is invalid: the HTML parser closes the
-                  outer heading, leaving an empty h3.h2 whose 0.5rem
-                  margin-bottom pushed the real heading down by 8px. `mt-2` is
-                  the site's own 0.5rem utility, so this reproduces that
-                  spacing exactly with a single, valid heading.
+                  `mt-2` gives the heading its 0.5rem offset from the top of
+                  the section.
                 */}
                 <h2 className="h3 title mt-2" id="product_tour_heading">
                   Product Tour

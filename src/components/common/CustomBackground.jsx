@@ -26,5 +26,5 @@ export default function CustomBackground({
 
 /** The `<a name="...">` jump targets, as a valid id-based anchor. */
 export function PageAnchor({ id }) {
-  return <span className="page-anchor" id={id} />;
+  return <span className="anchor" id={id} />;
 }

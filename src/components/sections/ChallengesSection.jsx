@@ -9,7 +9,7 @@ export default function ChallengesSection() {
       <div className="teaser-block">
         <PageAnchor id="challenges" />
         <section
-          className="teaser-section theme-dark section-space spacer-large bottom-spacer-none"
+          className="teaser-section theme-dark section-space pad-top-lg pad-bottom-0"
           data-type="obelus"
           aria-labelledby="challenges_heading"
         >
@@ -28,11 +28,11 @@ export default function ChallengesSection() {
                 <div className="col-12 col-md-4 mb-4 mb-xl-5" key={card.title}>
                   <div className="teaser-card align-items-start flex-column">
                     <div className="logo d-flex mt-0">
-                      <figure className="ar-1-1">
+                      <figure className="ratio-1x1">
                         <LazyImage src={card.icon} alt="" />
                       </figure>
                     </div>
-                    <div className="text-container d-flex flex-column">
+                    <div className="card-body d-flex flex-column">
                       <h3 className="h6 teaser-card-title title mb-0 text-500 text-dark">
                         {card.title}
                       </h3>

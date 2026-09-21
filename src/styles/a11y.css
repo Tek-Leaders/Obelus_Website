@@ -8,11 +8,11 @@
  * renders exactly as the <div> did.
  *
  * Border and margin are deliberately left alone: site/footer.css already sets
- * `border-bottom` and `margin-bottom` on .heading-col at both breakpoints with
+ * `border-bottom` and `margin-bottom` on .footer-col-heading at both breakpoints with
  * higher specificity than anything here, so those keep coming from there.
  */
 
-.site .site-footer .mega-footer .heading-col {
+.site .site-footer .footer-links .footer-col-heading {
   display: block;
   width: 100%;
   padding: 0;
@@ -26,15 +26,15 @@
   appearance: none;
 }
 
-/* .nav-headline supplies its own font-family, size and colour; only the
+/* .footer-heading supplies its own font-family, size and colour; only the
    heading-specific weight and margin need to be reverted to the <div> values. */
-.site .site-footer .mega-footer .heading-col .nav-headline {
+.site .site-footer .footer-links .footer-col-heading .footer-heading {
   font-weight: inherit;
   margin: 0;
 }
 
 /* Keep a visible focus ring on the controls that gained keyboard access. */
-.site .site-footer .mega-footer .heading-col:focus-visible,
+.site .site-footer .footer-links .footer-col-heading:focus-visible,
 .site .site-nav [role='button']:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;

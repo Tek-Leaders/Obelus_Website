@@ -1,7 +1,7 @@
 /*
  * Obelus brand logo sizing.
  *
- * The header's desktop logo slot is `.nav-left > li.logo > a`, sized by
+ * The header's desktop logo slot is `.nav-primary > li.logo > a`, sized by
  * the breakpoint rules in site/header.css (e.g. 9rem x 1.5625rem
  * at >=1200px) - dimensions tuned for the previous icon-only mark's wide,
  * short aspect ratio (~5.8:1). The Obelus lockup (icon + wordmark + tagline,
@@ -34,19 +34,19 @@
 }
 
 /* The collapsed mobile toolbar's logo, shown before the menu is opened.
-   site/header.css only gives `.mobile-header-logo` a display value inside its own
+   site/header.css only gives `.bar-logo` a display value inside its own
    `max-width: 1199.98px` block (desktop leaves it with no display at all, so
    it stays invisible); matching that breakpoint here keeps it hidden on
    desktop instead of forcing it to show everywhere. */
 @media (max-width: 1199.98px) {
-  .site .site-nav > .mobile-header-logo {
+  .site .site-nav > .bar-logo {
     display: inline-flex !important;
     align-items: center;
     width: auto !important;
     height: 34px !important;
     background-image: none !important;
   }
-  .site .site-nav > .mobile-header-logo .brand-logo-collapsed {
+  .site .site-nav > .bar-logo .brand-logo-collapsed {
     height: 100%;
     width: auto;
     object-fit: contain;
@@ -59,7 +59,7 @@
    obelus.png has a white wordmark made for dark backgrounds, so it is shown
    as a solid dark silhouette on the white footer. Swap in a dark-on-light
    logo file here if one is produced. */
-.site-footer .footer-bottom .obelus-logo img {
+.site-footer .footer-bar .obelus-logo img {
   object-fit: contain;
   object-position: left center;
   filter: brightness(0);

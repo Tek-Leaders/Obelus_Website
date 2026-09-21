@@ -1,10 +1,9 @@
 /*
  * Landing-page additions: the capability bullets under each "Unite your
- * defense" pillar, and the "Works with the stack you already run" band - the
- * one section with no counterpart in the original markup.
+ * defense" pillar, and the "Works with the stack you already run" band.
  *
- * Deliberately borrows the existing visual language rather than inventing:
- * the same translucent blue panel, border and blur as the Challenges cards in
+ * Uses the same translucent blue panel, border and blur as the Challenges
+ * cards in
  * site/sections.css, and the same green accent as `.accent-text` (#00cc66), so it
  * reads as part of the page over the fixed background.
  */
