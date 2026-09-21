@@ -1,0 +1,61 @@
+/*
+ * Supplement, not a redesign.
+ *
+ * The footer column heading was a non-interactive <div> driven by Bootstrap's
+ * collapse plugin; below `md` it is now a real <button> wrapping a real <h2>,
+ * so it is keyboard-operable and announces its expanded state. These rules
+ * neutralise the browser's default button and heading styling so the element
+ * renders exactly as the <div> did.
+ *
+ * Border and margin are deliberately left alone: site/footer.css already sets
+ * `border-bottom` and `margin-bottom` on .heading-col at both breakpoints with
+ * higher specificity than anything here, so those keep coming from there.
+ */
+
+.obelusClean .cleanDynamicFooter .mega-footer .heading-col {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  appearance: none;
+}
+
+/* .nav-headline supplies its own font-family, size and colour; only the
+   heading-specific weight and margin need to be reverted to the <div> values. */
+.obelusClean .cleanDynamicFooter .mega-footer .heading-col .nav-headline {
+  font-weight: inherit;
+  margin: 0;
+}
+
+/* Keep a visible focus ring on the controls that gained keyboard access. */
+.obelusClean .cleanDynamicFooter .mega-footer .heading-col:focus-visible,
+.obelusClean .product-2021-nav [role='button']:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* The nav toggles are anchors without an href, so restore the pointer cursor. */
+.obelusClean .product-2021-nav [role='button'] {
+  cursor: pointer;
+}
+
+/* Skip link: visible only when focused. */
+.obelusClean .skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 1000;
+  padding: 0.75rem 1.25rem;
+  background: #fff;
+  color: #141414;
+}
+
+.obelusClean .skip-to-content:focus {
+  left: 0;
+}

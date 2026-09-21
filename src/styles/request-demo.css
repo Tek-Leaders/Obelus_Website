@@ -1,0 +1,243 @@
+/*
+ * Request a Demo page (/request-demo).
+ *
+ * Scoped under .rd-page, independent of styles/site/, since this is new markup
+ * rather than a clone of existing DOM - it gets its own namespace so it can't
+ * drift the pixel-matched Home page and vice versa.
+ *
+ * Every heading/link below carries an explicit `color` on purpose: styles/site/
+ * sets `color` directly on unscoped `h1`-`h6` and `a` selectors, and an
+ * inherited value can never outrank a rule that applies directly to the
+ * element, regardless of specificity - so relying on inheriting `color` from
+ * `.rd-page` alone silently loses to those unscoped rules.
+ */
+
+.rd-page {
+  --rd-green: #00c65e;
+  --rd-green-dark: #05a34c;
+  --rd-bg: #0a121f;
+  --rd-white: #ffffff;
+  --rd-muted: #b8c4bd;
+
+  background: var(--rd-bg);
+  color: var(--rd-white);
+  font-family: var(--font-primary, 'Poppins', Arial, sans-serif);
+  overflow-x: hidden;
+}
+.rd-page * {
+  box-sizing: border-box;
+}
+
+.rd-section {
+  position: relative;
+  /* The shared header is `position: absolute` and floats over whatever
+     renders first; 140px clears it at every breakpoint with room to spare. */
+  padding: 140px 0 96px;
+  background: radial-gradient(ellipse 80% 60% at 20% 20%, rgba(15, 45, 110, 0.55) 0%, var(--rd-bg) 70%);
+  min-height: 100vh;
+}
+
+.rd-network-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.rd-container {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.rd-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(320px, 420px);
+  gap: 56px;
+  align-items: start;
+}
+
+/* ---------- Hero copy ---------- */
+
+.rd-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--rd-green);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  margin: 0 0 20px;
+}
+.rd-eyebrow-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.rd-title {
+  color: var(--rd-white);
+  font-size: clamp(2.1rem, 3.6vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 24px;
+}
+
+.rd-body {
+  color: var(--rd-muted);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 640px;
+  margin: 0 0 48px;
+}
+
+.rd-logo-wall {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px 40px;
+  max-width: 640px;
+}
+.rd-logo-wall li {
+  display: flex;
+  align-items: center;
+  height: 44px;
+}
+.rd-logo-wall img,
+.rd-logo-wall .img-placeholder {
+  max-height: 44px;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+.rd-logo-wall .img-placeholder {
+  filter: none;
+  height: 44px;
+  width: 100%;
+}
+
+/* ---------- Form panel ---------- */
+
+.rd-form-panel {
+  background: rgba(6, 20, 13, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 32px;
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 120px;
+  max-height: calc(100vh - 160px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rd-green) transparent;
+}
+.rd-form-panel::-webkit-scrollbar {
+  width: 6px;
+}
+.rd-form-panel::-webkit-scrollbar-thumb {
+  background: var(--rd-green);
+  border-radius: 999px;
+}
+
+.rd-form-eyebrow {
+  color: var(--rd-white);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  margin: 0 0 12px;
+}
+.rd-form-body {
+  color: var(--rd-muted);
+  font-size: 0.95rem;
+  margin: 0 0 24px;
+}
+
+.rd-field {
+  margin-bottom: 16px;
+}
+.rd-input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+  border: none;
+  background: #ffffff;
+  color: #141414;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+.rd-input:focus {
+  outline: 2px solid var(--rd-green);
+  outline-offset: 2px;
+}
+.rd-input[aria-invalid='true'] {
+  outline: 2px solid #ff9d80;
+}
+.rd-field-error {
+  margin: 6px 0 0;
+  font-size: 0.8rem;
+  color: #ff9d80;
+}
+
+.rd-submit {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.95rem 1.5rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--rd-green);
+  color: #04220f;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+.rd-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 198, 94, 0.35);
+}
+.rd-submit:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.rd-form-success {
+  color: var(--rd-white);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px 0;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 991px) {
+  .rd-grid {
+    grid-template-columns: 1fr;
+  }
+  .rd-form-panel {
+    position: static;
+    max-height: none;
+  }
+  .rd-logo-wall {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .rd-logo-wall {
+    grid-template-columns: 1fr;
+  }
+}

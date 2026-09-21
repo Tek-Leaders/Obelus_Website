@@ -1,0 +1,85 @@
+/*
+ * Landing-page additions: the capability bullets under each "Unite your
+ * defense" pillar, and the "Works with the stack you already run" band - the
+ * one section with no counterpart in the original markup.
+ *
+ * Deliberately borrows the existing visual language rather than inventing:
+ * the same translucent blue panel, border and blur as the Challenges cards in
+ * site/sections.css, and the same green accent as `.orange-gradient` (#00cc66), so it
+ * reads as part of the page over the fixed background.
+ */
+
+.obelusClean .integrations .integration-group {
+  height: 100%;
+  padding: 1.25rem 1.25rem 1rem;
+  border-radius: 16px;
+  background: rgba(8, 22, 55, 0.62);
+  border: 1px solid rgba(88, 140, 255, 0.28);
+  backdrop-filter: blur(10px);
+}
+
+.obelusClean .integrations .integration-group-title {
+  margin: 0 0 0.875rem;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.obelusClean .integrations .integration-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.obelusClean .integrations .integration-chip {
+  padding: 0.35rem 0.75rem;
+  border-radius: 2.25rem;
+  border: 1px solid rgba(0, 204, 102, 0.35);
+  background: rgba(0, 204, 102, 0.08);
+  color: #e8ecf5;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.obelusClean .integrations .integration-groups {
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Long connector names would otherwise force a horizontal scroll on narrow
+   phones, where the chips are the widest thing on the page. */
+@media (max-width: 575.98px) {
+  .obelusClean .integrations .integration-chip {
+    white-space: normal;
+  }
+}
+
+/* ---------- "Unite your defense" pillar bullets ---------- */
+
+/*
+ * Without a marker these read as three loose lines of body copy rather than a
+ * list. A small green rule on the left ties them to the section's accent and
+ * keeps them clearly subordinate to the paragraph above.
+ */
+.obelusClean .pillar-text-feature .pillar-bullets {
+  margin: 1.25rem 0 0;
+}
+
+.obelusClean .pillar-text-feature .pillar-bullets li {
+  position: relative;
+  padding-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.obelusClean .pillar-text-feature .pillar-bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00cc66;
+}

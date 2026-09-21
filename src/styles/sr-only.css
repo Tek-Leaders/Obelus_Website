@@ -1,0 +1,21 @@
+/*
+ * `.sr-only` (visually hidden, still readable by screen readers) has no
+ * unscoped base rule in styles/site/ - it only gets the standard
+ * clip-to-1px treatment inside `.inline-form` contexts. Everywhere else the
+ * class does nothing, so a bare `<span className="sr-only">` just renders as
+ * normal visible text. This is the standard rule (the same as
+ * `.inline-form .sr-only` in site/sections.css), applied globally so any new page's form labels
+ * hide correctly without having to reproduce the .inline-form wrapper.
+ */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  white-space: nowrap;
+}

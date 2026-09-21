@@ -1,0 +1,818 @@
+/*
+ * Landing-page sections: section headings, the Challenges cards, feature
+ * pillars, the resources carousel, the product tour and the lead form.
+ */
+
+/* ======================================================================
+   Section headings
+   ====================================================================== */
+
+.obelusClean .custom-text-comp.text-center .row {
+  justify-content: center;
+}
+
+@media (max-width: 991.98px) {
+  .obelusClean .custom-text-comp.title-brand.makeAlignmentCenterOnDevices {
+    text-align: center !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .obelusClean .custom-text-comp.title-brand {
+    margin-bottom: 3.75rem;
+  }
+}
+
+/* ======================================================================
+   Challenges cards (frosted glass over the page background)
+   ====================================================================== */
+
+.symcoTeaserBlock .symco-teaser-cards .symco-teaser-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding-bottom: 30px;
+}
+
+.symcoTeaserBlock .symco-teaser-cards .symco-cards {
+  justify-content: center;
+}
+
+.symcoTeaserBlock .symco-teaser-cards .symco-cards .symco-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  height: 100%;
+  padding: 0 10px 30px;
+  overflow: hidden;
+  border: 1px solid var(--c-glass-edge);
+  border-bottom: 12px solid var(--c-glass);
+  border-radius: 16px;
+  background: var(--c-glass);
+  box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+}
+
+.symcoTeaserBlock .symco-teaser-cards .symco-cards .symco-card .logo {
+  z-index: 2;
+  display: flex;
+  width: 30%;
+  min-width: 5rem;
+  margin-top: 27px;
+}
+
+/* Three-up layout: the outer cards sit flush with the row edges. */
+.symcoTeaserBlock .symco-teaser-cards .symco-cards.ai-variation {
+  margin: 0 -15px;
+}
+
+.symcoTeaserBlock .symco-teaser-cards .symco-cards.ai-variation .col-12 {
+  padding: 0 1rem;
+}
+
+.symcoTeaserBlock .symco-teaser-cards .symco-cards.ai-variation .col-12:nth-of-type(3n+1) {
+  padding-left: 0 !important;
+}
+
+.symcoTeaserBlock .symco-teaser-cards .symco-cards.ai-variation .col-12:nth-of-type(3n+2) {
+  padding-right: 0 !important;
+}
+
+.symcoTeaserBlock .symco-teaser-cards .symco-cards.ai-variation .symco-card {
+  gap: 24px;
+  padding: 3.5rem 2.5rem;
+  border: 0;
+  background: none 0;
+}
+
+.symcoTeaserBlock .symco-teaser-cards .symco-cards.ai-variation .symco-card .logo {
+  z-index: 2;
+  width: 30%;
+  min-width: 5rem;
+  max-width: 6.25rem;
+}
+
+.symcoTeaserBlock .symco-teaser-cards .symco-cards.ai-variation .symco-card .text-container {
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .symcoTeaserBlock .symco-teaser-cards .symco-teaser-header {
+    gap: 8px;
+    padding: 0 40px 50px;
+  }
+
+  .symcoTeaserBlock .symco-teaser-cards .symco-cards .symco-card .logo {
+    width: 45%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .symcoTeaserBlock .symco-teaser-cards .symco-cards {
+    margin-right: -6px;
+    margin-left: -6px;
+  }
+
+  .symcoTeaserBlock .symco-teaser-cards .symco-cards > .col-12 {
+    padding: 0 6px;
+  }
+}
+
+@media (min-width: 992px) {
+  .symcoTeaserBlock .symco-teaser-cards .symco-teaser-header {
+    gap: 14px;
+  }
+
+  .symcoTeaserBlock .symco-teaser-cards .symco-cards .symco-card {
+    padding: 10px 60px 40px 48px;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .symcoTeaserBlock .symco-teaser-cards .symco-cards.ai-variation .col-12 {
+    padding: 0 0.5rem;
+  }
+
+  .symcoTeaserBlock .symco-teaser-cards .symco-cards.ai-variation .symco-card {
+    gap: 1rem;
+    padding: 1.5rem 0.5rem;
+  }
+
+  .symcoTeaserBlock .symco-teaser-cards .symco-cards.ai-variation .symco-card .text-container {
+    gap: 24px;
+  }
+
+  .symcoTeaserBlock .symco-teaser-cards .symco-cards.ai-variation .symco-card .logo {
+    min-width: 2.5rem;
+    max-width: 2.5rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .symcoTeaserBlock .symco-teaser-cards .symco-cards.ai-variation .symco-card .text-container {
+    gap: 16px;
+  }
+}
+
+/* ======================================================================
+   Feature pillars (alternating image / text rows)
+   ====================================================================== */
+
+.pillar-text-feature {
+  overflow-x: hidden;
+}
+
+.pillar-text-feature .order-1 {
+  order: 1;
+}
+
+.pillar-text-feature .media-container figure {
+  border-radius: 1rem;
+}
+
+/* Zoom badge in the corner of a screenshot */
+.pillar-text-feature .icon.magnifying-glass {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: url('/assets/img/ui/zoom-in.svg') center / contain no-repeat;
+  filter: invert(1);
+}
+
+.pillar-text-feature figure.show-mag::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 3.5rem;
+  height: 3.5rem;
+  background: radial-gradient(var(--c-ink) 25%, rgba(0, 0, 0, 0) 75%);
+}
+
+.pillar-text-feature .text-content {
+  margin-top: 2rem;
+}
+
+.pillar-text-feature .text-content .eyebrow {
+  display: flex;
+  align-items: center;
+  color: var(--c-ink-muted);
+}
+
+.pillar-text-feature .text-content .eyebrow i {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 4px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.pillar-text-feature .text-content .title {
+  margin-top: 12px;
+  margin-bottom: 8px;
+  color: var(--c-ink);
+}
+
+.pillar-text-feature .text-content p {
+  margin-bottom: 32px;
+  color: var(--c-ink-muted);
+}
+
+/* Pillar body copy steps up at 992px rather than the global 1200px. */
+.pillar-text-feature .body-sans-1 {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  line-height: 150%;
+  color: var(--c-ink);
+}
+
+@media (min-width: 768px) {
+  .pillar-text-feature.side .text-content {
+    margin-top: 0;
+  }
+
+  .pillar-text-feature .order-md-0 {
+    order: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .pillar-text-feature .body-sans-1 {
+    font-size: 1.15rem;
+  }
+
+  .pillar-text-feature .text-content .eyebrow i {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.25rem;
+  }
+
+  .pillar-text-feature .text-content .title {
+    margin-bottom: 30px;
+  }
+
+  .pillar-text-feature .text-content p {
+    margin-bottom: 60px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .pillar-text-feature .body-sans-1 {
+    font-size: 1.375rem;
+  }
+}
+
+/* ======================================================================
+   Resources carousel
+   The track bleeds off the right edge of the page; cards are full-height
+   green tiles with the text pinned to the bottom.
+   ====================================================================== */
+
+.obelusClean .ai-tab-card-carousel .glider-wrapper {
+  width: calc(100% + 15px);
+  margin-left: -15px;
+}
+
+.obelusClean .ai-tab-card-carousel .glider-slide {
+  margin-right: 3rem;
+}
+
+.obelusClean .ai-tab-card-carousel .glider-slide .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.obelusClean .ai-tab-card-carousel .glider-actions {
+  margin-right: 7.14285714vw;
+}
+
+.obelusClean .ai-tab-card-carousel .glider-actions .arrow-nav {
+  gap: 1rem;
+}
+
+.obelusClean .ai-tab-card-carousel .glider-next,
+.obelusClean .ai-tab-card-carousel .glider-prev {
+  position: static;
+  font-size: 0;
+}
+
+.obelusClean .ai-tab-card-carousel .image-container {
+  position: relative;
+  width: 100%;
+  box-shadow: 0.5rem 1.5rem 2.5rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.obelusClean .ai-tab-card-carousel .text-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.obelusClean .ai-tab-card-carousel .text-container .card-title {
+  overflow-wrap: anywhere;
+}
+
+.obelusClean .ai-tab-card-carousel .document {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.obelusClean .ai-tab-card-carousel .document figure {
+  background-color: var(--c-ink);
+}
+
+/* Each card carries a desktop and a mobile image; show one. */
+.obelusClean .ai-tab-card-carousel .document figure.desktop-image,
+.obelusClean .ai-tab-card-carousel .document figure.mobile-image {
+  display: none;
+}
+
+@media (min-width: 576px) {
+  .obelusClean .ai-tab-card-carousel .document figure.desktop-image {
+    display: block;
+  }
+
+  .obelusClean .ai-tab-card-carousel .container-fluid {
+    width: 92.85714286%;
+    max-width: 92.85714286%;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .obelusClean .ai-tab-card-carousel .document figure.mobile-image {
+    display: block;
+  }
+
+  .obelusClean .ai-tab-card-carousel .container-fluid {
+    padding-right: 15px;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .obelusClean .ai-tab-card-carousel .glider-contain {
+    max-width: 92.8571429vw;
+  }
+
+  .obelusClean .ai-tab-card-carousel .glider-slide {
+    margin-right: 2rem;
+  }
+
+  .obelusClean .ai-tab-card-carousel .glider-prev,
+  .obelusClean .ai-tab-card-carousel .glider-next {
+    width: 32px;
+    height: 32px;
+    background-size: 16px 16px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .obelusClean .ai-tab-card-carousel .glider-contain {
+    max-width: 100vw;
+  }
+
+  .obelusClean .ai-tab-card-carousel .glider-slide {
+    margin-right: 1.675rem;
+  }
+
+  .obelusClean .ai-tab-card-carousel .glider-actions {
+    justify-content: flex-end;
+  }
+
+  .obelusClean .ai-tab-card-carousel .glider-actions .arrow-nav {
+    margin-top: -2.5rem;
+  }
+
+  .obelusClean .ai-tab-card-carousel .text-container {
+    position: static;
+    padding: 0;
+  }
+}
+
+/* Tile cards (.style-three) */
+.obelusClean .ai-tab-card-carousel .style-three .glider-wrapper {
+  display: flex;
+}
+
+.obelusClean .ai-tab-card-carousel .style-three .glider-slide {
+  min-height: 32rem;
+  margin-right: 12px;
+  padding: 0;
+}
+
+.obelusClean .ai-tab-card-carousel .style-three .document {
+  justify-content: space-between;
+}
+
+.obelusClean .ai-tab-card-carousel .style-three .document figure {
+  background-color: transparent;
+}
+
+.obelusClean .ai-tab-card-carousel .style-three .document .text-container {
+  padding: 0 20px;
+}
+
+.obelusClean .ai-tab-card-carousel .style-three .document:hover {
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.obelusClean .ai-tab-card-carousel .style-three .white-bg {
+  max-width: 100%;
+  padding-top: 15px;
+  padding-bottom: 1rem;
+  background-color: var(--c-paper);
+}
+
+.obelusClean .ai-tab-card-carousel .style-three .white-bg.branded-bg {
+  height: 100%;
+  border: 0;
+  background-color: var(--c-ink);
+}
+
+.obelusClean .ai-tab-card-carousel .style-three .white-bg.branded-bg.top-bottom-icon .btn {
+  position: static;
+  transform: none;
+}
+
+.obelusClean .ai-tab-card-carousel .style-three .btn-dark {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.obelusClean .ai-tab-card-carousel .style-three .image-container {
+  box-shadow: none;
+}
+
+.obelusClean .ai-tab-card-carousel .style-three .text-container {
+  position: static;
+}
+
+@media (max-width: 1920px) {
+  .obelusClean .ai-tab-card-carousel .style-three .glider-slide {
+    min-height: 26.979166666vw;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .obelusClean .ai-tab-card-carousel .style-three .glider-slide {
+    min-height: 375px;
+    margin-right: 0.75rem;
+  }
+
+  .obelusClean .ai-tab-card-carousel .style-three .white-bg.branded-bg.top-bottom-icon .btn {
+    margin-top: 0.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .obelusClean .ai-tab-card-carousel .style-three .glider-slide {
+    min-width: 344px;
+    margin-right: 1.875rem;
+  }
+
+  .obelusClean .ai-tab-card-carousel .style-three .white-bg {
+    padding: 4rem 0 1.5rem;
+  }
+
+  .obelusClean .ai-tab-card-carousel .style-three .white-bg.top-bottom-icon {
+    padding: 2rem 1rem;
+  }
+
+  .obelusClean .ai-tab-card-carousel .style-three .text-container {
+    padding: 0 1.5rem;
+  }
+}
+
+/* Obelus-branded tiles: green gradient with a fine dot grid and a soft
+   highlight in the top-right corner. */
+.obelusClean .ai-tab-card-carousel .style-three .document[data-type="obelus"].white-bg.branded-bg {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 8px 8px, rgba(255, 255, 255, 0.16) 1.5px, transparent 1.5px) 0 0 / 26px 26px,
+    linear-gradient(135deg, #0bd97a 0%, #07b960 42%, #034926 100%);
+}
+
+.obelusClean .ai-tab-card-carousel .style-three .document[data-type="obelus"].white-bg.branded-bg.top-bottom-icon {
+  background:
+    radial-gradient(circle at 8px 8px, rgba(255, 255, 255, 0.16) 1.5px, transparent 1.5px) 0 0 / 26px 26px,
+    var(--c-brand-deep);
+}
+
+.obelusClean .ai-tab-card-carousel .style-three .document[data-type="obelus"].white-bg.branded-bg::before {
+  content: "";
+  position: absolute;
+  top: -35%;
+  right: -25%;
+  width: 65%;
+  height: 90%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+}
+
+/* Content-type badge in the top-right corner of each tile */
+.obelusClean .ai-tab-card-carousel .style-three .document[data-type="obelus"] .resource-badge {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.obelusClean .ai-tab-card-carousel .style-three .document[data-type="obelus"] .resource-badge svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ======================================================================
+   Product tour (video card)
+   ====================================================================== */
+
+.product-tour-cards .product-tour-card {
+  width: 100%;
+  height: 100%;
+  margin: 15px 0;
+  border-radius: 16px;
+  word-wrap: break-word;
+}
+
+.product-tour-cards .product-tour-card .productTourMedia {
+  border-radius: 16px;
+}
+
+.product-tour-cards.theme-dark .title {
+  color: #fff;
+}
+
+@media (max-width: 576px) {
+  .product-tour-cards .product-tour-card .productTourMedia .sl-embed {
+    padding-bottom: 85.25% !important;
+  }
+}
+
+/* ======================================================================
+   Lead form ("Talk to an expert")
+   ====================================================================== */
+
+.inline-form {
+  background-position: -100% -35%;
+  background-repeat: no-repeat;
+  background-size: 125% 125%;
+}
+
+.inline-form form {
+  font-family: var(--font-primary);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1em;
+  letter-spacing: 0.0125em;
+  color: var(--c-grey);
+}
+
+.inline-form .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.inline-form .form-row {
+  width: 100%;
+  margin-bottom: 1rem;
+  gap: 30px;
+}
+
+.inline-form .form-row .form-field {
+  flex: 1;
+}
+
+.inline-form .form-row .form-field input,
+.inline-form .form-row .form-field select {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.4375rem 0.5rem;
+  border: 1px solid rgba(114, 114, 114, 0.5);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.0125em;
+}
+
+.inline-form .form-row .form-field input {
+  color: var(--c-ink-muted);
+}
+
+.inline-form .form-row .form-field select {
+  display: flex;
+  flex-grow: 1;
+  margin: 0;
+  color: var(--c-grey);
+  background-color: var(--c-paper);
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: margin-left 0.25s ease-in-out;
+}
+
+.inline-form .form-row .form-field select option {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  color: var(--c-grey);
+}
+
+/* Custom checkbox: the real input sits under a styled .icon box */
+.inline-form .checkbox {
+  display: flex;
+  align-items: center;
+  margin: 0 0 0.5rem;
+}
+
+.inline-form .checkbox-icon {
+  position: relative;
+  display: flex;
+}
+
+.inline-form .checkbox-icon input {
+  position: absolute;
+  top: 0.625rem;
+  left: 0.625rem;
+  display: inline-block;
+}
+
+.inline-form .checkbox-icon input:focus + .icon {
+  outline: -webkit-focus-ring-color auto 1px;
+}
+
+.inline-form .checkbox input[type="checkbox"] + .icon {
+  z-index: 1;
+  width: 2rem;
+  height: 2rem;
+  margin: 0 1.5rem 0 0;
+  border: 1px solid rgba(114, 114, 114, 0.5);
+  border-radius: 0.3rem;
+  background-color: var(--c-paper);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 80%;
+}
+
+.inline-form .legal {
+  width: 100%;
+  margin: 0;
+}
+
+.inline-form .legal a {
+  color: var(--c-ink);
+  text-decoration: underline;
+}
+
+.inline-form .recaptcha-msg a {
+  text-decoration: underline;
+}
+
+.inline-form .actions {
+  flex-basis: 100%;
+}
+
+.inline-form input:focus,
+.inline-form select:focus {
+  outline: 0 none;
+  box-shadow: 0 0 0 3px rgba(245, 73, 39, 0.5);
+}
+
+.inline-form[data-type="obelus"] input:focus,
+.inline-form[data-type="obelus"] select:focus {
+  outline: 0 none;
+  box-shadow: 0 0 0 3px var(--c-brand-ring);
+}
+
+/* Dark theme */
+.inline-form.theme-dark .text-dark {
+  color: #fff !important;
+}
+
+.inline-form.theme-dark .recaptcha-msg a,
+.inline-form.theme-dark .legal a {
+  color: #fff;
+}
+
+/* Two-column field layout */
+@media (max-width: 767.98px) {
+  .inline-form.type-twoColumn .form-row {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .inline-form.type-twoColumn .form-row .form-field {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .inline-form.type-twoColumn .form-row {
+    gap: 15px 30px;
+  }
+
+  .inline-form.type-twoColumn .form-row .form-field {
+    flex-basis: calc(50% - 15px);
+    max-width: calc(50% - 15px);
+  }
+}
+
+@media (min-width: 1200px) {
+  .inline-form.type-twoColumn .form-row .form-field input,
+  .inline-form.type-twoColumn .form-row .form-field select {
+    padding: 0.625rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.4em;
+  }
+}
+
+/* Glass panel that holds the lead form */
+.engage-form-panel {
+  max-width: 440px;
+  margin-left: auto;
+  padding: 1.5rem;
+  border: 1px solid var(--c-glass-edge);
+  border-radius: 16px;
+  background: var(--c-glass);
+  box-shadow: 0 24px 60px rgba(2, 6, 16, 0.45);
+  backdrop-filter: blur(10px);
+}
+
+.engage-form-panel .form-row {
+  gap: 0.75rem !important;
+}
+
+.engage-form-panel .form-row.two {
+  flex-direction: column;
+}
+
+.engage-form-panel .form-row .form-field {
+  flex-basis: 100% !important;
+  max-width: 100% !important;
+  margin-bottom: 0 !important;
+}
+
+.engage-form-panel .form-row .form-field input,
+.engage-form-panel .form-row .form-field select {
+  margin-bottom: 0 !important;
+}
+
+.engage-form-panel .form-validation {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #ff5c6c;
+}
+
+.engage-form-panel .actions {
+  display: flex;
+  justify-content: center;
+}
+
+.engage-form-panel .actions .btn {
+  justify-content: center;
+  width: 100%;
+}
+
+@media (max-width: 1199.98px) {
+  .engage-form-panel {
+    max-width: 480px;
+    margin: 2rem auto 0;
+  }
+}

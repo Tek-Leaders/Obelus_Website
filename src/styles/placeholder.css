@@ -1,0 +1,39 @@
+/*
+ * Shared look for <PlaceholderImage>'s fallback box, used wherever an image
+ * path doesn't resolve yet (until real files are dropped in). Page
+ * stylesheets add their own sizing/positioning by targeting `.img-placeholder`
+ * as a descendant of their own layout classes — see request-demo.css for an
+ * example.
+ */
+
+.img-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, #1c1c1c, #2a2a2a);
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  color: #9c9c9c;
+  font-size: 0.75rem;
+  line-height: 1.3;
+  padding: 8px;
+  border-radius: 8px;
+  min-height: 60px;
+  width: 100%;
+  height: 100%;
+}
+
+/*
+ * Inside an aspect-ratio figure the container is `height: 0` plus a
+ * percentage `padding-bottom`, and site/layout.css only pulls `img` children out of
+ * flow to fill it. The fallback box is a <div>, so it needs the same
+ * treatment or it collapses to a thin strip at the top of the figure.
+ */
+.obelusClean [class^="ar-"] > .img-placeholder,
+.obelusClean [class*=" ar-"] > .img-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

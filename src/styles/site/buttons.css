@@ -1,0 +1,207 @@
+/*
+ * Buttons: pill buttons (.btn-primary / .btn-dark) with a trailing arrow
+ * icon in an empty <i>, underlined text links (.btn-link), and the round
+ * carousel arrows. Pill padding and icon size scale via tokens.css.
+ */
+
+.btn {
+  display: inline-flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  color: var(--c-ink);
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  background-color: transparent;
+  transition: box-shadow 0.15s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}
+
+/* ---------- Pill buttons ---------- */
+
+.btn-primary,
+.btn-dark {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  padding: var(--btn-pad);
+  border: 0.125rem solid transparent;
+  border-radius: 2.25rem;
+  text-align: left;
+  text-decoration: none;
+  background-color: var(--c-accent);
+  color: #000;
+}
+
+.btn-primary i,
+.btn-dark i {
+  display: inline-block;
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: var(--btn-icon);
+  height: var(--btn-icon);
+  margin-left: var(--btn-icon-gap);
+  background: url('/assets/img/ui/arrow-right-black.svg') center / contain no-repeat;
+}
+
+/* Inside a brand-themed section the primary button takes the brand green. */
+[data-type="obelus"] .btn-primary {
+  background-color: var(--c-brand);
+}
+
+/* Ghost variant: no fill, white text and icon. */
+.btn-dark {
+  background: none 0;
+  color: #fff;
+}
+
+.btn-dark i {
+  filter: invert(1);
+}
+
+/* ---------- Text links with an underline bar ---------- */
+
+.btn-link {
+  position: relative;
+  padding: 1px 0;
+  border-bottom: 0.125rem solid transparent;
+  text-align: left;
+  text-decoration: none;
+}
+
+.btn-link::after {
+  content: '';
+  position: absolute;
+  bottom: -0.125rem;
+  left: 100%;
+  width: 100%;
+  height: 0.125rem;
+  transform: translateX(-100%);
+}
+
+.btn-link:disabled {
+  color: var(--c-line);
+  pointer-events: none;
+}
+
+.btn-link.dark {
+  color: #fff;
+}
+
+.btn-link.dark::after {
+  background-color: #fff;
+}
+
+@media (min-width: 1200px) {
+  .obelusClean .btn-link { padding: 2px 0; }
+}
+
+@media (min-width: 1600px) {
+  .obelusClean .btn-link { padding: 3px 0; }
+}
+
+/* ---------- Carousel ---------- */
+
+.glider-contain {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.glider-wrapper {
+  width: 100%;
+}
+
+.glider {
+  position: relative;
+  margin: 0 auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  transform: translateZ(0);
+}
+
+.glider::-webkit-scrollbar,
+.glider-wrapper::-webkit-scrollbar {
+  height: 0;
+  opacity: 0;
+}
+
+.glider-slide {
+  position: relative;
+  width: 100%;
+  min-width: 150px;
+  justify-content: center;
+  align-content: center;
+  user-select: none;
+}
+
+.glider-slide img {
+  max-width: 100%;
+}
+
+.glider-dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+  user-select: none;
+}
+
+/* Round prev/next arrows */
+.glider-prev,
+.glider-next {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: 2px solid var(--c-accent-strong);
+  border-radius: 50px;
+  background-color: var(--c-accent-strong);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+}
+
+.glider-prev {
+  left: 15px;
+  right: auto;
+  background-image: url('/assets/img/ui/chevron-left-black.svg');
+}
+
+.glider-next {
+  right: 15px;
+  left: auto;
+  background-image: url('/assets/img/ui/chevron-right-black.svg');
+}
+
+/* Outline variant for dark sections (class doubled to outrank the themes) */
+.glider-prev.glider-button-white.glider-button-white,
+.glider-next.glider-button-white.glider-button-white {
+  border-color: #fff;
+  background-color: transparent;
+}
+
+.glider-prev.glider-button-white.glider-button-white {
+  background-image: url('/assets/img/ui/chevron-left-white.svg');
+}
+
+.glider-next.glider-button-white.glider-button-white {
+  background-image: url('/assets/img/ui/chevron-right-white.svg');
+}
+
+[data-type="obelus"] .glider-prev,
+[data-type="obelus"] .glider-next {
+  border-color: var(--c-brand);
+  background-color: var(--c-brand);
+}

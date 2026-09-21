@@ -1,0 +1,385 @@
+/*
+ * Site header.
+ *
+ * Below 1200px: a 75px bar with menu / logo / search icon buttons, and a
+ * full-height slide-in panel (.product-2021-nav-main) for the menu.
+ * From 1200px: a single 100px row - logo and links on the left, search and
+ * the call-to-action on the right.
+ *
+ * The header is transparent and overlays the hero (.absolute); the .dark
+ * theme uses white text and inverted icons.
+ */
+
+.obelusClean .productNav2021Component .product-2021-nav {
+  font-family: var(--font-primary) !important;
+  font-weight: 600;
+  transition: transform 0.25s linear, visibility 0.25s linear;
+}
+
+.obelusClean .productNav2021Component.absolute .product-2021-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* Dimmed backdrop behind open menus */
+.obelusClean .productNav2021Component .product-2021-nav .dropdown-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+  background-color: #000;
+  opacity: 0.7;
+}
+
+/* Dropdown panels stay hidden until opened (see nav-dropdown.css). */
+.obelusClean .productNav2021Component .product-2021-nav .mega-dropdown-menu {
+  display: none;
+}
+
+.obelusClean .productNav2021Component[data-type="obelus"] .product-2021-nav-main .btn.btn-primary {
+  background-color: var(--c-brand);
+}
+
+.obelusClean .productNav2021Component[data-type="obelus"] .product-2021-nav-main .btn.btn-primary:hover {
+  background-color: var(--c-brand-hover);
+}
+
+.obelusClean .productNav2021Component[data-type="obelus"] .product-2021-nav-main .btn.btn-primary:active {
+  background-color: var(--c-brand-press);
+}
+
+.obelusClean .productNav2021Component[data-type="obelus"] .product-2021-nav-main .btn.btn-primary:focus {
+  box-shadow: 0 0 0 0.1875rem var(--c-brand-ring);
+}
+
+/* ======================================================================
+   Compact header (< 1200px)
+   ====================================================================== */
+
+@media (max-width: 1199.98px) {
+  .obelusClean .productNav2021Component .product-2021-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4.6875rem;
+    padding: 0 1.5625rem;
+  }
+
+  .obelusClean .productNav2021Component.dark .product-2021-nav {
+    background: none 0;
+  }
+
+  /* Icon buttons in the bar */
+  .obelusClean .productNav2021Component .product-2021-nav > .nav-open,
+  .obelusClean .productNav2021Component .product-2021-nav > .mobile-search,
+  .obelusClean .productNav2021Component .product-2021-nav > .mobile-header-logo {
+    display: inline-block;
+    flex: 0 0 auto;
+    padding: 0;
+    border: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav > .nav-open {
+    width: 2.75rem;
+    height: 2.75rem;
+    background-size: 1.5rem 1.5rem;
+    background-image: url('/assets/img/ui/menu-black.svg');
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav > .mobile-search {
+    width: 2.75rem;
+    height: 2.75rem;
+    background-size: 1.8125rem 1.8125rem;
+    background-image: url('/assets/img/ui/search-black.svg');
+  }
+
+  /* Dark theme: white icons with a faint press highlight */
+  .obelusClean .productNav2021Component.dark .product-2021-nav > .nav-open,
+  .obelusClean .productNav2021Component.dark .product-2021-nav > .mobile-search {
+    filter: invert(1);
+  }
+
+  .obelusClean .productNav2021Component.dark .product-2021-nav > .nav-open:hover,
+  .obelusClean .productNav2021Component.dark .product-2021-nav > .mobile-search:hover,
+  .obelusClean .productNav2021Component.dark .product-2021-nav > .nav-open:active,
+  .obelusClean .productNav2021Component.dark .product-2021-nav > .mobile-search:active {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .obelusClean .productNav2021Component[data-type="obelus"] .product-2021-nav > .mobile-header-logo {
+    width: 9rem;
+    height: 1.5625rem;
+    background-size: 9rem 1.5625rem;
+  }
+
+  .obelusClean .productNav2021Component.dark[data-type="obelus"] .product-2021-nav > .mobile-header-logo {
+    background-image: url('/assets/img/obelus/obelus.png');
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav .dropdown-overlay {
+    z-index: 997;
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav .obelus-nav-search {
+    position: absolute;
+  }
+
+  /* Slide-in menu panel, parked off-canvas to the left */
+  .obelusClean .productNav2021Component .product-2021-nav-main {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -100%;
+    z-index: 998;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    overflow: auto;
+    border-top: 0.0625rem solid var(--c-line);
+    background-color: var(--c-paper);
+    will-change: transform;
+    transition: visibility 0.25s, transform 0.25s;
+    transition-timing-function: ease-out;
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav-main .container-fluid {
+    padding: 0 0.9375rem;
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav-main .mobile-header {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    height: 4.6875rem;
+    padding: 0 1.5625rem;
+    border-bottom: 0.0625rem solid var(--c-line);
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav-main .mobile-header .nav-close,
+  .obelusClean .productNav2021Component .product-2021-nav-main .mobile-header .mobile-search {
+    padding: 0.625rem;
+    border: 0;
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav-main .mobile-header .nav-close:active,
+  .obelusClean .productNav2021Component .product-2021-nav-main .mobile-header .mobile-search:active {
+    background-color: var(--c-paper-warm);
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav-main .mobile-header .nav-close {
+    margin-left: -0.625rem;
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav-main .mobile-header .mobile-search {
+    margin-right: -0.625rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .obelusClean .productNav2021Component[data-type="obelus"] .product-2021-nav > .mobile-header-logo {
+    width: 8.25rem;
+    height: 1.4375rem;
+    background-size: 8.25rem 1.4375rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .obelusClean .productNav2021Component .product-2021-nav {
+    padding: 0 0.3125rem;
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav-main > .container-fluid {
+    padding: 0 1.875rem;
+  }
+}
+
+@media (max-width: 374.98px) {
+  .obelusClean .productNav2021Component .product-2021-nav-main > .container-fluid {
+    padding: 0 0.9375rem;
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav-main .mobile-header {
+    padding: 0 0.625rem;
+  }
+}
+
+/* ======================================================================
+   Full header (>= 1200px)
+   ====================================================================== */
+
+@media (min-width: 1200px) {
+  .obelusClean .productNav2021Component .product-2021-nav > .nav-open,
+  .obelusClean .productNav2021Component .product-2021-nav > .nav-logo,
+  .obelusClean .productNav2021Component .product-2021-nav > .mobile-header-logo,
+  .obelusClean .productNav2021Component .product-2021-nav > .mobile-search {
+    display: none;
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav .dropdown-overlay {
+    z-index: -1;
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav-main .mobile-header,
+  .obelusClean .productNav2021Component .product-2021-nav-main .nav-mobile-toolbar {
+    display: none;
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav-main > .container-fluid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* The two link groups */
+  .obelusClean .productNav2021Component .product-2021-nav-main .nav-left,
+  .obelusClean .productNav2021Component .product-2021-nav-main .nav-right {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    height: 6.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: var(--font-primary) !important;
+    font-size: 0.8775rem;
+    font-weight: 500;
+    line-height: 150%;
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav-main .nav-left > li,
+  .obelusClean .productNav2021Component .product-2021-nav-main .nav-right > li {
+    display: flex;
+    align-items: center;
+    height: 6.25rem;
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav-main .nav-left > li > a {
+    display: flex;
+    align-items: center;
+    height: 6.25rem;
+    padding: 0 0.9375rem;
+  }
+
+  /* Logo slot (the <img> itself is sized in brand.css) */
+  .obelusClean .productNav2021Component[data-type="obelus"] .product-2021-nav-main .nav-left > li.logo {
+    padding-right: 1.25rem;
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav-main .nav-left > li.logo > a {
+    display: inline-block;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav-main .nav-left > li.logo > a::after {
+    content: none;
+  }
+
+  /* Search icon */
+  .obelusClean .productNav2021Component .product-2021-nav-main .nav-right > li.search {
+    padding-right: 0.9375rem;
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav-main .nav-right > li.search > a {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url('/assets/img/ui/search-black.svg');
+    background-size: 1.5rem 1.5rem;
+  }
+
+  /* Call to action */
+  .obelusClean .productNav2021Component .product-2021-nav-main .nav-right > li.cta {
+    padding-left: 0.9375rem;
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav-main .nav-right > li.cta .btn {
+    padding: 0.5rem 0.9375rem;
+    font-size: 0.75rem;
+  }
+
+  /* Dark theme while the header sits over the hero */
+  .obelusClean .productNav2021Component.dark .product-2021-nav:not(.open) .product-2021-nav-main .nav-left > li > a:not(.btn-primary),
+  .obelusClean .productNav2021Component.dark .product-2021-nav:not(.open) .product-2021-nav-main .nav-right > li > a:not(.btn-primary) {
+    color: #fff;
+  }
+
+  .obelusClean .productNav2021Component.dark .product-2021-nav:not(.open) .product-2021-nav-main .nav-right > li.search > a {
+    background-image: url('/assets/img/ui/search-white.svg');
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  .obelusClean .productNav2021Component .product-2021-nav-main > .container-fluid {
+    margin-right: 0.9375rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .obelusClean .productNav2021Component .product-2021-nav-main .nav-left > li > a,
+  .obelusClean .productNav2021Component .product-2021-nav-main .nav-right > li > a {
+    font-size: 0.8125rem;
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav-main .nav-left > li > a {
+    padding: 0 1.25rem;
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav-main .nav-right > li.search {
+    padding-right: 1.25rem;
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav-main .nav-right > li.cta {
+    padding-left: 1.25rem;
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav-main .nav-right > li.cta .btn {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .obelusClean .productNav2021Component .product-2021-nav-main .nav-left > li > a,
+  .obelusClean .productNav2021Component .product-2021-nav-main .nav-right > li > a {
+    font-size: 0.875rem;
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav-main .nav-left > li > a {
+    padding: 0 1.5625rem;
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav-main .nav-left > li.logo > a {
+    padding: 0;
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav-main .nav-right > li.search {
+    padding-right: 1.5625rem;
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav-main .nav-right > li.search > a {
+    width: 1.8125rem;
+    height: 1.8125rem;
+    background-size: 1.8125rem 1.8125rem;
+  }
+
+  .obelusClean .productNav2021Component .product-2021-nav-main .nav-right > li.cta .btn {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Site search panel: its contents stay hidden until a search backend exists
+   (see SearchOverlay.jsx). */
+.obelusClean.obelus-template-dynamicAllComponents .ObelusSearchInterface {
+  display: none;
+}

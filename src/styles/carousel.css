@@ -1,0 +1,22 @@
+/*
+ * Supplement, not a redesign.
+ *
+ * The carousel needs almost nothing from here. styles/site/ already lays the
+ * track out as a horizontal scroller:
+ *   .style-three .glider-wrapper { display: flex }
+ *   .glider              { overflow-y: hidden }
+ * and because `overflow-y` is not `visible`, CSS computes `overflow-x` to
+ * `auto` - so the track scrolls and the slides size themselves exactly as they
+ * did before. The glider library was only ever needed for the arrows and dots,
+ * which are now React state, so no layout CSS is added here.
+ *
+ * Only the disabled arrow state is new: the arrows are real <button>s now, so
+ * being at either end of the track needs a visible cue.
+ */
+
+.obelusClean .glider-prev[disabled],
+.obelusClean .glider-next[disabled] {
+  opacity: 0.35;
+  cursor: default;
+  pointer-events: none;
+}

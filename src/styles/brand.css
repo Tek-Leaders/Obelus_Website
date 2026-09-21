@@ -1,0 +1,66 @@
+/*
+ * Obelus brand logo sizing.
+ *
+ * The header's desktop logo slot is `.nav-left > li.logo > a`, sized by
+ * the breakpoint rules in site/header.css (e.g. 9rem x 1.5625rem
+ * at >=1200px) - dimensions tuned for the previous icon-only mark's wide,
+ * short aspect ratio (~5.8:1). The Obelus lockup (icon + wordmark + tagline,
+ * stacked) is a much taller ~2.4:1, so it needs its own box rather than the
+ * old one; the rules below override every breakpoint at once instead of
+ * patching each in header.css. See Header.jsx for where the <img> was added.
+ */
+
+.obelusClean .product-2021-nav .brand-logo-link {
+  display: inline-flex !important;
+  align-items: center;
+  width: auto !important;
+  height: 44px !important;
+  padding: 0 !important;
+  background-image: none !important;
+}
+
+.obelusClean .product-2021-nav .brand-logo-desktop {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* The mobile slide-out menu's logo row (a real <img>, not a background). */
+.obelusClean .product-2021-nav-main .brand-logo-mobile {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* The collapsed mobile toolbar's logo, shown before the menu is opened.
+   site/header.css only gives `.mobile-header-logo` a display value inside its own
+   `max-width: 1199.98px` block (desktop leaves it with no display at all, so
+   it stays invisible); matching that breakpoint here keeps it hidden on
+   desktop instead of forcing it to show everywhere. */
+@media (max-width: 1199.98px) {
+  .obelusClean .product-2021-nav > .mobile-header-logo {
+    display: inline-flex !important;
+    align-items: center;
+    width: auto !important;
+    height: 34px !important;
+    background-image: none !important;
+  }
+  .obelusClean .product-2021-nav > .mobile-header-logo .brand-logo-collapsed {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    display: block;
+  }
+}
+
+/* Footer logo: site/footer.css stretches the img to fill a fixed box sized for a
+   wide text-only wordmark; keep the Obelus lockup's proportions instead.
+   obelus.png has a white wordmark made for dark backgrounds, so it is shown
+   as a solid dark silhouette on the white footer. Swap in a dark-on-light
+   logo file here if one is produced. */
+.cleanDynamicFooter .footer-bottom .obelus-logo img {
+  object-fit: contain;
+  object-position: left center;
+  filter: brightness(0);
+}

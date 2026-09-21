@@ -1,0 +1,23 @@
+/*
+ * Shared scroll-reveal primitive used by the `<Reveal>` component. Page
+ * stylesheets stay page-scoped (request-demo.css, ...); this one is generic
+ * and imported once, globally, so every page's Reveal usage gets the same
+ * fade/slide-in behavior without duplicating the rule per page.
+ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}

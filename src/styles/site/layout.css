@@ -1,0 +1,300 @@
+/*
+ * Page structure: containers, the 12-column grid, section spacing and the
+ * small set of single-purpose utility classes the markup uses.
+ */
+
+/* ---------- Page shell ---------- */
+
+.obelusClean.obelus-template-dynamicAllComponents {
+  position: relative;
+}
+
+/* ---------- Containers ---------- */
+
+.container,
+.container-fluid {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Fluid containers sit inside a fixed page inset from 576px up. */
+@media (min-width: 576px) {
+  .container-fluid {
+    width: auto;
+    margin-right: var(--page-inset);
+    margin-left: var(--page-inset);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .container-fluid {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 374.98px) {
+  .obelusClean .container-fluid {
+    padding: 0 15px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .obelusClean .container-fluid {
+    padding-right: var(--gutter);
+    padding-left: var(--gutter);
+  }
+}
+
+@media (min-width: 576px) { .container { max-width: 540px; } }
+@media (min-width: 768px) { .container { max-width: 720px; } }
+@media (min-width: 992px) { .container { max-width: 960px; } }
+@media (min-width: 1200px) { .container { max-width: 1140px; } }
+
+/* ---------- Grid ---------- */
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.col-12,
+.col-md-4, .col-md-5, .col-md-6, .col-md-8, .col-md-12,
+.col-lg-9, .col-lg-10,
+.col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-10, .col-xl-12,
+.col-xxl-2, .col-xxl-4, .col-xxl-8, .col-xxl-12,
+.col-xxxl-5 {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.col-12 { flex: 0 0 100%; max-width: 100%; }
+
+@media (min-width: 768px) {
+  .col-md-4 { flex: 0 0 calc(100% * 4 / 12); max-width: calc(100% * 4 / 12); }
+  .col-md-5 { flex: 0 0 calc(100% * 5 / 12); max-width: calc(100% * 5 / 12); }
+  .col-md-6 { flex: 0 0 50%; max-width: 50%; }
+  .col-md-8 { flex: 0 0 calc(100% * 8 / 12); max-width: calc(100% * 8 / 12); }
+  .col-md-12 { flex: 0 0 100%; max-width: 100%; }
+  .offset-md-1 { margin-left: calc(100% / 12); }
+}
+
+@media (min-width: 992px) {
+  .col-lg-9 { flex: 0 0 75%; max-width: 75%; }
+  .col-lg-10 { flex: 0 0 calc(100% * 10 / 12); max-width: calc(100% * 10 / 12); }
+  .offset-lg-1 { margin-left: calc(100% / 12); }
+}
+
+@media (min-width: 1200px) {
+  .col-xl-3 { flex: 0 0 25%; max-width: 25%; }
+  .col-xl-4 { flex: 0 0 calc(100% * 4 / 12); max-width: calc(100% * 4 / 12); }
+  .col-xl-5 { flex: 0 0 calc(100% * 5 / 12); max-width: calc(100% * 5 / 12); }
+  .col-xl-6 { flex: 0 0 50%; max-width: 50%; }
+  .col-xl-7 { flex: 0 0 calc(100% * 7 / 12); max-width: calc(100% * 7 / 12); }
+  .col-xl-8 { flex: 0 0 calc(100% * 8 / 12); max-width: calc(100% * 8 / 12); }
+  .col-xl-10 { flex: 0 0 calc(100% * 10 / 12); max-width: calc(100% * 10 / 12); }
+  .col-xl-12 { flex: 0 0 100%; max-width: 100%; }
+  .offset-xl-0 { margin-left: 0; }
+  .offset-xl-1 { margin-left: calc(100% / 12); }
+}
+
+@media (min-width: 1400px) {
+  .col-xxl-2 { flex: 0 0 calc(100% * 2 / 12); max-width: calc(100% * 2 / 12); }
+  .col-xxl-4 { flex: 0 0 calc(100% * 4 / 12); max-width: calc(100% * 4 / 12); }
+  .col-xxl-8 { flex: 0 0 calc(100% * 8 / 12); max-width: calc(100% * 8 / 12); }
+  .col-xxl-12 { flex: 0 0 100%; max-width: 100%; }
+}
+
+@media (min-width: 1600px) {
+  .col-xxxl-5 { flex: 0 0 calc(100% * 5 / 12); max-width: calc(100% * 5 / 12); }
+  .offset-xxxl-1 { margin-left: calc(100% / 12); }
+}
+
+/* On 1920px+ screens the gutters scale with the rem size. */
+@media (min-width: 1920px) {
+  .obelusClean .row {
+    margin-right: calc(var(--gutter) * -1);
+    margin-left: calc(var(--gutter) * -1);
+  }
+
+  .obelusClean :is(
+    .col-12,
+    .col-md-4, .col-md-5, .col-md-6, .col-md-8, .col-md-12,
+    .col-lg-9, .col-lg-10,
+    .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-10, .col-xl-12,
+    .col-xxl-2, .col-xxl-4, .col-xxl-8, .col-xxl-12,
+    .col-xxxl-5
+  ) {
+    padding: 0 var(--gutter);
+  }
+}
+
+/* ---------- Display ---------- */
+
+.d-none { display: none !important; }
+.d-block { display: block !important; }
+.d-flex { display: flex !important; }
+.d-inline-flex { display: inline-flex !important; }
+
+@media (min-width: 768px) {
+  .d-md-none { display: none !important; }
+  .d-md-inline { display: inline !important; }
+  .d-md-block { display: block !important; }
+  .d-md-flex { display: flex !important; }
+}
+
+@media (min-width: 1200px) {
+  .d-xl-inline { display: inline !important; }
+}
+
+.collapse:not(.show) {
+  display: none;
+}
+
+/* ---------- Flexbox ---------- */
+
+.flex-column { flex-direction: column !important; }
+.flex-column-reverse { flex-direction: column-reverse !important; }
+.flex-wrap { flex-wrap: wrap !important; }
+.flex-nowrap { flex-wrap: nowrap !important; }
+.flex-grow-0 { flex-grow: 0 !important; }
+.flex-grow-1 { flex-grow: 1 !important; }
+.flex-shrink-0 { flex-shrink: 0 !important; }
+.justify-content-start { justify-content: flex-start !important; }
+.justify-content-center { justify-content: center !important; }
+.align-items-start { align-items: flex-start !important; }
+.align-items-center { align-items: center !important; }
+
+@media (min-width: 768px) {
+  .flex-md-row { flex-direction: row !important; }
+  .flex-md-wrap { flex-wrap: wrap !important; }
+  .justify-content-md-end { justify-content: flex-end !important; }
+}
+
+/* ---------- Text ---------- */
+
+.text-left { text-align: left !important; }
+.text-center { text-align: center !important; }
+
+/* Sections sit on the dark page background, so "dark" text renders white. */
+.text-white,
+.text-dark { color: #fff !important; }
+
+.text-black { color: var(--c-ink) !important; }
+
+/* ---------- Spacing (1 = .25rem, 2 = .5rem, 3 = 1rem, 4 = 1.5rem, 5 = 3rem) ---------- */
+
+.mt-0 { margin-top: 0 !important; }
+.mr-0 { margin-right: 0 !important; }
+.mb-0 { margin-bottom: 0 !important; }
+.ml-0 { margin-left: 0 !important; }
+.mt-2 { margin-top: 0.5rem !important; }
+.mb-2 { margin-bottom: 0.5rem !important; }
+.mt-3 { margin-top: 1rem !important; }
+.mr-3 { margin-right: 1rem !important; }
+.mb-3 { margin-bottom: 1rem !important; }
+.mt-4 { margin-top: 1.5rem !important; }
+.mb-4 { margin-bottom: 1.5rem !important; }
+.mb-5 { margin-bottom: 3rem !important; }
+
+.p-0 { padding: 0 !important; }
+.pr-0 { padding-right: 0 !important; }
+.py-2 { padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; }
+.pb-2 { padding-bottom: 0.5rem !important; }
+.px-4 { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+.pr-4 { padding-right: 1.5rem !important; }
+
+@media (min-width: 768px) {
+  .my-md-0 { margin-top: 0 !important; margin-bottom: 0 !important; }
+  .mb-md-0 { margin-bottom: 0 !important; }
+  .mb-md-3 { margin-bottom: 1rem !important; }
+  .ml-md-4 { margin-left: 1.5rem !important; }
+  .pr-md-0 { padding-right: 0 !important; }
+}
+
+@media (min-width: 1200px) {
+  .mb-xl-5 { margin-bottom: 3rem !important; }
+}
+
+/* ---------- Fixed aspect-ratio media frames (.ar-W-H) ---------- */
+
+.obelusClean :is([class^="ar-"], [class*=" ar-"]) {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.obelusClean :is([class^="ar-"], [class*=" ar-"]) img {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.obelusClean .ar-1-1 { padding-bottom: 100%; }
+.obelusClean .ar-16-9 { padding-bottom: 56.25%; }
+
+/* ---------- Section spacing ----------
+   Each section carries a top/bottom spacer size, optionally overridden on
+   tablet (< 992px) and mobile (< 768px). */
+
+.obelusClean .base-comp-spacer.spacer-none { padding-top: 0; }
+.obelusClean .base-comp-spacer.spacer-large { padding-top: 6rem; }
+.obelusClean .base-comp-spacer.spacer-xlarge { padding-top: 8rem; }
+.obelusClean .base-comp-spacer.bottom-spacer-none { padding-bottom: 0; }
+.obelusClean .base-comp-spacer.bottom-spacer-medium { padding-bottom: 4rem; }
+.obelusClean .base-comp-spacer.bottom-spacer-large { padding-bottom: 6rem; }
+
+@media (max-width: 991.98px) {
+  .obelusClean .base-comp-spacer.tablet-spacer-medium { padding-top: 4rem !important; }
+  .obelusClean .base-comp-spacer.tablet-spacer-large { padding-top: 6rem !important; }
+}
+
+@media (max-width: 767.98px) {
+  .obelusClean .base-comp-spacer.mobile-spacer-small { padding-top: 2rem !important; }
+  .obelusClean .base-comp-spacer.mobile-spacer-medium { padding-top: 4rem !important; }
+}
+
+.obelusClean.obelus-template-dynamicAllComponents .base-comp-spacer.spacer-none {
+  height: auto !important;
+  overflow: hidden;
+}
+
+.obelusClean .htmlComp .base-component-spacer {
+  height: auto !important;
+}
+
+.obelusClean .htmlComp .base-component-spacer.spacer-none {
+  padding-top: 0;
+}
+
+/* ---------- Section backgrounds ---------- */
+
+.obelusClean .obelus-custom-background {
+  position: relative;
+}
+
+.obelusClean .obelus-custom-background .background-logo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  background-repeat: no-repeat;
+}
+
+.obelusClean .obelus-custom-background .obelus-custom-background-content {
+  position: relative;
+  z-index: 1;
+}

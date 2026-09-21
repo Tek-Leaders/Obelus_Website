@@ -1,0 +1,181 @@
+/*
+ * Type scale.
+ *
+ * Headings grow linearly from their mobile size at 768px to their desktop
+ * size at 1920px: clamp(min, min + (max - min) * (100vw - 768px) / 1152px,
+ * max). Everything else steps via the --t-* tokens in tokens.css.
+ */
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6, .h7, .h8 {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  color: var(--c-ink);
+}
+
+/* 32px -> 72px */
+h1, .h1 {
+  font-size: clamp(2rem, calc(2rem + 40 * (100vw - 768px) / 1152), 4.5rem);
+  line-height: 120%;
+}
+
+/* 28px -> 64px */
+h2, .h2 {
+  font-size: clamp(1.75rem, calc(1.75rem + 36 * (100vw - 768px) / 1152), 4rem);
+  line-height: 120%;
+}
+
+/* 24px -> 56px */
+h3, .h3 {
+  font-size: clamp(1.5rem, calc(1.5rem + 32 * (100vw - 768px) / 1152), 3.5rem);
+  line-height: 120%;
+}
+
+/* 22px -> 48px */
+h4, .h4 {
+  font-size: clamp(1.375rem, calc(1.375rem + 26 * (100vw - 768px) / 1152), 3rem);
+  line-height: 130%;
+}
+
+/* 20px -> 40px */
+h5, .h5 {
+  font-size: clamp(1.25rem, calc(1.25rem + 20 * (100vw - 768px) / 1152), 2.5rem);
+  line-height: 140%;
+}
+
+/* 18px -> 32px */
+h6, .h6 {
+  font-size: clamp(1.125rem, calc(1.125rem + 14 * (100vw - 768px) / 1152), 2rem);
+  line-height: 140%;
+}
+
+/* 16px -> 24px */
+.h7 {
+  font-size: clamp(1rem, calc(1rem + 8 * (100vw - 768px) / 1152), 1.5rem);
+  line-height: 140%;
+}
+
+.h8 {
+  font-size: 1rem;
+  line-height: 140%;
+}
+
+.btn {
+  font-family: var(--font-primary);
+  font-size: var(--t-btn);
+  font-weight: 600;
+  line-height: 140%;
+  letter-spacing: 0.02rem;
+}
+
+.eyebrow {
+  font-family: var(--font-primary);
+  font-size: var(--t-eyebrow);
+  font-weight: 600;
+  line-height: 140%;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--c-ink);
+}
+
+.label-2,
+.label-3 {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  line-height: 140%;
+  color: var(--c-ink);
+}
+
+.label-2 {
+  font-size: var(--t-label-2);
+}
+
+.label-3 {
+  font-size: var(--t-label-3);
+}
+
+/* Footer navigation text */
+.nav-headline,
+.nav-subheader,
+.nav-list {
+  font-family: var(--font-primary);
+  line-height: 140%;
+  letter-spacing: 0.02rem;
+  color: var(--c-ink);
+}
+
+.nav-headline {
+  font-size: var(--t-nav-headline);
+  font-weight: 600;
+}
+
+.nav-subheader,
+.nav-list {
+  font-size: var(--t-nav-list);
+}
+
+.nav-subheader {
+  font-weight: 600;
+}
+
+.nav-list {
+  font-weight: 500;
+}
+
+/* Weight overrides */
+.text-400 {
+  font-weight: 400;
+}
+
+.text-500 {
+  font-weight: 500;
+}
+
+/* Body copy */
+.body-serif-1,
+.body-serif-4 {
+  font-family: var(--font-secondary);
+  line-height: var(--t-serif-leading);
+  color: var(--c-ink);
+}
+
+.body-serif-1 {
+  font-size: var(--t-serif-1);
+}
+
+.body-serif-4 {
+  font-size: var(--t-serif-4);
+}
+
+.body-sans-1,
+.body-sans-2,
+.body-sans-4 {
+  font-family: var(--font-primary);
+  line-height: 150%;
+  color: var(--c-ink);
+}
+
+.body-sans-1 {
+  font-size: var(--t-sans-1);
+}
+
+.body-sans-2 {
+  font-size: var(--t-sans-2);
+}
+
+.body-sans-4 {
+  font-size: var(--t-sans-4);
+}
+
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+/* Brand gradient text for highlighted words in headings */
+.orange-gradient {
+  background-color: var(--c-brand);
+  background-image: linear-gradient(to right, #01dd6f, #009148);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,166 @@
+/*
+ * Element defaults: box model, document scale, and consistent form-control
+ * behaviour across browsers.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Above 1920px the whole rem scale grows with the viewport, reaching double
+   size at 3840px (4K), so layouts keep their proportions on large screens. */
+@media (min-width: 1920px) {
+  html {
+    font-size: min(calc(1rem + (100vw - 1920px) / 120), 2rem);
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-system);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--c-body);
+  text-align: left;
+  background-color: var(--c-paper);
+  overflow-x: hidden;
+}
+
+@media (min-width: 3840px) {
+  body {
+    max-width: 3840px;
+    margin: 0 auto;
+  }
+}
+
+/* Vertical rhythm */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+p,
+ul {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+ul ul {
+  margin-bottom: 0;
+}
+
+figure {
+  margin: 0 0 1rem;
+}
+
+/* Media */
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+
+svg {
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+/* Links */
+a {
+  color: var(--c-link);
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:hover {
+  color: var(--c-link-hover);
+  text-decoration: underline;
+}
+
+/* Form controls */
+label {
+  display: inline-block;
+}
+
+button {
+  border-radius: 0;
+}
+
+button:focus {
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+input,
+button,
+select {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+select {
+  word-wrap: normal;
+}
+
+button,
+[type="button"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+[role="button"],
+button:not(:disabled),
+[type="button"]:not(:disabled),
+[type="submit"]:not(:disabled) {
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  padding: 0;
+}
+
+[type="search"] {
+  outline-offset: -2px;
+  -webkit-appearance: none;
+}
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  font: inherit;
+  -webkit-appearance: button;
+}
+
+[hidden] {
+  display: none !important;
+}
