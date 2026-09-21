@@ -1,8 +1,5 @@
 /**
- * The original markup renders <img data-src="..." class="lozad"> and relies on
- * the lozad library to promote data-src to src. Without that library the
- * images never load, so this component uses a real src plus the browser's own
- * lazy loading and keeps the `lozad` class for any CSS that targets it.
+ * An <img> that uses the browser's native lazy loading unless `eager` is set.
  */
 export default function LazyImage({
   src,
@@ -17,7 +14,7 @@ export default function LazyImage({
       alt={alt}
       loading={eager ? 'eager' : 'lazy'}
       decoding="async"
-      className={`lozad ${className}`.trim()}
+      className={className || undefined}
       {...rest}
     />
   );

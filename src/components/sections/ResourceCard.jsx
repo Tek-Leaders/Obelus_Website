@@ -41,11 +41,10 @@ export default function ResourceCard({ card }) {
 
   return (
     <a
-      className="document d-flex  white-bg flex-column-reverse   branded-bg top-bottom-icon     "
+      className="resource-tile d-flex tile-surface flex-column-reverse tile-branded tile-stacked"
       data-type="obelus"
       href={card.href}
-      data-page-track="true"
-      data-page-track-value={`${card.track}:${card.cta.toLowerCase()}`}
+      data-analytics={`${card.track}:${card.cta.toLowerCase()}`}
       target={card.target}
       rel="noopener"
     >
@@ -55,24 +54,23 @@ export default function ResourceCard({ card }) {
         </span>
       )}
       <div className="image-container">
-        <figure className="desktop-image  ar-16-9   contain">
+        <figure className="desktop-image ar-16-9 contain">
           <PlaceholderImage src={card.image} alt="" label={card.eyebrow} />
         </figure>
-        <figure className="mobile-image  ar-16-9   contain">
+        <figure className="mobile-image ar-16-9 contain">
           <PlaceholderImage src={card.image} alt="" label={card.eyebrow} />
         </figure>
       </div>
       <div className="text-container">
         <div className="mb-3 text-dark">
-          <span className="card-small-title  eyebrow   text-dark">{card.eyebrow}</span>
+          <span className="card-small-title eyebrow text-dark">{card.eyebrow}</span>
         </div>
-        <div className="h7  card-title mb-3 text-dark">{card.title}</div>
+        <div className="heading-sm card-title mb-3 text-dark">{card.title}</div>
         {/* Presentational: the whole card is the link, so this must not be a
             second tab stop or a nested interactive element. */}
         <span
-          className="btn  btn-dark   mb-2"
-          data-page-track="true"
-          data-page-track-value={`${card.track}:${card.cta}`}
+          className="btn btn-dark mb-2"
+          data-analytics={`${card.track}:${card.cta}`}
           aria-hidden="true"
         >
           {card.cta}

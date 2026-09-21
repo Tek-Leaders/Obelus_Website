@@ -5,7 +5,7 @@
 
 /* ---------- Page shell ---------- */
 
-.obelusClean.obelus-template-dynamicAllComponents {
+.site.site-shell {
   position: relative;
 }
 
@@ -36,13 +36,13 @@
 }
 
 @media (max-width: 374.98px) {
-  .obelusClean .container-fluid {
+  .site .container-fluid {
     padding: 0 15px;
   }
 }
 
 @media (min-width: 1920px) {
-  .obelusClean .container-fluid {
+  .site .container-fluid {
     padding-right: var(--gutter);
     padding-left: var(--gutter);
   }
@@ -118,12 +118,12 @@
 
 /* On 1920px+ screens the gutters scale with the rem size. */
 @media (min-width: 1920px) {
-  .obelusClean .row {
+  .site .row {
     margin-right: calc(var(--gutter) * -1);
     margin-left: calc(var(--gutter) * -1);
   }
 
-  .obelusClean :is(
+  .site :is(
     .col-12,
     .col-md-4, .col-md-5, .col-md-6, .col-md-8, .col-md-12,
     .col-lg-9, .col-lg-10,
@@ -224,7 +224,7 @@
 
 /* ---------- Fixed aspect-ratio media frames (.ar-W-H) ---------- */
 
-.obelusClean :is([class^="ar-"], [class*=" ar-"]) {
+.site :is([class^="ar-"], [class*=" ar-"]) {
   position: relative;
   display: inline-block;
   width: 100%;
@@ -233,7 +233,7 @@
   overflow: hidden;
 }
 
-.obelusClean :is([class^="ar-"], [class*=" ar-"]) img {
+.site :is([class^="ar-"], [class*=" ar-"]) img {
   position: absolute;
   left: 0;
   width: 100%;
@@ -241,50 +241,50 @@
   object-fit: contain;
 }
 
-.obelusClean .ar-1-1 { padding-bottom: 100%; }
-.obelusClean .ar-16-9 { padding-bottom: 56.25%; }
+.site .ar-1-1 { padding-bottom: 100%; }
+.site .ar-16-9 { padding-bottom: 56.25%; }
 
 /* ---------- Section spacing ----------
    Each section carries a top/bottom spacer size, optionally overridden on
    tablet (< 992px) and mobile (< 768px). */
 
-.obelusClean .base-comp-spacer.spacer-none { padding-top: 0; }
-.obelusClean .base-comp-spacer.spacer-large { padding-top: 6rem; }
-.obelusClean .base-comp-spacer.spacer-xlarge { padding-top: 8rem; }
-.obelusClean .base-comp-spacer.bottom-spacer-none { padding-bottom: 0; }
-.obelusClean .base-comp-spacer.bottom-spacer-medium { padding-bottom: 4rem; }
-.obelusClean .base-comp-spacer.bottom-spacer-large { padding-bottom: 6rem; }
+.site .section-space.spacer-none { padding-top: 0; }
+.site .section-space.spacer-large { padding-top: 6rem; }
+.site .section-space.spacer-xlarge { padding-top: 8rem; }
+.site .section-space.bottom-spacer-none { padding-bottom: 0; }
+.site .section-space.bottom-spacer-medium { padding-bottom: 4rem; }
+.site .section-space.bottom-spacer-large { padding-bottom: 6rem; }
 
 @media (max-width: 991.98px) {
-  .obelusClean .base-comp-spacer.tablet-spacer-medium { padding-top: 4rem !important; }
-  .obelusClean .base-comp-spacer.tablet-spacer-large { padding-top: 6rem !important; }
+  .site .section-space.tablet-spacer-medium { padding-top: 4rem !important; }
+  .site .section-space.tablet-spacer-large { padding-top: 6rem !important; }
 }
 
 @media (max-width: 767.98px) {
-  .obelusClean .base-comp-spacer.mobile-spacer-small { padding-top: 2rem !important; }
-  .obelusClean .base-comp-spacer.mobile-spacer-medium { padding-top: 4rem !important; }
+  .site .section-space.mobile-spacer-small { padding-top: 2rem !important; }
+  .site .section-space.mobile-spacer-medium { padding-top: 4rem !important; }
 }
 
-.obelusClean.obelus-template-dynamicAllComponents .base-comp-spacer.spacer-none {
+.site.site-shell .section-space.spacer-none {
   height: auto !important;
   overflow: hidden;
 }
 
-.obelusClean .htmlComp .base-component-spacer {
+.site .hero-block .block-space {
   height: auto !important;
 }
 
-.obelusClean .htmlComp .base-component-spacer.spacer-none {
+.site .hero-block .block-space.spacer-none {
   padding-top: 0;
 }
 
 /* ---------- Section backgrounds ---------- */
 
-.obelusClean .obelus-custom-background {
+.site .section-bg {
   position: relative;
 }
 
-.obelusClean .obelus-custom-background .background-logo {
+.site .section-bg .section-bg-image {
   position: absolute;
   top: 0;
   right: 0;
@@ -294,7 +294,7 @@
   background-repeat: no-repeat;
 }
 
-.obelusClean .obelus-custom-background .obelus-custom-background-content {
+.site .section-bg .section-bg-content {
   position: relative;
   z-index: 1;
 }

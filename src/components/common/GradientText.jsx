@@ -1,13 +1,13 @@
 /**
  * Renders a heading built from parts, where flagged parts get the
- * `orange-gradient` span used throughout the original page.
+ * `accent-text` gradient span.
  */
 export default function GradientText({ parts }) {
   return (
     <>
       {parts.map((part, i) =>
         part.gradient ? (
-          <span key={i} className="orange-gradient">
+          <span key={i} className="accent-text">
             {part.text}
           </span>
         ) : (

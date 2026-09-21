@@ -78,14 +78,14 @@ export default function Header() {
   };
 
   return (
-    <div className="cleanHeaderObelus mainNavigationComp baseComponent parbase">
+    <div>
       <div
-        className="productNav2021Component dark  absolute    default "
+        className="site-header dark absolute default"
         data-type="obelus"
         id="OBELUS_NAV"
       >
         <div
-          className={`product-2021-nav  ${openMenu ? 'has-open-dropdown' : ''}`.trim()}
+          className={`site-nav ${openMenu ? 'has-open-dropdown' : ''}`.trim()}
           ref={navRef}
         >
           <button
@@ -93,15 +93,14 @@ export default function Header() {
             className="btn nav-open"
             aria-label="open mobile navigation"
             aria-expanded={mobileOpen}
-            aria-controls="product_main_nav"
+            aria-controls="site_nav_panel"
             onClick={() => setMobileOpen(true)}
           />
           <Link
             className="mobile-header-logo"
             to="/"
             aria-label="Obelus"
-            nav-track="true"
-            nav-track-breadcrumb="obelusNav:mobile:home"
+            data-analytics="obelusNav:mobile:home"
           >
             <img
               src="/assets/img/obelus/obelus.png"
@@ -113,22 +112,20 @@ export default function Header() {
             type="button"
             className="btn mobile-search"
             aria-label="search"
-            nav-track="true"
-            nav-track-breadcrumb="init-nav:mobile:search"
+            data-analytics="init-nav:mobile:search"
             onClick={openSearch}
           />
 
           <nav
-            id="product_main_nav"
-            className={`product-2021-nav-main ${mobileOpen ? 'open' : ''}`.trim()}
+            id="site_nav_panel"
+            className={`site-nav-panel ${mobileOpen ? 'open' : ''}`.trim()}
             aria-label="product main"
           >
             <div className="mobile-header">
               <button
                 type="button"
                 className="btn nav-close"
-                nav-track="true"
-                nav-track-breadcrumb="obelusNav:mobile:close nav"
+                data-analytics="obelusNav:mobile:close nav"
                 aria-label="close mobile navigation"
                 onClick={() => setMobileOpen(false)}
               >
@@ -137,14 +134,12 @@ export default function Header() {
                   height="24"
                   src="/assets/img/ui/close-black.svg"
                   alt=""
-                  className="lozad "
                 />
               </button>
               <Link
                 to="/"
                 className="nav-logo"
-                nav-track="true"
-                nav-track-breadcrumb="obelusNav:mobile:logo"
+                data-analytics="obelusNav:mobile:logo"
                 aria-label="Obelus"
               >
                 <img
@@ -152,14 +147,13 @@ export default function Header() {
                   height="46"
                   src="/assets/img/obelus/obelus.png"
                   alt="Obelus - Realtime Security"
-                  className="lozad brand-logo-mobile"
+                  className="brand-logo-mobile"
                 />
               </Link>
               <button
                 type="button"
                 className="btn mobile-search"
-                nav-track="true"
-                nav-track-breadcrumb="obelusNav:mobile:search"
+                data-analytics="obelusNav:mobile:search"
                 aria-label="search"
                 onClick={openSearch}
               >
@@ -184,8 +178,7 @@ export default function Header() {
                     to="/"
                     role="menuitem"
                     className="brand-logo-link"
-                    nav-track="true"
-                    nav-track-breadcrumb="obelusNav:logo"
+                    data-analytics="obelusNav:logo"
                     aria-label="Obelus"
                   >
                     <img
@@ -197,13 +190,12 @@ export default function Header() {
                 </li>
                 {navLeftLinks.map((item) =>
                   item.href ? (
-                    <li className="link  " role="none" key={item.label}>
+                    <li className="link" role="none" key={item.label}>
                       {item.internal ? (
                         <Link
                           to={item.href}
                           role="menuitem"
-                          nav-track="true"
-                          nav-track-breadcrumb={item.track}
+                          data-analytics={item.track}
                         >
                           {item.label}
                         </Link>
@@ -212,8 +204,7 @@ export default function Header() {
                           href={item.href}
                           role="menuitem"
                           target={item.target}
-                          nav-track="true"
-                          nav-track-breadcrumb={item.track}
+                          data-analytics={item.track}
                           rel="noopener"
                         >
                           {item.label}
@@ -222,7 +213,7 @@ export default function Header() {
                     </li>
                   ) : (
                     <li
-                      className={`  ${openMenu === item.id ? 'open' : ''}`.trim()}
+                      className={openMenu === item.id ? 'open' : undefined}
                       role="none"
                       key={item.label}
                       onMouseEnter={() => openOnHover(item.id)}
@@ -234,8 +225,7 @@ export default function Header() {
                         hasPopup
                         expanded={openMenu === item.id}
                         aria-label={item.label}
-                        nav-track="true"
-                        nav-track-breadcrumb={`obelusNav:${item.label}`}
+                        data-analytics={`obelusNav:${item.label}`}
                         onActivate={() => toggleMenu(item.id)}
                       >
                         {item.label}
@@ -259,8 +249,7 @@ export default function Header() {
                 <li className="search me-3" role="listitem">
                   <NavToggle
                     className="d-block"
-                    nav-track="true"
-                    nav-track-breadcrumb="nav:Search"
+                    data-analytics="nav:Search"
                     aria-label="search"
                     expanded={searchOpen}
                     onActivate={openSearch}
@@ -271,8 +260,7 @@ export default function Header() {
                     <Link
                       to={navCta.href}
                       className="btn btn-primary py-2 px-4"
-                      nav-track="true"
-                      nav-track-breadcrumb={navCta.track}
+                      data-analytics={navCta.track}
                     >
                       {navCta.label}
                     </Link>
@@ -281,8 +269,7 @@ export default function Header() {
                       href={navCta.href}
                       target="_self"
                       className="btn btn-primary py-2 px-4"
-                      nav-track="true"
-                      nav-track-breadcrumb={navCta.track}
+                      data-analytics={navCta.track}
                       rel="noopener"
                     >
                       {navCta.label}
@@ -295,7 +282,7 @@ export default function Header() {
                 <ul className="mobile-toolbar nav-left" role="list" aria-label="mobile left">
                   {mobileToolbarPrimary.map((item) => (
                     <li role="listitem" className={item.className} key={item.label}>
-                      <a href={item.href} nav-track="true" nav-track-breadcrumb={item.track}>
+                      <a href={item.href} data-analytics={item.track}>
                         {item.label}
                       </a>
                     </li>
@@ -307,8 +294,7 @@ export default function Header() {
                       <a
                         href={item.href}
                         target={item.target}
-                        nav-track="true"
-                        nav-track-breadcrumb={item.track}
+                        data-analytics={item.track}
                         rel="noopener"
                       >
                         {item.label}

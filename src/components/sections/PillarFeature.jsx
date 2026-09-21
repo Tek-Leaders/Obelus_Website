@@ -11,13 +11,12 @@ function Media({ pillar, columnClass }) {
       <div>
         <a
           href={pillar.image}
-          data-page-track="true"
-          data-page-track-value={pillar.track}
+          data-analytics={pillar.track}
           className="d-flex"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <figure className=" ar-16-9  show-mag  top-right   contain">
+          <figure className="ar-16-9 show-mag top-right contain">
             <PlaceholderImage
               src={pillar.image}
               alt={pillar.imageAlt}
@@ -34,18 +33,18 @@ function Media({ pillar, columnClass }) {
 function Copy({ pillar, columnClass }) {
   return (
     <div className={columnClass} data-type="obelus">
-      <span className="eyebrow  text-white ">
+      <span className="eyebrow text-white">
         <i style={{ backgroundImage: `url('${pillar.icon}')` }} aria-hidden="true" />
         {pillar.eyebrow}
       </span>
-      <h2 className="h5 title  text-white  ">
+      <h2 className="h5 title text-white">
         <GradientText parts={pillar.titleParts} />
       </h2>
-      <p className="body-sans-1     text-white ">{pillar.body}</p>
+      <p className="text-lg text-white">{pillar.body}</p>
       {pillar.bullets && (
         <ul className="pillar-bullets list-unstyled">
           {pillar.bullets.map((bullet) => (
-            <li key={bullet} className="body-sans-2 text-white">
+            <li key={bullet} className="text-md text-white">
               {bullet}
             </li>
           ))}
@@ -59,9 +58,9 @@ export default function PillarFeature({ pillar, index }) {
   const leftImage = pillar.layout === 'leftImage';
 
   return (
-    <div className="pillarTextFeatureComp baseComponent parbase section">
+    <div>
       <section
-        className={`pillar-text-feature layout-${pillar.layout} side base-comp-spacer spacer-large tablet-spacer-unset mobile-spacer-unset ${pillar.bottomSpacer} bottom-tablet-spacer-unset bottom-mobile-spacer-unset`}
+        className={`pillar-feature layout-${pillar.layout} side section-space spacer-large ${pillar.bottomSpacer}`}
         data-type="obelus"
         id={`${PILLAR_ID}-${index}`}
       >
@@ -71,22 +70,22 @@ export default function PillarFeature({ pillar, index }) {
               <>
                 <Media
                   pillar={pillar}
-                  columnClass="media-container col-12  col-md-6 col-xl-6   slideLeft "
+                  columnClass="media-container col-12 col-md-6 col-xl-6"
                 />
                 <Copy
                   pillar={pillar}
-                  columnClass=" slideRight  right-text text-content col-12  offset-md-1 col-md-5  col-xl-4 "
+                  columnClass="right-text text-content col-12 offset-md-1 col-md-5 col-xl-4"
                 />
               </>
             ) : (
               <>
                 <Copy
                   pillar={pillar}
-                  columnClass=" slideLeft  left-text text-content col-12  offset-xl-1 col-md-5  col-xl-4 order-1 order-md-0 "
+                  columnClass="left-text text-content col-12 offset-xl-1 col-md-5 col-xl-4 order-1 order-md-0"
                 />
                 <Media
                   pillar={pillar}
-                  columnClass=" slideRight  media-container col-12  col-md-6 offset-md-1 col-xl-6 "
+                  columnClass="media-container col-12 col-md-6 offset-md-1 col-xl-6"
                 />
               </>
             )}

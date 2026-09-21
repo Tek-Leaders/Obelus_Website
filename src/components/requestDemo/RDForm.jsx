@@ -4,15 +4,15 @@ import { jobLevels, EMAIL_PATTERN } from '../../data/formFields';
 import Reveal from '../common/Reveal';
 
 const INITIAL = {
-  FirstName: '',
-  LastName: '',
-  Email: '',
-  Company: '',
-  JobLevel: '',
-  Phone: '',
+  firstName: '',
+  lastName: '',
+  email: '',
+  company: '',
+  jobLevel: '',
+  phone: '',
 };
 
-const REQUIRED = ['FirstName', 'LastName', 'Email', 'Company', 'JobLevel', 'Phone'];
+const REQUIRED = ['firstName', 'lastName', 'email', 'company', 'jobLevel', 'phone'];
 
 /**
  * Declared at module scope on purpose - see the identical note in
@@ -76,7 +76,7 @@ export default function RDForm() {
 
   const errorFor = (name) => {
     const value = values[name];
-    if (name === 'Email') {
+    if (name === 'email') {
       if (!value.trim()) return 'Business email is required.';
       return EMAIL_PATTERN.test(value.trim()) ? '' : 'Enter a valid email address.';
     }
@@ -110,12 +110,12 @@ export default function RDForm() {
         </p>
       ) : (
         <form onSubmit={handleSubmit} noValidate>
-          <Field form={form} name="FirstName" label="First Name" autoComplete="given-name" />
-          <Field form={form} name="LastName" label="Last Name" autoComplete="family-name" />
-          <Field form={form} name="Email" label="Business Email" type="email" autoComplete="email" />
-          <Field form={form} name="Company" label="Company" autoComplete="organization" />
-          <Field form={form} name="JobLevel" label="Job level" options={jobLevels} />
-          <Field form={form} name="Phone" label="Phone" type="tel" autoComplete="tel" />
+          <Field form={form} name="firstName" label="First Name" autoComplete="given-name" />
+          <Field form={form} name="lastName" label="Last Name" autoComplete="family-name" />
+          <Field form={form} name="email" label="Business Email" type="email" autoComplete="email" />
+          <Field form={form} name="company" label="Company" autoComplete="organization" />
+          <Field form={form} name="jobLevel" label="Job level" options={jobLevels} />
+          <Field form={form} name="phone" label="Phone" type="tel" autoComplete="tel" />
 
           <button type="submit" className="rd-submit" disabled={!formValid}>
             {requestDemoForm.submitLabel}

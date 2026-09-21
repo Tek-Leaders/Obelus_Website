@@ -99,11 +99,11 @@
 }
 
 @media (min-width: 1200px) {
-  .obelusClean .btn-link { padding: 2px 0; }
+  .site .btn-link { padding: 2px 0; }
 }
 
 @media (min-width: 1600px) {
-  .obelusClean .btn-link { padding: 3px 0; }
+  .site .btn-link { padding: 3px 0; }
 }
 
 /* ---------- Carousel ---------- */

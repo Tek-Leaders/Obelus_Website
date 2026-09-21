@@ -9,12 +9,12 @@
  * whenever the state says it should.
  */
 
-.obelusClean .product-2021-nav .nav-left > li.open .mega-dropdown-menu {
+.site .site-nav .nav-left > li.open .mega-dropdown-menu {
   display: block !important;
 }
 
 /*
- * The header (`.product-2021-nav`) is `position: absolute` with no background
+ * The header (`.site-nav`) is `position: absolute` with no background
  * of its own - by design, it floats transparently over each page's own hero,
  * which is why every hero has a dark background reaching up to y:0. A mega
  * dropdown's panel only covers the space *below* the header (`top: 100%`), so
@@ -23,6 +23,6 @@
  * straight through the gap. Giving the header a solid fill while any dropdown
  * is open closes that gap without changing anything when nothing is open.
  */
-.obelusClean .product-2021-nav.has-open-dropdown {
+.site .site-nav.has-open-dropdown {
   background-color: #141414;
 }

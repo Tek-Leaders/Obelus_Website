@@ -12,7 +12,7 @@
  * higher specificity than anything here, so those keep coming from there.
  */
 
-.obelusClean .cleanDynamicFooter .mega-footer .heading-col {
+.site .site-footer .mega-footer .heading-col {
   display: block;
   width: 100%;
   padding: 0;
@@ -28,25 +28,25 @@
 
 /* .nav-headline supplies its own font-family, size and colour; only the
    heading-specific weight and margin need to be reverted to the <div> values. */
-.obelusClean .cleanDynamicFooter .mega-footer .heading-col .nav-headline {
+.site .site-footer .mega-footer .heading-col .nav-headline {
   font-weight: inherit;
   margin: 0;
 }
 
 /* Keep a visible focus ring on the controls that gained keyboard access. */
-.obelusClean .cleanDynamicFooter .mega-footer .heading-col:focus-visible,
-.obelusClean .product-2021-nav [role='button']:focus-visible {
+.site .site-footer .mega-footer .heading-col:focus-visible,
+.site .site-nav [role='button']:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
 }
 
 /* The nav toggles are anchors without an href, so restore the pointer cursor. */
-.obelusClean .product-2021-nav [role='button'] {
+.site .site-nav [role='button'] {
   cursor: pointer;
 }
 
 /* Skip link: visible only when focused. */
-.obelusClean .skip-to-content {
+.site .skip-to-content {
   position: absolute;
   left: -9999px;
   top: 0;
@@ -56,6 +56,6 @@
   color: #141414;
 }
 
-.obelusClean .skip-to-content:focus {
+.site .skip-to-content:focus {
   left: 0;
 }

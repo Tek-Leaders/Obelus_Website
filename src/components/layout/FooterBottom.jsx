@@ -48,8 +48,7 @@ export default function FooterBottom() {
                   <a
                     href={link.href}
                     className="text-black"
-                    data-page-track="true"
-                    data-page-track-value={link.track}
+                    data-analytics={link.track}
                   >
                     {link.label}
                   </a>
@@ -70,8 +69,7 @@ export default function FooterBottom() {
                     target="_blank"
                     className="social-icon d-flex"
                     aria-label={social.alt}
-                    data-page-track="true"
-                    data-page-track-value={social.track}
+                    data-analytics={social.track}
                     rel="noopener noreferrer"
                   >
                     <LazyImage src={social.src} alt={social.alt} />
@@ -84,7 +82,7 @@ export default function FooterBottom() {
                   ref={langRef}
                 >
                   <button
-                    className="btn btn-language d-inline-flex align-items-center lozad-background"
+                    className="btn btn-language d-inline-flex align-items-center"
                     type="button"
                     id="language_dropdown_menu_button"
                     aria-haspopup="true"
@@ -103,7 +101,7 @@ export default function FooterBottom() {
                     aria-labelledby="language_dropdown_menu_button"
                     hidden={!langOpen}
                   >
-                    <span className="h8 title d-flex pb-2">
+                    <span className="heading-xs title d-flex pb-2">
                       Select your language
                     </span>
                     <ul className="list-unstyled nav-list p-0 d-block d-md-flex flex-wrap">

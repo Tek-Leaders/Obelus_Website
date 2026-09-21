@@ -40,34 +40,33 @@ export default function Hero() {
   };
 
   return (
-    <div className="htmlComp baseComponent parbase section">
-      <div className="base-component-spacer spacer-none  " />
+    <div className="hero-block">
+      <div className="block-space spacer-none" />
       <div className={`obelus-hero ${step1 ? 'step-1' : ''}`.trim()} data-type="obelus">
         <div className="container-fluid">
           <div className="row">
             <div className="col-12 col-xl-5">
               <div className="heading mt-3 mb-5 my-md-0">
                 <span className="eyebrow obelus-hero-icon">{hero.eyebrow}</span>
-                <div className="copy-block" data-index="0">
-                  <h1 className="h1 title text-white ">
+                <div className="copy-block">
+                  <h1 className="h1 title text-white">
                     {hero.titleLines[0]} <br className="d-none d-xl-inline" />
                     {hero.titleLines[1]}
                   </h1>
                   {/* Kept as an h2: site/base.css gives h1-h6 a 0.5rem bottom margin
                       but p a 1rem one, so swapping the tag would shift layout. */}
-                  <h2 className="h7 text-white mt-4">{hero.subtitle}</h2>
+                  <h2 className="heading-sm text-white mt-4">{hero.subtitle}</h2>
                   <span>
                     <br />
                   </span>
-                  <div className="data-linkHelper linkHelper baseComponent parbase">
-                    <div className="base-component-spacer spacer-none  " />
+                  <div>
+                    <div className="block-space spacer-none" />
                     <ul className="list-unstyled" data-type="">
                       <li>
                         <Link
                           to={hero.primaryCta.href}
-                          className="btn mb-3  btn-primary dark"
-                          data-page-track="true"
-                          data-page-track-value="obelus:hero:request a demo"
+                          className="btn mb-3 btn-primary dark"
+                          data-analytics="obelus:hero:request a demo"
                         >
                           {hero.primaryCta.label}
                           <i />
@@ -79,8 +78,7 @@ export default function Hero() {
                         <Link
                           to={hero.secondaryCta.href}
                           className="btn btn-link mb-2 dark"
-                          data-page-track="true"
-                          data-page-track-value="obelus:hero:explore the platform"
+                          data-analytics="obelus:hero:explore the platform"
                         >
                           {hero.secondaryCta.label}
                         </Link>

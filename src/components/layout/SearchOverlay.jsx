@@ -1,14 +1,13 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 /**
- * Site search panel. There is no search backend yet, so site/header.css hides the
- * panel's contents with
- *   .obelusClean.obelus-template-dynamicAllComponents .ObelusSearchInterface {
- *       display: none }
+ * Site search panel. There is no search backend yet, so site/header.css
+ * hides the panel's contents with
+ *   .site.site-shell .search-interface { display: none }
  * and the search button opens an empty panel. The open/close behaviour is
  * real React state; only the contents are hidden.
  *
- * To make the search box visible, drop the `ObelusSearchInterface` class from
+ * To make the search box visible, drop the `search-interface` class from
  * the wrapper below; the markup underneath is a working, labelled search form
  * that submits to SEARCH_ACTION.
  */
@@ -35,7 +34,7 @@ export default function SearchOverlay({ open, onClose }) {
       return undefined;
     }
     // No-ops while the panel is hidden by the
-    // `.ObelusSearchInterface { display: none }` rule; see the note above.
+    // `.search-interface { display: none }` rule; see the note above.
     inputRef.current?.focus();
     const onKeyDown = (e) => {
       if (e.key === 'Escape') onCloseRef.current();
@@ -46,31 +45,29 @@ export default function SearchOverlay({ open, onClose }) {
 
   return (
     <div className={`obelus-nav-search ${open ? '' : 'd-none'}`.trim()}>
-      <div className="cq-dd-paragraph">
-        <div className="mainParsys parsys">
-          <div className="obelussearch baseComponent parbase section">
+      <div>
+        <div>
+          <div className="site-search">
             <div
-              id="obelussearch"
-              className="ObelusSearchInterface obelus-search"
-              data-results-per-page="4"
-              data-pipeline="Obelus Site Search"
+              id="site_search"
+              className="search-interface obelus-search"
             >
               <div className="obelus-search-header">
                 <div className="container">
-                  <div className="hidden-xs logo-placeholder" />
-                  <span className="visible-lg visible-md searchtext">Search</span>
+                  <div className="logo-placeholder" />
+                  <span className="searchtext">Search</span>
                   <div className="obelus-search-container">
                     <div className={`dropdown ${scopeOpen ? 'open' : ''}`.trim()}>
                       <button
                         className="btn btn-default dropdown-toggle"
                         type="button"
-                        id="dropdownMenu1"
+                        id="search_scope_toggle"
                         aria-haspopup="true"
                         aria-expanded={scopeOpen}
                         onClick={() => setScopeOpen((v) => !v)}
                       >
                         All
-                        <span className="caretnew">
+                        <span className="caret">
                           <svg
                             width="11"
                             height="7"
@@ -91,7 +88,7 @@ export default function SearchOverlay({ open, onClose }) {
                       </button>
                       <ul
                         className="dropdown-menu"
-                        aria-labelledby="dropdownMenu1"
+                        aria-labelledby="search_scope_toggle"
                         hidden={!scopeOpen}
                       >
                         <li>
@@ -103,7 +100,7 @@ export default function SearchOverlay({ open, onClose }) {
                     </div>
 
                     <form
-                      className="ObelusSearchbox"
+                      className="search-box"
                       role="search"
                       id="obelus-search-input"
                       action={SEARCH_ACTION}

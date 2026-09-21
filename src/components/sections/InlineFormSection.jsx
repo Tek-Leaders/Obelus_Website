@@ -13,28 +13,28 @@ import {
 import LazyBackground from '../common/LazyBackground';
 
 const INITIAL = {
-  FirstName: '',
-  LastName: '',
-  Email: '',
-  Company: '',
-  Job_Level__c: '',
-  Job_Role__c: '',
-  Phone: '',
-  Country: '',
-  State: '',
-  zip: '',
-  Department: '',
+  firstName: '',
+  lastName: '',
+  email: '',
+  company: '',
+  jobLevel: '',
+  jobRole: '',
+  phone: '',
+  country: '',
+  state: '',
+  postalCode: '',
+  department: '',
   marketingOptIn: false,
 };
 
 const BASE_REQUIRED = [
-  'FirstName',
-  'LastName',
-  'Email',
-  'Company',
-  'Job_Level__c',
-  'Phone',
-  'Country',
+  'firstName',
+  'lastName',
+  'email',
+  'company',
+  'jobLevel',
+  'phone',
+  'country',
 ];
 
 /**
@@ -56,7 +56,7 @@ function Field({ form, name, label, id, type = 'text', options, autoComplete }) 
           id={id}
           name={name}
           required
-          className="mb-md-3 body-sans-1"
+          className="mb-md-3 text-lg"
           value={values[name]}
           aria-invalid={invalid}
           aria-describedby={describedBy}
@@ -76,7 +76,7 @@ function Field({ form, name, label, id, type = 'text', options, autoComplete }) 
           name={name}
           type={type}
           required
-          className="mb-md-3 body-sans-1"
+          className="mb-md-3 text-lg"
           placeholder={label}
           autoComplete={autoComplete}
           value={values[name]}
@@ -88,7 +88,7 @@ function Field({ form, name, label, id, type = 'text', options, autoComplete }) 
       )}
       <div
         id={`${id}_error`}
-        className="form-validation validation body-serif-4"
+        className="form-validation validation serif-sm"
         role={invalid ? 'alert' : undefined}
       >
         {message}
@@ -107,17 +107,17 @@ export default function InlineFormSection() {
   const [touched, setTouched] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
-  const isUS = values.Country === COUNTRY_US;
-  const isCanada = values.Country === COUNTRY_CANADA;
-  const showDepartment = DEPARTMENT_COUNTRIES.includes(values.Country);
+  const isUS = values.country === COUNTRY_US;
+  const isCanada = values.country === COUNTRY_CANADA;
+  const showDepartment = DEPARTMENT_COUNTRIES.includes(values.country);
 
   const errorFor = (name) => {
     const value = values[name];
-    if (name === 'Email') {
+    if (name === 'email') {
       if (!value.trim()) return 'Email is required.';
       return EMAIL_PATTERN.test(value.trim()) ? '' : 'Please enter a valid email address.';
     }
-    if (name === 'State') {
+    if (name === 'state') {
       if (!isUS && !isCanada) return '';
       return value ? '' : `${isUS ? 'State' : 'Province'} is required.`;
     }
@@ -126,9 +126,9 @@ export default function InlineFormSection() {
 
   const required = [
     ...BASE_REQUIRED,
-    ...(isUS || isCanada ? ['State'] : []),
+    ...(isUS || isCanada ? ['state'] : []),
     // Only gate on Job Role once it is actually on screen.
-    ...(values.Job_Level__c ? ['Job_Role__c'] : []),
+    ...(values.jobLevel ? ['jobRole'] : []),
   ];
   const formValid = required.every((name) => !errorFor(name));
 
@@ -138,7 +138,7 @@ export default function InlineFormSection() {
       ...v,
       [name]: next,
       // A country change invalidates whichever sub-region field was showing.
-      ...(name === 'Country' ? { State: '', zip: '', Department: '' } : null),
+      ...(name === 'country' ? { state: '', postalCode: '', department: '' } : null),
     }));
   };
 
@@ -153,34 +153,31 @@ export default function InlineFormSection() {
   };
 
   return (
-    <div className="customBackgroundComp baseComponent parbase section">
+    <div>
       <section
-        className="obelus-custom-background customGradient "
-        data-custom-type="obelus"
-        id="custom_bg_id_1732e5b6-e1f2-41c5-a0c4-720806759490"
+        className="section-bg gradient"
       >
         <LazyBackground
-          className="lozad-background background-logo center-left   auto"
+          className="section-bg-image auto"
           image="/assets/img/ui/form-pattern.svg"
         />
 
-        <div className="obelus-custom-background-content" style={{ zIndex: 1 }}>
-          <div className="inlineFormComp baseComponent parbase section">
+        <div className="section-bg-content" style={{ zIndex: 1 }}>
+          <div>
             <span className="page-anchor" id="engage" />
             <section
-              className="inline-form   sticky-full-height theme-dark type-twoColumn base-comp-spacer spacer-xlarge tablet-spacer-medium mobile-spacer-small bottom-spacer-large bottom-tablet-spacer-unset bottom-mobile-spacer-unset"
+              className="inline-form theme-dark two-column section-space spacer-xlarge tablet-spacer-medium mobile-spacer-small bottom-spacer-large"
               data-type="obelus"
-              data-template="dynamicAllComponents"
               aria-labelledby="engage_heading"
             >
               <div className="container-fluid">
                 <div className="row main-row align-items-center">
                   <div className="col-12 col-xl-6">
                     <h2 className="h3 form-title mb-2 text-dark" id="engage_heading">
-                      Speak to an <span className="orange-gradient">OBELUS expert</span>
+                      Speak to an <span className="accent-text">OBELUS expert</span>
                     </h2>
-                    <p className="form-desc body-sans-2 mb-4 text-dark">
-                      <span className="h7 text-white">
+                    <p className="form-desc text-md mb-4 text-dark">
+                      <span className="heading-sm text-white">
                         Your security challenges deserve expert answers. Get a tailored
                         demo and see how OBELUS helps your team detect, investigate and
                         respond faster.
@@ -192,40 +189,40 @@ export default function InlineFormSection() {
                   <div className="engage-form-panel">
                     {!submitted && (
                     <form
-                      id="inline_form"
+                      id="lead_form"
                       data-lang="en_US"
-                      name="inline_form"
+                      name="lead_form"
                       className="form text-dark"
                       method="POST"
                       noValidate
                       onSubmit={handleSubmit}
                     >
                       <div className="form-row two d-flex flex-wrap">
-                        <Field form={form} name="FirstName" label="First Name" id="formfield0" autoComplete="given-name" />
-                        <Field form={form} name="LastName" label="Last Name" id="formfield1" autoComplete="family-name" />
-                        <Field form={form} name="Email" label="Email" id="formfield2" type="email" autoComplete="email" />
-                        <Field form={form} name="Company" label="Company" id="formfield3" autoComplete="organization" />
-                        <Field form={form} name="Job_Level__c" label="Job Level" id="formfield4" options={jobLevels} />
+                        <Field form={form} name="firstName" label="First Name" id="lead_first_name" autoComplete="given-name" />
+                        <Field form={form} name="lastName" label="Last Name" id="lead_last_name" autoComplete="family-name" />
+                        <Field form={form} name="email" label="Email" id="lead_email" type="email" autoComplete="email" />
+                        <Field form={form} name="company" label="Company" id="lead_company" autoComplete="organization" />
+                        <Field form={form} name="jobLevel" label="Job Level" id="lead_job_level" options={jobLevels} />
                         {/*
                           Job Role stays hidden until a Job Level is chosen,
                           which keeps the form short on first view.
                         */}
-                        {values.Job_Level__c && (
-                          <Field form={form} name="Job_Role__c" label="Job Role" id="formfield7" options={jobRoles} />
+                        {values.jobLevel && (
+                          <Field form={form} name="jobRole" label="Job Role" id="lead_job_role" options={jobRoles} />
                         )}
-                        <Field form={form} name="Phone" label="Phone" id="formfield5" type="tel" autoComplete="tel" />
-                        <Field form={form} name="Country" label="Country" id="formfield6" options={countries} autoComplete="country-name" />
+                        <Field form={form} name="phone" label="Phone" id="lead_phone" type="tel" autoComplete="tel" />
+                        <Field form={form} name="country" label="Country" id="lead_country" options={countries} autoComplete="country-name" />
                         {isUS && (
-                          <Field form={form} name="State" label="State" id="formfield10" options={usStates} />
+                          <Field form={form} name="state" label="State" id="lead_state" options={usStates} />
                         )}
                         {isCanada && (
-                          <Field form={form} name="State" label="Province" id="formfield11" options={canadianProvinces} />
+                          <Field form={form} name="state" label="Province" id="lead_province" options={canadianProvinces} />
                         )}
                         {isUS && (
-                          <Field form={form} name="zip" label="Zip Code" id="formfield15" autoComplete="postal-code" />
+                          <Field form={form} name="postalCode" label="Zip Code" id="lead_postal_code" autoComplete="postal-code" />
                         )}
                         {showDepartment && (
-                          <Field form={form} name="Department" label="Department" id="formfield16" />
+                          <Field form={form} name="department" label="Department" id="lead_department" />
                         )}
                       </div>
 
@@ -240,7 +237,7 @@ export default function InlineFormSection() {
                             />
                             <span className="icon" />
                           </span>
-                          <span className="label-2 text-dark">
+                          <span className="label text-dark">
                             Send me OBELUS product news, research and event invitations. I
                             can unsubscribe at any time.
                           </span>
@@ -248,20 +245,18 @@ export default function InlineFormSection() {
                       </div>
 
                       <div className="legal mt-2">
-                        <p className="label-2 form-legal text-dark text-500">
+                        <p className="label form-legal text-dark text-500">
                           We will only use your details as described in the{' '}
                           <a
                             href="/privacy"
-                            data-page-track="true"
-                            data-page-track-value="obelus:inlineform:privacy"
+                            data-analytics="obelus:inlineform:privacy"
                           >
                             Obelus Privacy Statement
                           </a>{' '}
                           and{' '}
                           <a
                             href="/terms"
-                            data-page-track="true"
-                            data-page-track-value="obelus:inlineform:terms-of-use"
+                            data-analytics="obelus:inlineform:terms-of-use"
                           >
                             {' '}
                             Terms of Use.{' '}
@@ -274,8 +269,7 @@ export default function InlineFormSection() {
                           type="submit"
                           className="btn btn-primary mt-4"
                           disabled={!formValid}
-                          data-page-track="true"
-                          data-page-track-value="obelus:inlineform:Submit"
+                          data-analytics="obelus:inlineform:Submit"
                         >
                           Submit <i />
                         </button>
@@ -286,7 +280,7 @@ export default function InlineFormSection() {
                     {submitted && (
                       <div className="thank-you-msg" role="status">
                         <h2 className="thank-you-msg-header h3">Success!</h2>
-                        <p className="thank-you-msg-body subheading-2">
+                        <p className="thank-you-msg-body subheading">
                           Thanks - an OBELUS specialist will be in touch shortly.
                         </p>
                       </div>

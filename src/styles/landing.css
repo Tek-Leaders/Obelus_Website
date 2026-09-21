@@ -5,11 +5,11 @@
  *
  * Deliberately borrows the existing visual language rather than inventing:
  * the same translucent blue panel, border and blur as the Challenges cards in
- * site/sections.css, and the same green accent as `.orange-gradient` (#00cc66), so it
+ * site/sections.css, and the same green accent as `.accent-text` (#00cc66), so it
  * reads as part of the page over the fixed background.
  */
 
-.obelusClean .integrations .integration-group {
+.site .integrations .integration-group {
   height: 100%;
   padding: 1.25rem 1.25rem 1rem;
   border-radius: 16px;
@@ -18,21 +18,21 @@
   backdrop-filter: blur(10px);
 }
 
-.obelusClean .integrations .integration-group-title {
+.site .integrations .integration-group-title {
   margin: 0 0 0.875rem;
   color: #ffffff;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
-.obelusClean .integrations .integration-chips {
+.site .integrations .integration-chips {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   margin: 0;
 }
 
-.obelusClean .integrations .integration-chip {
+.site .integrations .integration-chip {
   padding: 0.35rem 0.75rem;
   border-radius: 2.25rem;
   border: 1px solid rgba(0, 204, 102, 0.35);
@@ -43,7 +43,7 @@
   white-space: nowrap;
 }
 
-.obelusClean .integrations .integration-groups {
+.site .integrations .integration-groups {
   margin-top: 2.5rem;
   margin-bottom: 1.5rem;
 }
@@ -51,7 +51,7 @@
 /* Long connector names would otherwise force a horizontal scroll on narrow
    phones, where the chips are the widest thing on the page. */
 @media (max-width: 575.98px) {
-  .obelusClean .integrations .integration-chip {
+  .site .integrations .integration-chip {
     white-space: normal;
   }
 }
@@ -63,17 +63,17 @@
  * list. A small green rule on the left ties them to the section's accent and
  * keeps them clearly subordinate to the paragraph above.
  */
-.obelusClean .pillar-text-feature .pillar-bullets {
+.site .pillar-feature .pillar-bullets {
   margin: 1.25rem 0 0;
 }
 
-.obelusClean .pillar-text-feature .pillar-bullets li {
+.site .pillar-feature .pillar-bullets li {
   position: relative;
   padding-left: 1rem;
   margin-bottom: 0.5rem;
 }
 
-.obelusClean .pillar-text-feature .pillar-bullets li::before {
+.site .pillar-feature .pillar-bullets li::before {
   content: "";
   position: absolute;
   left: 0;

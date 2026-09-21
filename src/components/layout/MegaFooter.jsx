@@ -59,8 +59,7 @@ export default function MegaFooter() {
                             href={link.href}
                             className="d-flex d-md-inline text-black"
                             target={link.target}
-                            data-page-track="true"
-                            data-page-track-value={link.track}
+                            data-analytics={link.track}
                             rel="noopener"
                           >
                             {link.label}

@@ -11,11 +11,11 @@ import Reveal from '../common/Reveal';
  */
 export default function IntegrationsSection() {
   return (
-    <CustomBackground id="custom_bg_id_integrations" variant="custom">
-      <div className="integrationsComp baseComponent parbase section">
+    <CustomBackground variant="custom">
+      <div>
         <PageAnchor id="integrations" />
         <section
-          className="integrations theme-dark base-comp-spacer spacer-large tablet-spacer-unset mobile-spacer-unset bottom-spacer-large bottom-tablet-spacer-unset bottom-mobile-spacer-unset"
+          className="integrations theme-dark section-space spacer-large bottom-spacer-large"
           data-type="obelus"
           aria-labelledby="integrations_heading"
         >
@@ -26,7 +26,7 @@ export default function IntegrationsSection() {
                 <h2 className="h3 text-dark" id="integrations_heading">
                   <GradientText parts={integrationsHeading.titleParts} />
                 </h2>
-                <p className="body-sans-1 text-dark mt-3">{integrationsHeading.body}</p>
+                <p className="text-lg text-dark mt-3">{integrationsHeading.body}</p>
               </div>
             </div>
 
@@ -38,7 +38,7 @@ export default function IntegrationsSection() {
                   delay={i * 80}
                 >
                   <div className="integration-group">
-                    <h3 className="h8 integration-group-title text-500 text-dark">
+                    <h3 className="heading-xs integration-group-title text-500 text-dark">
                       {group.label}
                     </h3>
                     <ul className="list-unstyled integration-chips">
@@ -58,8 +58,7 @@ export default function IntegrationsSection() {
                 <Link
                   to={integrationsHeading.cta.href}
                   className="btn btn-primary dark"
-                  data-page-track="true"
-                  data-page-track-value="obelus:integrations:see integrations"
+                  data-analytics="obelus:integrations:see integrations"
                 >
                   {integrationsHeading.cta.label}
                   <i />

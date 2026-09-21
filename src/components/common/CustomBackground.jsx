@@ -1,23 +1,22 @@
 /**
- * The `obelus-custom-background` wrapper the original page repeats between
- * sections to paint the gradient bands behind them.
+ * Section background band: wraps a section so a gradient or solid colour can
+ * be painted behind it.
  */
 export default function CustomBackground({
   id,
   gradient,
   color,
-  variant = 'customGradient',
+  variant = 'gradient',
   children,
 }) {
   return (
-    <div className="customBackgroundComp baseComponent parbase section">
+    <div>
       <section
-        className={`obelus-custom-background ${variant} `}
+        className={`section-bg ${variant}`.trim()}
         style={gradient ? { backgroundImage: gradient } : { backgroundColor: color }}
-        data-custom-type="obelus"
         id={id}
       >
-        <div className="obelus-custom-background-content" style={{ zIndex: 1 }}>
+        <div className="section-bg-content" style={{ zIndex: 1 }}>
           {children}
         </div>
       </section>

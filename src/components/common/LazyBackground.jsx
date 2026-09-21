@@ -1,6 +1,5 @@
 /**
- * Stands in for the original `lozad-background` elements, which carried the
- * image on a data-background-image attribute for lozad to apply.
+ * An element (a <div> by default) with a background image.
  */
 export default function LazyBackground({
   image,

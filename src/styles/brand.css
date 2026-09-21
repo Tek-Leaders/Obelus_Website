@@ -10,7 +10,7 @@
  * patching each in header.css. See Header.jsx for where the <img> was added.
  */
 
-.obelusClean .product-2021-nav .brand-logo-link {
+.site .site-nav .brand-logo-link {
   display: inline-flex !important;
   align-items: center;
   width: auto !important;
@@ -19,7 +19,7 @@
   background-image: none !important;
 }
 
-.obelusClean .product-2021-nav .brand-logo-desktop {
+.site .site-nav .brand-logo-desktop {
   height: 100%;
   width: auto;
   object-fit: contain;
@@ -27,7 +27,7 @@
 }
 
 /* The mobile slide-out menu's logo row (a real <img>, not a background). */
-.obelusClean .product-2021-nav-main .brand-logo-mobile {
+.site .site-nav-panel .brand-logo-mobile {
   height: 36px;
   width: auto;
   object-fit: contain;
@@ -39,14 +39,14 @@
    it stays invisible); matching that breakpoint here keeps it hidden on
    desktop instead of forcing it to show everywhere. */
 @media (max-width: 1199.98px) {
-  .obelusClean .product-2021-nav > .mobile-header-logo {
+  .site .site-nav > .mobile-header-logo {
     display: inline-flex !important;
     align-items: center;
     width: auto !important;
     height: 34px !important;
     background-image: none !important;
   }
-  .obelusClean .product-2021-nav > .mobile-header-logo .brand-logo-collapsed {
+  .site .site-nav > .mobile-header-logo .brand-logo-collapsed {
     height: 100%;
     width: auto;
     object-fit: contain;
@@ -59,7 +59,7 @@
    obelus.png has a white wordmark made for dark backgrounds, so it is shown
    as a solid dark silhouette on the white footer. Swap in a dark-on-light
    logo file here if one is produced. */
-.cleanDynamicFooter .footer-bottom .obelus-logo img {
+.site-footer .footer-bottom .obelus-logo img {
   object-fit: contain;
   object-position: left center;
   filter: brightness(0);

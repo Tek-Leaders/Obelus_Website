@@ -26,8 +26,7 @@ export default function FooterSubscribeForm() {
       type="submit"
       className={`btn btn-primary flex-grow-0 flex-shrink-0 ${className}`}
       disabled={!valid}
-      data-page-track="true"
-      data-page-track-value={track}
+      data-analytics={track}
     >
       Sign up <i />
     </button>
@@ -36,9 +35,8 @@ export default function FooterSubscribeForm() {
   return (
     <LazyBackground
       as="section"
-      className="lozad-background footer-form   enterpriserecaptcha "
+      className="footer-form"
       image="/assets/img/ui/footer-form-bg.svg"
-      data-captcha-type="enterprise"
     >
       <div className="container-fluid">
         <div className="row">
@@ -49,8 +47,8 @@ export default function FooterSubscribeForm() {
           </div>
           <div className="col-12 col-md-8 col-xl-6 col-xxxl-5 offset-xxxl-1">
             <form
-              id="footer_form_manage_subscriptions"
-              name="footer_form_manage_subscriptions"
+              id="newsletter_form"
+              name="newsletter_form"
               className="form d-flex flex-wrap"
               method="POST"
               noValidate
@@ -74,7 +72,7 @@ export default function FooterSubscribeForm() {
                       type="email"
                       name="Email"
                       required
-                      className="mb-md-3 body-serif-1 text-white"
+                      className="mb-md-3 serif-lg text-white"
                       placeholder="Your work email"
                       aria-label="Your work email"
                       id="OBELUS_FOOTER_EMAIL_FIELD"
@@ -87,7 +85,7 @@ export default function FooterSubscribeForm() {
                     />
                     <div
                       id="footer_email_error"
-                      className="form-validation validation body-serif-4"
+                      className="form-validation validation serif-sm"
                       role={showError ? 'alert' : undefined}
                     >
                       {showError ? 'Please enter a valid email address.' : ''}
@@ -103,27 +101,25 @@ export default function FooterSubscribeForm() {
                 </div>
 
                 {submitted && (
-                  <p className="label-3 text-400 text-white" role="status">
+                  <p className="label-sm text-400 text-white" role="status">
                     Thanks - you are subscribed.
                   </p>
                 )}
               </div>
 
               <div className="legal">
-                <p className="label-3 text-400 text-white form-legal">
+                <p className="label-sm text-400 text-white form-legal">
                   We will only use your details as described in the{' '}
                   <a
                     href="/privacy"
-                    data-page-track="true"
-                    data-page-track-value="obelus:footer:privacy"
+                    data-analytics="obelus:footer:privacy"
                   >
                     Obelus Privacy Statement
                   </a>{' '}
                   and{' '}
                   <a
                     href="/terms"
-                    data-page-track="true"
-                    data-page-track-value="obelus:footer:terms-of-use"
+                    data-analytics="obelus:footer:terms-of-use"
                   >
                     Terms of Use.
                   </a>

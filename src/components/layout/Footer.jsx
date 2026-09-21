@@ -4,7 +4,7 @@ import FooterBottom from './FooterBottom';
 
 export default function Footer() {
   return (
-    <div className="cleanDynamicFooter mainFooterComp baseComponent parbase">
+    <div className="site-footer">
       <a className="page-anchor" id="footer" aria-hidden="true" />
       <FooterSubscribeForm />
       <MegaFooter />

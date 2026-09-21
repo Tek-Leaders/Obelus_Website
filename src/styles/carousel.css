@@ -3,7 +3,7 @@
  *
  * The carousel needs almost nothing from here. styles/site/ already lays the
  * track out as a horizontal scroller:
- *   .style-three .glider-wrapper { display: flex }
+ *   .tile-carousel .glider-wrapper { display: flex }
  *   .glider              { overflow-y: hidden }
  * and because `overflow-y` is not `visible`, CSS computes `overflow-x` to
  * `auto` - so the track scrolls and the slides size themselves exactly as they
@@ -14,8 +14,8 @@
  * being at either end of the track needs a visible cue.
  */
 
-.obelusClean .glider-prev[disabled],
-.obelusClean .glider-next[disabled] {
+.site .glider-prev[disabled],
+.site .glider-next[disabled] {
   opacity: 0.35;
   cursor: default;
   pointer-events: none;

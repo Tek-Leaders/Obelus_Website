@@ -51,16 +51,16 @@
   /* Text sizes that step up at 1200px and 1920px (see typography.css) */
   --t-btn: 0.875rem;
   --t-eyebrow: 0.75rem;
-  --t-label-2: 0.875rem;
-  --t-label-3: 0.75rem;
+  --t-label: 0.875rem;
+  --t-label-sm: 0.75rem;
   --t-nav-headline: 1rem;
   --t-nav-list: 0.75rem;
-  --t-serif-1: 1rem;
-  --t-serif-4: 0.875rem;
+  --t-serif-lg: 1rem;
+  --t-serif-sm: 0.875rem;
   --t-serif-leading: 120%;
-  --t-sans-1: 1rem;
-  --t-sans-2: 1rem;
-  --t-sans-4: 0.75rem;
+  --t-text-lg: 1rem;
+  --t-text-md: 1rem;
+  --t-text-xs: 0.75rem;
 }
 
 @media (min-width: 992px) {
@@ -79,16 +79,16 @@
 
     --t-btn: 0.925rem;
     --t-eyebrow: 0.9rem;
-    --t-label-2: 0.925rem;
-    --t-label-3: 0.8rem;
+    --t-label: 0.925rem;
+    --t-label-sm: 0.8rem;
     --t-nav-headline: 1.05rem;
     --t-nav-list: 0.8rem;
-    --t-serif-1: 1.2rem;
-    --t-serif-4: 0.975rem;
+    --t-serif-lg: 1.2rem;
+    --t-serif-sm: 0.975rem;
     --t-serif-leading: 150%;
-    --t-sans-1: 1.15rem;
-    --t-sans-2: 1.1rem;
-    --t-sans-4: 0.85rem;
+    --t-text-lg: 1.15rem;
+    --t-text-md: 1.1rem;
+    --t-text-xs: 0.85rem;
   }
 }
 
@@ -118,14 +118,14 @@
 
     --t-btn: 1rem;
     --t-eyebrow: 1.125rem;
-    --t-label-2: 1rem;
-    --t-label-3: 0.875rem;
+    --t-label: 1rem;
+    --t-label-sm: 0.875rem;
     --t-nav-headline: 1.125rem;
     --t-nav-list: 0.875rem;
-    --t-serif-1: 1.5rem;
-    --t-serif-4: 1.125rem;
-    --t-sans-1: 1.375rem;
-    --t-sans-2: 1.25rem;
-    --t-sans-4: 1rem;
+    --t-serif-lg: 1.5rem;
+    --t-serif-sm: 1.125rem;
+    --t-text-lg: 1.375rem;
+    --t-text-md: 1.25rem;
+    --t-text-xs: 1rem;
   }
 }

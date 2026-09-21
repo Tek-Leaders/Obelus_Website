@@ -15,7 +15,7 @@ export default function Carousel({
   const { trackRef, canPrev, canNext, prev, next } = useCarousel(slides.length);
 
   return (
-    <div className="glider-contain mr-0 style-three  active" data-card-index="0">
+    <div className="glider-contain mr-0 tile-carousel active">
       <div className="glider-wrapper glider" ref={trackRef}>
         {slides.map((slide, i) => (
           <div
@@ -23,13 +23,12 @@ export default function Carousel({
             className={`slide glider-slide d-flex d-md-block ${
               typeof slideClassName === 'function' ? slideClassName(i) : slideClassName
             }`.trim()}
-            data-gslide={i}
           >
             {slide}
           </div>
         ))}
       </div>
-      <div className="glider-actions  d-flex">
+      <div className="glider-actions d-flex">
         {/*
           Left empty deliberately. The original page renders this container
           with no children - glider.js would have populated it - and the
@@ -45,8 +44,7 @@ export default function Carousel({
             aria-label={`${label} previous`}
             aria-disabled={!canPrev}
             disabled={!canPrev}
-            data-page-track="true"
-            data-page-track-value={`${trackPrefix}previous`}
+            data-analytics={`${trackPrefix}previous`}
             onClick={prev}
           >
             Previous
@@ -57,8 +55,7 @@ export default function Carousel({
             aria-label={`${label} next`}
             aria-disabled={!canNext}
             disabled={!canNext}
-            data-page-track="true"
-            data-page-track-value={`${trackPrefix}next`}
+            data-analytics={`${trackPrefix}next`}
             onClick={next}
           >
             Next

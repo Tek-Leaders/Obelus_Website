@@ -4,12 +4,11 @@ const TOUR_VIDEO = '/assets/video/Obelus-Product-Tour.mp4';
 
 export default function ProductTourSection() {
   return (
-    <CustomBackground id="custom_bg_id_dd33951c-4a82-4ee2-9841-752530636607" variant="custom">
-      <div className="productTourVideoBlock baseComponent parbase section">
+    <CustomBackground variant="custom">
+      <div>
         <PageAnchor id="tour" />
         <section
-          className="product-tour-cards theme-dark base-comp-spacer spacer-large tablet-spacer-unset mobile-spacer-unset bottom-spacer-large bottom-tablet-spacer-unset bottom-mobile-spacer-unset"
-          id="id_fb53a607-994f-4aea-b8c9-745575962839"
+          className="product-tour-cards theme-dark section-space spacer-large bottom-spacer-large"
           data-type="obelus"
           aria-labelledby="product_tour_heading"
         >
@@ -31,9 +30,9 @@ export default function ProductTourSection() {
             </div>
             <div className="row product-tour-row">
               <div className="col-12 mb-3">
-                <div className="product-tour-card ">
+                <div className="product-tour-card">
                   <div
-                    className="sl-embed-container productTourMedia"
+                    className="tour-embed-frame tour-media"
                     style={{
                       position: 'relative',
                       display: 'flex',
@@ -42,7 +41,7 @@ export default function ProductTourSection() {
                     }}
                   >
                     <div
-                      className="sl-embed"
+                      className="tour-embed"
                       style={{
                         position: 'relative',
                         paddingBottom: '56.25%',
@@ -52,7 +51,7 @@ export default function ProductTourSection() {
                       }}
                     >
                       <video
-                        className="sl-demo"
+                        className="tour-video"
                         src={TOUR_VIDEO}
                         controls
                         preload="metadata"

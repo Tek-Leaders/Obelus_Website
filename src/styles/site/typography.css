@@ -7,7 +7,7 @@
  */
 
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6, .h7, .h8 {
+.h1, .h2, .h3, .h4, .h5, .h6, .heading-sm, .heading-xs {
   font-family: var(--font-primary);
   font-weight: 500;
   color: var(--c-ink);
@@ -50,12 +50,12 @@ h6, .h6 {
 }
 
 /* 16px -> 24px */
-.h7 {
+.heading-sm {
   font-size: clamp(1rem, calc(1rem + 8 * (100vw - 768px) / 1152), 1.5rem);
   line-height: 140%;
 }
 
-.h8 {
+.heading-xs {
   font-size: 1rem;
   line-height: 140%;
 }
@@ -78,20 +78,20 @@ h6, .h6 {
   color: var(--c-ink);
 }
 
-.label-2,
-.label-3 {
+.label,
+.label-sm {
   font-family: var(--font-primary);
   font-weight: 600;
   line-height: 140%;
   color: var(--c-ink);
 }
 
-.label-2 {
-  font-size: var(--t-label-2);
+.label {
+  font-size: var(--t-label);
 }
 
-.label-3 {
-  font-size: var(--t-label-3);
+.label-sm {
+  font-size: var(--t-label-sm);
 }
 
 /* Footer navigation text */
@@ -132,39 +132,39 @@ h6, .h6 {
 }
 
 /* Body copy */
-.body-serif-1,
-.body-serif-4 {
+.serif-lg,
+.serif-sm {
   font-family: var(--font-secondary);
   line-height: var(--t-serif-leading);
   color: var(--c-ink);
 }
 
-.body-serif-1 {
-  font-size: var(--t-serif-1);
+.serif-lg {
+  font-size: var(--t-serif-lg);
 }
 
-.body-serif-4 {
-  font-size: var(--t-serif-4);
+.serif-sm {
+  font-size: var(--t-serif-sm);
 }
 
-.body-sans-1,
-.body-sans-2,
-.body-sans-4 {
+.text-lg,
+.text-md,
+.text-xs {
   font-family: var(--font-primary);
   line-height: 150%;
   color: var(--c-ink);
 }
 
-.body-sans-1 {
-  font-size: var(--t-sans-1);
+.text-lg {
+  font-size: var(--t-text-lg);
 }
 
-.body-sans-2 {
-  font-size: var(--t-sans-2);
+.text-md {
+  font-size: var(--t-text-md);
 }
 
-.body-sans-4 {
-  font-size: var(--t-sans-4);
+.text-xs {
+  font-size: var(--t-text-xs);
 }
 
 .list-unstyled {
@@ -173,7 +173,7 @@ h6, .h6 {
 }
 
 /* Brand gradient text for highlighted words in headings */
-.orange-gradient {
+.accent-text {
   background-color: var(--c-brand);
   background-image: linear-gradient(to right, #01dd6f, #009148);
   -webkit-background-clip: text;
