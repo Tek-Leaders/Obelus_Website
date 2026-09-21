@@ -241,17 +241,15 @@ export default function InlineFormSection() {
                             <span className="icon" />
                           </span>
                           <span className="label-2 text-dark">
-                            Sign me up to receive news, product updates, sales outreach,
-                            event information and special offers about Obelus
-                            and its partners.
+                            Send me OBELUS product news, research and event invitations. I
+                            can unsubscribe at any time.
                           </span>
                         </label>
                       </div>
 
                       <div className="legal mt-2">
                         <p className="label-2 form-legal text-dark text-500">
-                          By submitting this form, I understand my personal data will be
-                          processed in accordance with the{' '}
+                          We will only use your details as described in the{' '}
                           <a
                             href="/privacy"
                             data-page-track="true"
@@ -269,26 +267,6 @@ export default function InlineFormSection() {
                             Terms of Use.{' '}
                           </a>
                         </p>
-                      </div>
-
-                      <div className="recaptcha-msg body-sans-4 text-dark text-500 mt-3">
-                        This site is protected by reCAPTCHA and the Google{' '}
-                        <a
-                          href="https://policies.google.com/privacy"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Privacy Policy
-                        </a>{' '}
-                        and{' '}
-                        <a
-                          href="https://policies.google.com/terms"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Terms of Service
-                        </a>{' '}
-                        apply.
                       </div>
 
                       <div className="actions">
@@ -309,7 +287,7 @@ export default function InlineFormSection() {
                       <div className="thank-you-msg" role="status">
                         <h2 className="thank-you-msg-header h3">Success!</h2>
                         <p className="thank-you-msg-body subheading-2">
-                          Our associates will reach out to you soon!
+                          Thanks - an OBELUS specialist will be in touch shortly.
                         </p>
                       </div>
                     )}

@@ -44,7 +44,7 @@ export default function FooterSubscribeForm() {
         <div className="row">
           <div className="col-12 col-md-4 col-xl-6">
             <div className="h4 form-title text-white mb-0">
-              Get the latest news, invites to events, and threat alerts
+              Threat research and OBELUS updates, straight to your inbox
             </div>
           </div>
           <div className="col-12 col-md-8 col-xl-6 col-xxxl-5 offset-xxxl-1">
@@ -59,7 +59,7 @@ export default function FooterSubscribeForm() {
             >
               <div className="footer-form-input-container d-flex flex-column">
                 <div className="d-flex">
-                  <label className="form-field" htmlFor="PAN_FOOTER_EMAIL_FIELD">
+                  <label className="form-field" htmlFor="OBELUS_FOOTER_EMAIL_FIELD">
                     {/*
                       `display: none` is carried over from the original markup
                       and is load-bearing: .sr-only is not positioned out of
@@ -68,16 +68,16 @@ export default function FooterSubscribeForm() {
                       has an accessible name.
                     */}
                     <span className="sr-only" style={{ display: 'none' }}>
-                      Enter your email now to subscribe!
+                      Your work email
                     </span>
                     <input
                       type="email"
                       name="Email"
                       required
                       className="mb-md-3 body-serif-1 text-white"
-                      placeholder="Enter your email now to subscribe!"
-                      aria-label="Enter your email now to subscribe!"
-                      id="PAN_FOOTER_EMAIL_FIELD"
+                      placeholder="Your work email"
+                      aria-label="Your work email"
+                      id="OBELUS_FOOTER_EMAIL_FIELD"
                       autoComplete="email"
                       value={email}
                       aria-invalid={showError}
@@ -111,8 +111,7 @@ export default function FooterSubscribeForm() {
 
               <div className="legal">
                 <p className="label-3 text-400 text-white form-legal">
-                  By submitting this form, I understand my personal data will be
-                  processed in accordance with the{' '}
+                  We will only use your details as described in the{' '}
                   <a
                     href="/privacy"
                     data-page-track="true"
