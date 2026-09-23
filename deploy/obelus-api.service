@@ -1,0 +1,39 @@
+# systemd unit for the Django API.
+#
+#   sudo cp deploy/obelus-api.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now obelus-api
+#   sudo systemctl status obelus-api
+#
+# Logs: journalctl -u obelus-api -f
+
+[Unit]
+Description=OBELUS website API (Django/gunicorn)
+After=network.target mysql.service
+Requires=mysql.service
+
+[Service]
+Type=notify
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/obelus/backend
+# .env holds SECRET_KEY, database and SMTP credentials. Keep it 0600 and
+# owned by this user; it must never be world-readable.
+EnvironmentFile=/var/www/obelus/backend/.env
+ExecStart=/var/www/obelus/backend/.venv/bin/gunicorn \
+    --workers 3 \
+    --bind 127.0.0.1:8000 \
+    --access-logfile - \
+    --error-logfile - \
+    obelus_api.wsgi:application
+Restart=on-failure
+RestartSec=5
+
+# Hardening: the service only needs to read its own directory.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target

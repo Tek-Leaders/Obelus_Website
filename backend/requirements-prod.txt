@@ -1,0 +1,8 @@
+# Production-only additions. Install with:
+#     pip install -r requirements-prod.txt
+#
+# Kept separate from requirements.txt because gunicorn does not run on
+# Windows, where development happens.
+-r requirements.txt
+
+gunicorn==23.0.0

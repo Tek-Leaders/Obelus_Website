@@ -1,0 +1,20 @@
+# Normalise line endings: the repository always stores LF, whatever the
+# developer's machine uses. Without this, files committed from Windows carry
+# CRLF, and a shell script with CRLF fails on Linux with
+# "bad interpreter: /bin/bash^M".
+* text=auto eol=lf
+
+# PowerShell is Windows-only; keep it CRLF.
+*.ps1 text eol=crlf
+
+# Never touch binaries.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg text
+*.mp4 binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
