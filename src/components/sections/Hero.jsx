@@ -1,8 +1,10 @@
 import { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
 import { useHeroAnimation } from '../../hooks/useHeroAnimation';
-import { hero } from '../../data/hero';
 
+/**
+ * The product-tour video under the opening statement. The copy that used to
+ * sit above it now lives in CsmIntro.
+ */
 export default function Hero() {
   const { waypointRef, step1 } = useHeroAnimation();
   const videoRef = useRef(null);
@@ -44,73 +46,27 @@ export default function Hero() {
       <div className="block-space pad-top-0" />
       <div className={`obelus-hero ${step1 ? 'is-intro' : ''}`.trim()} data-type="obelus">
         <div className="container-fluid">
-          <div className="row">
-            <div className="col-12 col-xl-5">
-              <div className="heading mt-3 mb-5 my-md-0">
-                <span className="eyebrow obelus-hero-icon">{hero.eyebrow}</span>
-                <div className="hero-copy">
-                  <h1 className="h1 title text-white">
-                    {hero.titleLines[0]} <br className="d-none d-xl-inline" />
-                    {hero.titleLines[1]}
-                  </h1>
-                  {/* Kept as an h2: site/base.css gives h1-h6 a 0.5rem bottom margin
-                      but p a 1rem one, so swapping the tag would shift layout. */}
-                  <h2 className="heading-sm text-white mt-4">{hero.subtitle}</h2>
-                  <span>
-                    <br />
-                  </span>
-                  <div>
-                    <div className="block-space pad-top-0" />
-                    <ul className="list-unstyled" data-type="">
-                      <li>
-                        <Link
-                          to={hero.primaryCta.href}
-                          className="btn mb-3 btn-primary dark"
-                          data-analytics="obelus:hero:request a demo"
-                        >
-                          {hero.primaryCta.label}
-                          <i />
-                        </Link>
-                      </li>
-                    </ul>
-                    <ul className="list-unstyled">
-                      <li>
-                        <Link
-                          to={hero.secondaryCta.href}
-                          className="btn btn-link mb-2 dark"
-                          data-analytics="obelus:hero:explore the platform"
-                        >
-                          {hero.secondaryCta.label}
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-12 col-lg-10 offset-lg-1 col-xl-7 offset-xl-0">
-              <div className="hero-media-wrap">
-                <div className="hero-media ratio-16x9" ref={mediaFrameRef}>
-                  <video
-                    ref={videoRef}
-                    className="hero-video"
-                    autoPlay
-                    muted
-                    playsInline
-                    loop
-                    preload="auto"
-                    aria-label="OBELUS security operations platform demo"
-                  >
-                    <source src="/assets/video/Obelus-Product-Tour.mp4" type="video/mp4" />
-                  </video>
-                  <button
-                    type="button"
-                    className="video-zoom"
-                    onClick={enlargeVideo}
-                    aria-label="Enlarge video"
-                  />
-                </div>
+          <div className="hero-stack">
+            <div className="hero-media-wrap">
+              <div className="hero-media ratio-16x9" ref={mediaFrameRef}>
+                <video
+                  ref={videoRef}
+                  className="hero-video"
+                  autoPlay
+                  muted
+                  playsInline
+                  loop
+                  preload="auto"
+                  aria-label="OBELUS security operations platform demo"
+                >
+                  <source src="/assets/video/Obelus-Product-Tour.mp4" type="video/mp4" />
+                </video>
+                <button
+                  type="button"
+                  className="video-zoom"
+                  onClick={enlargeVideo}
+                  aria-label="Enlarge video"
+                />
               </div>
             </div>
           </div>

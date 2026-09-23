@@ -1,0 +1,329 @@
+/*
+ * Contact Us page (/contact): offices on the left, message form on the right.
+ *
+ * Scoped under .contact-page like request-demo.css / about.css. Headings and
+ * links carry an explicit `color`, because styles/site/ sets `color` directly
+ * on unscoped h1-h6 and a elements.
+ */
+
+.contact-page {
+  --contact-green: #00c65e;
+  --contact-bg: #0a121f;
+  --contact-line: rgba(255, 255, 255, 0.09);
+  --contact-white: #fff;
+  --contact-muted: #b8c4bd;
+
+  background: var(--contact-bg);
+  color: var(--contact-white);
+  font-family: var(--font-primary);
+  overflow-x: hidden;
+}
+
+.contact-page * {
+  box-sizing: border-box;
+}
+
+.contact-section {
+  position: relative;
+  overflow: hidden;
+  /* The shared header floats over the first section; 150px clears it. */
+  padding: 150px 0 96px;
+  background: radial-gradient(ellipse 80% 60% at 25% 20%, rgba(15, 45, 110, 0.55) 0%, var(--contact-bg) 70%);
+}
+
+.contact-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+}
+
+.contact-container {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  gap: 72px;
+  align-items: start;
+}
+
+/* ---------- Left: intro and offices ---------- */
+
+.contact-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 16px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--contact-green);
+}
+
+.contact-eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--contact-green);
+}
+
+.contact-title {
+  margin: 0 0 18px;
+  font-size: clamp(2rem, 3.6vw, 2.9rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--contact-white);
+}
+
+.contact-lede {
+  max-width: 560px;
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: var(--contact-muted);
+}
+
+.contact-offices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px 40px;
+  margin: 48px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-office {
+  padding-top: 22px;
+  border-top: 1px solid var(--contact-line);
+}
+
+.contact-office-country {
+  margin: 0 0 14px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--contact-green);
+}
+
+.contact-office-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-style: normal;
+}
+
+.contact-line {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--contact-muted);
+}
+
+.contact-icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  fill: none;
+  stroke: var(--contact-green);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.contact-address-line {
+  display: block;
+}
+
+.contact-office-details a {
+  color: var(--contact-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-office-details a:hover {
+  color: var(--contact-white);
+  text-decoration: underline;
+}
+
+.contact-map-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--contact-green) !important;
+}
+
+/* ---------- Right: form ---------- */
+
+.contact-form-panel {
+  padding: 32px;
+  border: 1px solid var(--contact-line);
+  border-radius: 18px;
+  background: rgba(8, 18, 32, 0.72);
+  box-shadow: 0 24px 60px rgba(2, 6, 16, 0.45);
+  backdrop-filter: blur(10px);
+}
+
+.contact-form-eyebrow {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--contact-white);
+}
+
+.contact-form-body {
+  margin: 0 0 24px;
+  font-size: 0.92rem;
+  color: var(--contact-muted);
+}
+
+.contact-field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.contact-field-wide {
+  grid-column: 1 / -1;
+}
+
+.contact-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--contact-white);
+}
+
+.contact-input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--contact-white);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.contact-input::placeholder {
+  color: rgba(184, 196, 189, 0.7);
+}
+
+textarea.contact-input {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-input:focus {
+  outline: none;
+  border-color: var(--contact-green);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.contact-input[aria-invalid='true'] {
+  border-color: #ff9d80;
+}
+
+.contact-field-error {
+  margin: 6px 0 0;
+  font-size: 0.8rem;
+  color: #ff9d80;
+}
+
+.contact-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 22px;
+  padding: 0.95rem 1.5rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--contact-green);
+  color: #04220f;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.contact-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 198, 94, 0.35);
+}
+
+.contact-submit:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.contact-form-success {
+  margin: 0;
+  padding: 20px 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--contact-white);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 991px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-section {
+    padding: 124px 0 64px;
+  }
+
+  .contact-offices {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .contact-field-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form-panel {
+    padding: 24px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-submit,
+  .contact-input,
+  .contact-office-details a {
+    transition: none;
+  }
+}
+
+/* Whole-form failure (network down, rate limited), as opposed to the
+   per-field messages under each input. */
+.contact-form-error {
+  margin: 18px 0 0;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 157, 128, 0.4);
+  border-radius: 10px;
+  background: rgba(255, 157, 128, 0.08);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #ff9d80;
+}

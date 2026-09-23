@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { EMAIL_PATTERN } from '../../data/formFields';
 import LazyBackground from '../common/LazyBackground';
+import Honeypot from '../common/Honeypot';
+import { submitForm, GENERIC_ERROR } from '../../lib/api';
 
 /**
  * The footer subscription form. The submit button ships `disabled` in the
@@ -9,26 +11,42 @@ import LazyBackground from '../common/LazyBackground';
  */
 export default function FooterSubscribeForm() {
   const [email, setEmail] = useState('');
+  const [website, setWebsite] = useState('');
   const [touched, setTouched] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [formError, setFormError] = useState('');
 
   const valid = EMAIL_PATTERN.test(email.trim());
   const showError = touched && !valid && email.length > 0;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setTouched(true);
-    if (valid) setSubmitted(true);
+    setFormError('');
+    if (!valid || sending) return;
+
+    setSending(true);
+    const result = await submitForm('/api/subscribe/', { email, website });
+    setSending(false);
+
+    if (result.ok) {
+      setSubmitted(true);
+      return;
+    }
+    // One field, so a field-level message and a form-level one read the same.
+    setFormError(result.fieldErrors?.email || result.formError || GENERIC_ERROR);
   };
 
   const SubmitButton = ({ className, track }) => (
     <button
       type="submit"
       className={`btn btn-primary flex-grow-0 flex-shrink-0 ${className}`}
-      disabled={!valid}
+      disabled={!valid || sending}
+      aria-busy={sending}
       data-analytics={track}
     >
-      Sign up <i />
+      {sending ? 'Signing up…' : 'Sign up'} <i />
     </button>
   );
 
@@ -98,9 +116,16 @@ export default function FooterSubscribeForm() {
                   </div>
                 </div>
 
+                <Honeypot value={website} onChange={(e) => setWebsite(e.target.value)} />
+
                 {submitted && (
                   <p className="label-sm text-400 text-white" role="status">
                     Thanks - you are subscribed.
+                  </p>
+                )}
+                {formError && (
+                  <p className="label-sm text-400 newsletter-error" role="alert">
+                    {formError}
                   </p>
                 )}
               </div>

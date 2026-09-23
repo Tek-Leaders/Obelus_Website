@@ -1,10 +1,9 @@
-// Landing-page hero copy.
-export const hero = {
-  eyebrow: 'AI-DRIVEN SECURITY OPERATIONS',
-  // Split so the line break lands in the same place the layout expects.
-  titleLines: ['Security operations that', 'get ahead, not overwhelmed'],
-  subtitle:
-    'OBELUS unites SIEM, UEBA, threat intelligence and SOAR in one AI-driven platform — so your team cuts risk, shortens response times, and lowers the cost of running a SOC.',
-  primaryCta: { label: 'Request a demo', href: '/request-demo', internal: true },
-  secondaryCta: { label: 'Explore the platform', href: '/products', internal: true },
+// Landing-page opening statement.
+
+// The statement that opens the page, above the hero.
+export const csmIntro = {
+  brand: 'OBELUS',
+  title: 'a Combined Security Management (CSM) Platform',
+  body:
+    'A single platform to provide SIEM + UEBA + Threat Intel + SOAR solution to automate investigation, response, and threat hunting for your SOC.',
 };

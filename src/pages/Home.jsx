@@ -1,3 +1,4 @@
+import CsmIntro from '../components/sections/CsmIntro';
 import Hero from '../components/sections/Hero';
 import ChallengesSection from '../components/sections/ChallengesSection';
 import WhyObelusSection from '../components/sections/WhyObelusSection';
@@ -8,6 +9,7 @@ import FixedBackground from '../components/common/FixedBackground';
 
 /*
  * Landing page order:
+ *   CsmIntro        -> what OBELUS is, in one line
  *   Hero            -> the promise
  *   Challenges      -> the problem it answers
  *   WhyObelusSection-> "Unite your defense": detect / hunt / investigate / respond
@@ -22,6 +24,7 @@ export default function Home() {
   return (
     <>
       <FixedBackground />
+      <CsmIntro />
       <Hero />
       <ChallengesSection />
       <WhyObelusSection />

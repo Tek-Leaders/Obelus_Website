@@ -11,12 +11,10 @@ import SearchOverlay from './SearchOverlay';
 import NavToggle from './NavToggle';
 
 /**
- * The product nav. The mega-dropdown panels are empty <div>s for now.
- * Every current `navLeftLinks` entry is a plain link (Products included -
- * see /products, a full page rather than a dropdown), so this branch is
- * dormant scaffolding until a future nav item actually needs a dropdown;
- * render into the matching `item.type` below if that happens rather than
- * leaving the panel empty.
+ * The product nav. A `navLeftLinks` entry carrying a `dropdown` array
+ * (Products) stays a real link to its own page and additionally opens a panel
+ * listing that page's sections - on hover for a mouse, and on the chevron
+ * button for keyboard and touch. Entries without one are plain links.
  */
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -190,7 +188,19 @@ export default function Header() {
                 </li>
                 {navLeftLinks.map((item) =>
                   item.href ? (
-                    <li className="link" role="none" key={item.label}>
+                    <li
+                      className={[
+                        'link',
+                        item.dropdown ? 'has-dropdown' : '',
+                        item.dropdown && openMenu === item.id ? 'open' : '',
+                      ]
+                        .filter(Boolean)
+                        .join(' ')}
+                      role="none"
+                      key={item.label}
+                      onMouseEnter={item.dropdown ? () => openOnHover(item.id) : undefined}
+                      onMouseLeave={item.dropdown ? closeOnHoverLeave : undefined}
+                    >
                       {item.internal ? (
                         <Link
                           to={item.href}
@@ -209,6 +219,45 @@ export default function Header() {
                         >
                           {item.label}
                         </a>
+                      )}
+                      {item.dropdown && (
+                        <>
+                          {/* The label itself navigates to the page, so the
+                              panel needs its own control - otherwise there is
+                              no way to open it without a mouse. */}
+                          <button
+                            type="button"
+                            className="nav-dropdown-toggle"
+                            aria-label={`${openMenu === item.id ? 'Hide' : 'Show'} ${item.label} menu`}
+                            aria-expanded={openMenu === item.id}
+                            aria-controls={`${item.id}_panel`}
+                            data-analytics={`obelusNav:${item.label}:menu`}
+                            onClick={() => toggleMenu(item.id)}
+                          >
+                            <svg viewBox="0 0 16 16" aria-hidden="true">
+                              <path d="M3.5 6L8 10.5 12.5 6" />
+                            </svg>
+                          </button>
+                          <div
+                            className="nav-dropdown"
+                            id={`${item.id}_panel`}
+                            hidden={openMenu !== item.id}
+                          >
+                            <ul className="nav-dropdown-list">
+                              {item.dropdown.map((entry) => (
+                                <li key={entry.label}>
+                                  <Link
+                                    to={entry.href}
+                                    data-analytics={`obelusNav:${item.label}:${entry.label}`}
+                                  >
+                                    <span className="nav-dropdown-label">{entry.label}</span>
+                                    <span className="nav-dropdown-text">{entry.text}</span>
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </>
                       )}
                     </li>
                   ) : (

@@ -5,6 +5,63 @@ export const navLeftLinks = [
     internal: true,
     target: '_self',
     track: 'obelusNav:Products',
+    // Hovering the link opens this panel; each entry jumps to that product's
+    // section on /products. Ids match those in data/products.js, which the
+    // page uses as its section ids.
+    id: 'nav_products',
+    dropdown: [
+      {
+        label: 'SIEM',
+        href: '/products#siem',
+        text: 'Event management, information management and correlation in one detection hub.',
+      },
+      {
+        label: 'UEBA',
+        href: '/products#ueba',
+        text: 'Profile user risk and detect the anomalous behavior behind insider threats.',
+      },
+      {
+        label: 'Threat Intelligence Platform',
+        href: '/products#tip',
+        text: 'Aggregate and structure millions of IOCs for event analysis and adversary profiling.',
+      },
+      {
+        label: 'SOAR',
+        href: '/products#soar',
+        text: 'Automate incident response with customizable, API-driven playbooks.',
+      },
+      {
+        label: 'Investigations By Graph',
+        href: '/products#graph',
+        text: 'Correlate IPs, URLs, domains and metadata to trace a threat end to end.',
+      },
+      {
+        label: 'Brand Monitoring',
+        href: '/products#brand',
+        text: 'Track mentions and sentiment across social and digital channels.',
+      },
+    ],
+  },
+  {
+    label: 'About Us',
+    href: '/about',
+    internal: true,
+    target: '_self',
+    track: 'obelusNav:About Us',
+  },
+  {
+    label: 'Our Team',
+    href: '/team',
+    internal: true,
+    target: '_self',
+    track: 'obelusNav:Our Team',
+  },
+  {
+    label: 'Contact Us',
+    href: '/contact',
+    internal: true,
+    target: '_self',
+    track: 'obelusNav:Contact Us',
   },
 ];
 
@@ -22,11 +79,6 @@ export const mobileToolbarPrimary = [
 
 // TODO: replace /support with the real Obelus support portal URL.
 export const mobileToolbarSecondary = [
-  {
-    label: 'Contact Us',
-    href: '/request-demo',
-    track: 'obelusNav:Contact Us',
-  },
   {
     label: "What's New",
     href: '/#resources',

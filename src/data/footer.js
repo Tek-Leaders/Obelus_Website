@@ -124,7 +124,7 @@ export const footerColumns = [
       [
         { label: 'About Us', href: '/about', target: '_self', sub: false, track: 'obelus:footer:about us' },
         { label: 'Careers', href: '/careers', target: '_self', sub: false, track: 'obelus:footer:careers' },
-        { label: 'Contact Us', href: '/request-demo', target: '_self', sub: false, track: 'obelus:footer:contact us' },
+        { label: 'Contact Us', href: '/contact', target: '_self', sub: false, track: 'obelus:footer:contact us' },
         { label: 'Newsroom', href: '/news', target: '_self', sub: false, track: 'obelus:footer:newsroom' },
       ],
     ],

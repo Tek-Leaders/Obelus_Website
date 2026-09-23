@@ -1,0 +1,16 @@
+New {{ sub.get_kind_display }} submission from the OBELUS website.
+
+Name:     {{ sub.full_name|default:"-" }}
+Email:    {{ sub.email }}
+Company:  {{ sub.company|default:"-" }}
+Phone:    {{ sub.phone|default:"-" }}
+{% for key, value in sub.extra.items %}{{ key }}: {{ value }}
+{% endfor %}{% if sub.message %}
+Message:
+{{ sub.message }}
+{% endif %}
+Marketing opt-in: {{ sub.marketing_opt_in|yesno:"yes,no" }}
+Received: {{ sub.created_at }}
+IP: {{ sub.ip_address|default:"-" }}
+
+Reply to this email to answer {{ sub.first_name|default:"them" }} directly.

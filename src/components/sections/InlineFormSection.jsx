@@ -11,6 +11,8 @@ import {
   EMAIL_PATTERN,
 } from '../../data/formFields';
 import LazyBackground from '../common/LazyBackground';
+import Honeypot from '../common/Honeypot';
+import { submitForm } from '../../lib/api';
 
 const INITIAL = {
   firstName: '',
@@ -25,6 +27,7 @@ const INITIAL = {
   postalCode: '',
   department: '',
   marketingOptIn: false,
+  website: '',
 };
 
 const BASE_REQUIRED = [
@@ -106,12 +109,16 @@ export default function InlineFormSection() {
   const [values, setValues] = useState(INITIAL);
   const [touched, setTouched] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [serverErrors, setServerErrors] = useState({});
+  const [formError, setFormError] = useState('');
 
   const isUS = values.country === COUNTRY_US;
   const isCanada = values.country === COUNTRY_CANADA;
   const showDepartment = DEPARTMENT_COUNTRIES.includes(values.country);
 
   const errorFor = (name) => {
+    if (serverErrors[name]) return serverErrors[name];
     const value = values[name];
     if (name === 'email') {
       if (!value.trim()) return 'Email is required.';
@@ -140,16 +147,35 @@ export default function InlineFormSection() {
       // A country change invalidates whichever sub-region field was showing.
       ...(name === 'country' ? { state: '', postalCode: '', department: '' } : null),
     }));
+    setServerErrors((prev) => (prev[name] ? { ...prev, [name]: '' } : prev));
   };
 
   const onBlur = (name) => () => setTouched((t) => ({ ...t, [name]: true }));
 
   const form = { values, touched, errorFor, onChange, onBlur };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setTouched(Object.fromEntries(required.map((n) => [n, true])));
-    if (formValid) setSubmitted(true);
+    setFormError('');
+    if (!formValid || sending) return;
+
+    setSending(true);
+    const result = await submitForm('/api/lead/', values);
+    setSending(false);
+
+    if (result.ok) {
+      setSubmitted(true);
+      return;
+    }
+    if (result.fieldErrors) {
+      setServerErrors(result.fieldErrors);
+      setTouched((t) => ({
+        ...t,
+        ...Object.fromEntries(Object.keys(result.fieldErrors).map((n) => [n, true])),
+      }));
+    }
+    if (result.formError) setFormError(result.formError);
   };
 
   return (
@@ -264,14 +290,23 @@ export default function InlineFormSection() {
                         </p>
                       </div>
 
+                      <Honeypot value={values.website} onChange={onChange('website')} />
+
+                      {formError && (
+                        <p className="inline-form-error" role="alert">
+                          {formError}
+                        </p>
+                      )}
+
                       <div className="actions">
                         <button
                           type="submit"
                           className="btn btn-primary mt-4"
-                          disabled={!formValid}
+                          disabled={!formValid || sending}
+                          aria-busy={sending}
                           data-analytics="obelus:inlineform:Submit"
                         >
-                          Submit <i />
+                          {sending ? 'Sending…' : 'Submit'} <i />
                         </button>
                       </div>
                     </form>
@@ -279,9 +314,15 @@ export default function InlineFormSection() {
 
                     {submitted && (
                       <div className="form-success" role="status">
-                        <h2 className="form-success-title h3">Success!</h2>
-                        <p className="form-success-body subheading">
-                          Thanks - an OBELUS specialist will be in touch shortly.
+                        <span className="form-success-icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24">
+                            <path d="M4.5 12.5l5 5 10-11" />
+                          </svg>
+                        </span>
+                        <h2 className="form-success-title">Thanks, we have your details</h2>
+                        <p className="form-success-body">
+                          An OBELUS specialist will be in touch shortly. We have also sent
+                          a confirmation to your inbox.
                         </p>
                       </div>
                     )}

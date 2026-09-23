@@ -153,9 +153,13 @@
   box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
-.prod-media:has(video),
 .prod-media .img-placeholder {
   aspect-ratio: 16 / 10;
+}
+/* Video cards take the clip's own 16:9 shape, so the video fills the frame
+   edge to edge with no empty band. */
+.prod-media:has(video) {
+  aspect-ratio: 16 / 9;
 }
 .prod-media img {
   width: calc(100% + 8px);
@@ -190,6 +194,9 @@
 .prod-media-video {
   position: relative;
   display: block;
+}
+.prod-media-video {
+  height: 100%;
 }
 .prod-media-video:fullscreen,
 .prod-media-video:-webkit-full-screen {

@@ -1,0 +1,428 @@
+/*
+ * Our Team page (/team).
+ *
+ * Scoped under .team-page like products.css / request-demo.css. Headings and
+ * links carry an explicit `color`, because styles/site/ sets `color` directly
+ * on unscoped h1-h6 and a elements.
+ */
+
+.team-page {
+  --team-green: #00c65e;
+  --team-green-soft: rgba(0, 198, 94, 0.18);
+  --team-bg: #0a0e17;
+  --team-bg-2: #0d1420;
+  --team-card: rgba(255, 255, 255, 0.03);
+  --team-line: rgba(255, 255, 255, 0.08);
+  --team-white: #fff;
+  --team-muted: #aab2c5;
+  /* Neutral studio backdrop for every portrait: a soft light behind the head,
+     falling off to deep slate at the edges and floor. */
+  --team-studio:
+    radial-gradient(ellipse 70% 55% at 50% 32%, rgba(214, 224, 240, 0.16) 0%, rgba(214, 224, 240, 0) 70%),
+    linear-gradient(180deg, #243044 0%, #172030 55%, #0e141f 100%);
+
+  background: var(--team-bg);
+  color: var(--team-white);
+  font-family: var(--font-primary);
+  overflow-x: hidden;
+}
+
+.team-page * {
+  box-sizing: border-box;
+}
+
+.team-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.team-eyebrow {
+  margin: 0 0 16px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--team-green);
+}
+
+/* ---------- Hero ---------- */
+
+.team-hero {
+  position: relative;
+  overflow: hidden;
+  /* The shared header floats over the first section; 140px clears it. */
+  padding: 140px 0 72px;
+  background: radial-gradient(ellipse 80% 60% at 25% 20%, rgba(15, 45, 110, 0.55) 0%, var(--team-bg) 70%);
+}
+
+.team-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.75;
+}
+
+.team-hero .team-container {
+  position: relative;
+}
+
+.team-hero-title {
+  max-width: 820px;
+  margin: 0 0 20px;
+  font-size: clamp(2rem, 3.6vw, 2.9rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--team-white);
+}
+
+.team-hero-body {
+  max-width: 680px;
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--team-muted);
+}
+
+/* ---------- Founder spotlight ---------- */
+
+.team-founder {
+  padding: 72px 0 96px;
+  border-top: 1px solid var(--team-line);
+}
+
+.team-founder-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 72px;
+  align-items: center;
+}
+
+.team-founder-frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  max-width: 460px;
+  margin: 0 auto;
+  border: 1px solid var(--team-line);
+  border-radius: 24px;
+  background: var(--team-studio);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+}
+
+/* The portrait is a photograph rather than a cut-out, so it fills the frame
+   instead of standing on the studio backdrop. */
+.team-founder-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.5s ease;
+}
+
+.team-founder-frame:hover img,
+.team-founder-frame:focus-within img {
+  transform: scale(1.03);
+}
+
+.team-founder-name {
+  margin: 0 0 6px;
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--team-white);
+}
+
+.team-founder-role {
+  margin: 0 0 28px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--team-green);
+}
+
+.team-founder-bio {
+  max-width: 600px;
+  margin: 0 0 16px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--team-muted);
+}
+
+/* ---------- Team groups ---------- */
+
+.team-group {
+  padding: 88px 0;
+  border-top: 1px solid var(--team-line);
+}
+
+.team-group:nth-of-type(even) {
+  background: var(--team-bg-2);
+}
+
+.team-group-header {
+  max-width: 720px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+
+.team-group-title {
+  margin: 0 0 12px;
+  font-size: clamp(1.6rem, 2.6vw, 2.25rem);
+  font-weight: 700;
+  color: var(--team-white);
+}
+
+/* Short green rule under each group title */
+.team-group-title::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin: 14px auto 0;
+  border-radius: 3px;
+  background: var(--team-green);
+}
+
+.team-group-body {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--team-muted);
+}
+
+/* Cards keep a four-per-row width and any incomplete row is centred, so a
+   team of any size stays balanced. */
+.team-grid {
+  --team-gap: 24px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--team-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Cards keep a fixed, modest width and the row simply wraps - so a portrait
+   is the same size whether a team has three members or six. */
+.team-grid > li {
+  flex: 0 0 auto;
+  width: clamp(140px, 40vw, 220px);
+}
+
+/* ---------- Member card ---------- */
+
+.team-card {
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--team-line);
+  border-radius: 18px;
+  background: var(--team-card);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover,
+.team-card:focus-within {
+  border-color: rgba(0, 198, 94, 0.45);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+  transform: translateY(-6px);
+}
+
+.team-card-media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--team-studio);
+}
+
+.team-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.5s ease;
+}
+
+.team-card:hover .team-card-media img,
+.team-card:focus-within .team-card-media img {
+  transform: scale(1.05);
+}
+
+.team-avatar {
+  display: block;
+  width: 62%;
+  height: 100%;
+  margin: 0 auto;
+  fill: rgba(170, 178, 197, 0.22);
+}
+
+.team-card-body {
+  padding: 16px 14px 18px;
+  text-align: center;
+}
+
+.team-card-name {
+  margin: 0 0 3px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--team-white);
+}
+
+.team-card-role {
+  margin: 0;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--team-green);
+}
+
+/* ---------- Social links over the portrait ---------- */
+
+/* Always visible - the links are part of the card, not a hover reward. The
+   gradient keeps them legible against whatever the portrait shows. */
+.team-card-overlay {
+  position: absolute;
+  inset: auto 0 0;
+  display: flex;
+  justify-content: center;
+  padding: 44px 12px 16px;
+  background: linear-gradient(to top, rgba(6, 10, 18, 0.92) 0%, rgba(6, 10, 18, 0.6) 55%, rgba(6, 10, 18, 0) 100%);
+}
+
+/* The founder's links are listed under the bio, so the portrait carries none. */
+.team-founder-overlay {
+  display: none;
+}
+
+.team-socials {
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.team-card-overlay .team-socials a {
+  width: 34px;
+  height: 34px;
+}
+
+.team-card-overlay .team-socials svg {
+  width: 16px;
+  height: 16px;
+}
+
+.team-socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--team-white);
+  text-decoration: none;
+  backdrop-filter: blur(6px);
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.team-socials a:hover,
+.team-socials a:focus-visible {
+  border-color: var(--team-green);
+  background: var(--team-green);
+  color: #06120b;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.team-socials a:focus-visible {
+  outline: 2px solid var(--team-white);
+  outline-offset: 2px;
+}
+
+.team-socials svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Founder: the list under the bio is always visible */
+.team-socials-inline {
+  margin-top: 28px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .team-founder-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .team-founder-copy {
+    text-align: center;
+  }
+
+  /* The bio runs to several paragraphs, so keep it ranged left even
+     though the name and role stay centred - centred body copy that long
+     is hard to read on a phone. */
+  .team-founder-bio {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: left;
+  }
+
+  .team-socials-inline {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .team-hero {
+    padding: 120px 0 56px;
+  }
+
+  .team-founder,
+  .team-group {
+    padding: 64px 0;
+  }
+
+  .team-grid {
+    --team-gap: 16px;
+  }
+
+  .team-card-body {
+    padding: 14px 10px 16px;
+  }
+
+  .team-card-name {
+    font-size: 1rem;
+  }
+
+  .team-card-role {
+    font-size: 0.82rem;
+  }
+
+  .team-socials a {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team-card,
+  .team-card-media img,
+  .team-founder-frame img,
+  .team-card-overlay,
+  .team-socials a {
+    transition: none;
+  }
+}

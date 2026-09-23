@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { requestDemoForm } from '../../data/requestDemo';
 import { jobLevels, EMAIL_PATTERN } from '../../data/formFields';
 import Reveal from '../common/Reveal';
+import Honeypot from '../common/Honeypot';
+import { submitForm } from '../../lib/api';
 
 const INITIAL = {
   firstName: '',
@@ -10,6 +12,7 @@ const INITIAL = {
   company: '',
   jobLevel: '',
   phone: '',
+  website: '',
 };
 
 const REQUIRED = ['firstName', 'lastName', 'email', 'company', 'jobLevel', 'phone'];
@@ -73,8 +76,12 @@ export default function RDForm() {
   const [values, setValues] = useState(INITIAL);
   const [touched, setTouched] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [serverErrors, setServerErrors] = useState({});
+  const [formError, setFormError] = useState('');
 
   const errorFor = (name) => {
+    if (serverErrors[name]) return serverErrors[name];
     const value = values[name];
     if (name === 'email') {
       if (!value.trim()) return 'Business email is required.';
@@ -88,13 +95,32 @@ export default function RDForm() {
   const onChange = (name) => (e) => {
     const { value } = e.target;
     setValues((v) => ({ ...v, [name]: value }));
+    setServerErrors((prev) => (prev[name] ? { ...prev, [name]: '' } : prev));
   };
   const onBlur = (name) => () => setTouched((t) => ({ ...t, [name]: true }));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setTouched(Object.fromEntries(REQUIRED.map((n) => [n, true])));
-    if (formValid) setSubmitted(true);
+    setFormError('');
+    if (!formValid || sending) return;
+
+    setSending(true);
+    const result = await submitForm('/api/demo/', values);
+    setSending(false);
+
+    if (result.ok) {
+      setSubmitted(true);
+      return;
+    }
+    if (result.fieldErrors) {
+      setServerErrors(result.fieldErrors);
+      setTouched((t) => ({
+        ...t,
+        ...Object.fromEntries(Object.keys(result.fieldErrors).map((n) => [n, true])),
+      }));
+    }
+    if (result.formError) setFormError(result.formError);
   };
 
   const form = { values, touched, errorFor, onChange, onBlur };
@@ -117,8 +143,21 @@ export default function RDForm() {
           <Field form={form} name="jobLevel" label="Job level" options={jobLevels} />
           <Field form={form} name="phone" label="Phone" type="tel" autoComplete="tel" />
 
-          <button type="submit" className="rd-submit" disabled={!formValid}>
-            {requestDemoForm.submitLabel}
+          <Honeypot value={values.website} onChange={onChange('website')} />
+
+          {formError && (
+            <p className="rd-form-error" role="alert">
+              {formError}
+            </p>
+          )}
+
+          <button
+            type="submit"
+            className="rd-submit"
+            disabled={!formValid || sending}
+            aria-busy={sending}
+          >
+            {sending ? 'Sending…' : requestDemoForm.submitLabel}
             <span aria-hidden="true">→</span>
           </button>
         </form>

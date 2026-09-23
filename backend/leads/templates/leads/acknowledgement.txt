@@ -1,0 +1,16 @@
+Hi {{ sub.first_name|default:"there" }},
+
+Thanks for getting in touch with OBELUS. We have your message and a
+specialist will reply shortly.
+
+For reference, this is what you sent us:
+{% if sub.company %}
+Company: {{ sub.company }}{% endif %}{% if sub.phone %}
+Phone: {{ sub.phone }}{% endif %}{% if sub.message %}
+
+{{ sub.message }}{% endif %}
+
+If you need us sooner, reply to this email or call +1 214 851 2396.
+
+The OBELUS team
+https://obelus.in

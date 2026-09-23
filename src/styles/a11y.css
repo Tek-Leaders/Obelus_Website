@@ -59,3 +59,98 @@
 .site .skip-to-content:focus {
   left: 0;
 }
+
+/*
+ * Honeypot: a real field that no human sees, so anything that fills it in is
+ * a bot (the server rejects those submissions). It is moved out of view
+ * rather than `display: none` - some bots skip hidden inputs - and taken out
+ * of the tab order and the accessibility tree.
+ */
+.hp-field {
+  position: absolute;
+  left: -5000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Whole-form failure messages on the home-page lead form and the footer
+   newsletter, both of which live in the shared site stylesheet's scope. */
+.inline-form-error,
+.newsletter-error {
+  margin: 14px 0 0;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 157, 128, 0.45);
+  border-radius: 8px;
+  background: rgba(255, 157, 128, 0.1);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #ff9d80 !important;
+}
+
+/*
+ * Confirmation shown in place of the home-page lead form once it is sent.
+ * It had no styles of its own, so it inherited the dark heading colour from
+ * styles/site/ and was near-invisible on the dark section. Colours are set
+ * explicitly here for that reason.
+ */
+.form-success {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 34rem;
+  padding: 2.25rem 2rem;
+  border: 1px solid rgba(0, 198, 94, 0.3);
+  border-radius: 1rem;
+  background: rgba(0, 198, 94, 0.06);
+}
+
+.form-success-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1.25rem;
+  border-radius: 50%;
+  background: var(--c-brand, #00c65e);
+}
+
+.form-success-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: none;
+  stroke: #04220f;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.form-success-title {
+  margin: 0 0 0.625rem;
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #fff;
+}
+
+.form-success-body {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: rgba(214, 224, 240, 0.9);
+}
+
+@media (max-width: 575.98px) {
+  .form-success {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .form-success-title {
+    font-size: 1.3rem;
+  }
+}
