@@ -16,9 +16,6 @@ export default function FounderSpotlight({ founder }) {
         <Reveal className="team-founder-media">
           <div className="team-founder-frame">
             <img src={photo} alt={`${name}, ${role} of OBELUS`} decoding="async" />
-            <div className="team-card-overlay team-founder-overlay">
-              <TeamSocials name={name} socials={socials} />
-            </div>
           </div>
         </Reveal>
 
