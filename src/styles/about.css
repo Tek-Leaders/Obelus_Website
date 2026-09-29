@@ -120,7 +120,7 @@
 /* ---------- Sections ---------- */
 
 .about-section {
-  padding: 92px 0;
+  padding: 62px 0;
   border-top: 1px solid var(--about-line);
 }
 
@@ -429,7 +429,7 @@
   }
 
   .about-section {
-    padding: 64px 0;
+    padding: 44px 0;
   }
 
   .about-list-row {

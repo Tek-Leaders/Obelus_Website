@@ -249,20 +249,20 @@
    tablet (< 992px) and mobile (< 768px). */
 
 .site .section-space.pad-top-0 { padding-top: 0; }
-.site .section-space.pad-top-lg { padding-top: 6rem; }
-.site .section-space.pad-top-xl { padding-top: 8rem; }
+.site .section-space.pad-top-lg { padding-top: 4rem; }
+.site .section-space.pad-top-xl { padding-top: 5rem; }
 .site .section-space.pad-bottom-0 { padding-bottom: 0; }
-.site .section-space.pad-bottom-md { padding-bottom: 4rem; }
-.site .section-space.pad-bottom-lg { padding-bottom: 6rem; }
+.site .section-space.pad-bottom-md { padding-bottom: 2.5rem; }
+.site .section-space.pad-bottom-lg { padding-bottom: 4rem; }
 
 @media (max-width: 991.98px) {
-  .site .section-space.tablet-pad-top-md { padding-top: 4rem !important; }
-  .site .section-space.tablet-pad-top-lg { padding-top: 6rem !important; }
+  .site .section-space.tablet-pad-top-md { padding-top: 2.5rem !important; }
+  .site .section-space.tablet-pad-top-lg { padding-top: 4rem !important; }
 }
 
 @media (max-width: 767.98px) {
   .site .section-space.mobile-pad-top-sm { padding-top: 2rem !important; }
-  .site .section-space.mobile-pad-top-md { padding-top: 4rem !important; }
+  .site .section-space.mobile-pad-top-md { padding-top: 2.5rem !important; }
 }
 
 .site.site-shell .section-space.pad-top-0 {

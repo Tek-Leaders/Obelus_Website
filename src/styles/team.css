@@ -88,7 +88,7 @@
 /* ---------- Founder spotlight ---------- */
 
 .team-founder {
-  padding: 72px 0 96px;
+  padding: 52px 0 64px;
   border-top: 1px solid var(--team-line);
 }
 
@@ -154,7 +154,7 @@
 /* ---------- Team groups ---------- */
 
 .team-group {
-  padding: 88px 0;
+  padding: 60px 0;
   border-top: 1px solid var(--team-line);
 }
 
@@ -366,7 +366,7 @@
 
   .team-founder,
   .team-group {
-    padding: 64px 0;
+    padding: 44px 0;
   }
 
   .team-grid {
