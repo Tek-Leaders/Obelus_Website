@@ -34,6 +34,10 @@ class Command(BaseCommand):
                 'in .env to deliver for real.'
             ))
 
+        # Flush before sending: the settings block goes to stdout and a
+        # failure to stderr, and unflushed buffers print them out of order.
+        self.stdout.flush()
+
         message = EmailMultiAlternatives(
             subject='[OBELUS] Test email',
             body=(

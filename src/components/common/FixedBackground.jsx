@@ -20,7 +20,7 @@ export default function FixedBackground() {
         orbColor="rgba(58, 122, 224, 0)"
       />
       <img
-        src="/assets/img/obelus/obelus-mark-large.png"
+        src="/assets/img/obelus/obelus-mark-large.webp"
         alt=""
         className="site-fixed-bg-watermark"
       />

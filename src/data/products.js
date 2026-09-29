@@ -34,7 +34,7 @@ export const products = [
     id: 'tip',
     label: 'Threat Intelligence Platform',
     icon: 'tip',
-    image: '/assets/img/obelus/ThreatIntel.png',
+    image: '/assets/img/obelus/ThreatIntel.webp',
     description:
       'OBELUS TIP (Threat Intelligence Platform) aggregates, structures, and allows companies to better utilize threat intelligence, with the ability to handle millions of IOCs, conduct cyber event analysis, and adversary profiling.',
     cta: 'Explore the Threat Intelligence Platform',

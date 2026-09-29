@@ -56,7 +56,11 @@ export default function ProductSection({ product, index }) {
             muted
             loop
             playsInline
-            preload="auto"
+            // "metadata", not "auto": the clip is ~40 MB, and this one sits
+            // below the fold, so preloading it in full competes with the
+            // content the visitor is actually looking at.
+            preload="metadata"
+            poster="/assets/img/obelus/product-tour-poster.webp"
             aria-label={`${product.label} product tour`}
           />
           <button
