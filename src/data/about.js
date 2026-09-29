@@ -42,7 +42,7 @@ export const aboutPillars = {
     {
       title: 'Next-Gen SIEM',
       subtitle: 'Security Information & Event Management',
-      body: 'Continuously aggregates, normalizes, and correlates logs across your entire IT infrastructure—cloud, on-premise, and hybrid environments—to catch sophisticated threats early.',
+      body: 'Continuously aggregates, normalizes, and correlates logs across your entire IT infrastructure—cloud, on-premises, and hybrid environments—to catch sophisticated threats early.',
     },
     {
       title: 'Advanced SOAR',

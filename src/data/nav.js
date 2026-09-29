@@ -80,7 +80,7 @@ export const mobileToolbarPrimary = [
 // TODO: replace /support with the real Obelus support portal URL.
 export const mobileToolbarSecondary = [
   {
-    label: "What's New",
+    label: "What\u2019s New",
     href: '/#resources',
     track: 'obelusNav:Resources',
   },

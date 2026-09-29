@@ -38,7 +38,7 @@ export const pillars = [
     eyebrow: 'Hunt',
     titleParts: [{ text: 'Hunt with ' }, { text: 'intent', gradient: true }],
     body:
-      'Intelligence-led hunts, guided step by step, let analysts pursue adversary behaviour rather than isolated indicators — and keep tracking a campaign as its infrastructure and tooling change.',
+      'Intelligence-led hunts, guided step by step, let analysts pursue adversary behavior rather than isolated indicators — and keep tracking a campaign as its infrastructure and tooling change.',
     bullets: ['Intelligence-led hunting', 'Fully guided hunts', 'Continuous adversary tracking'],
   },
   {

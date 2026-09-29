@@ -13,7 +13,7 @@ export const teamIntro = {
   eyebrow: 'Our Team',
   title: 'The people behind OBELUS',
   body:
-    'Engineers, analysts and security practitioners building and running an AI-driven security operations platform - and working alongside the teams who depend on it.',
+    'Engineers, analysts and security practitioners building and running an AI-driven security operations platform — and working alongside the teams who depend on it.',
 };
 
 export const founder = {
@@ -36,7 +36,7 @@ export const teams = [
   {
     id: 'engineering',
     title: 'Engineering Team',
-    body: 'The engineers who design, build and ship the OBELUS platform - from data pipelines and detection engines to the analyst experience.',
+    body: 'The engineers who design, build and ship the OBELUS platform — from data pipelines and detection engines to the analyst experience.',
     members: [
       { name: 'Srikanth', role: 'Engineering Lead', photo: '/assets/img/team/srikanth.webp', socials: { linkedin: 'https://www.linkedin.com/in/tata-srikanth/', email: '#' } },
       { name: 'Mohan', role: 'Full Stack Engineer', photo: '/assets/img/team/mohan.webp', socials: { linkedin: 'https://www.linkedin.com/in/pvs-mohan-24162028b/', email: '#' } },
@@ -46,7 +46,7 @@ export const teams = [
   {
     id: 'soc',
     title: 'SOC Team',
-    body: 'The analysts who monitor, hunt and respond around the clock - and whose day-to-day work shapes how OBELUS detects and investigates threats.',
+    body: 'The analysts who monitor, hunt and respond around the clock — and whose day-to-day work shapes how OBELUS detects and investigates threats.',
     members: [
       { name: 'Panduranga Rao', role: 'Head of Security', photo: '/assets/img/team/panduranga-rao.webp', socials: { linkedin: 'https://www.linkedin.com/in/pandu-avula-37a34311b/', email: '#' } },
       { name: 'Aman', role: 'Senior SOC Analyst', photo: '/assets/img/team/aman.webp', socials: { linkedin: 'https://www.linkedin.com/in/amanshaik20/', email: '#' } },

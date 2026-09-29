@@ -25,16 +25,16 @@ export const products = [
     id: 'ueba',
     label: 'UEBA',
     icon: 'ueba',
-    image: '/assets/img/products/ueba-diagram.png',
+    image: '/assets/img/products/ueba-dashboard.webp',
     description:
-      "OBELUS's User Entity and Behavior Analytics (UEBA) provides enhanced visibility into user activity within your network. By profiling user risk and detecting anomalous behavior, UEBA empowers your team to proactively identify and mitigate insider threats.",
+      "OBELUS\u2019s User and Entity Behavior Analytics (UEBA) provides enhanced visibility into user activity within your network. By profiling user risk and detecting anomalous behavior, UEBA empowers your team to proactively identify and mitigate insider threats.",
     cta: 'Explore UEBA',
   },
   {
     id: 'tip',
     label: 'Threat Intelligence Platform',
     icon: 'tip',
-    image: '/assets/img/obelus/ThreatIntel.webp',
+    image: '/assets/img/products/tip-dashboard.webp',
     description:
       'OBELUS TIP (Threat Intelligence Platform) aggregates, structures, and allows companies to better utilize threat intelligence, with the ability to handle millions of IOCs, conduct cyber event analysis, and adversary profiling.',
     cta: 'Explore the Threat Intelligence Platform',
@@ -43,7 +43,7 @@ export const products = [
     id: 'soar',
     label: 'SOAR',
     icon: 'soar',
-    image: '/assets/img/products/soar-diagram.png',
+    image: '/assets/img/products/soar-automation.webp',
     description:
       'OBELUS SOAR platforms streamline security operations by automating routine tasks through customizable playbooks. These playbooks, driven by if-then logic and API integration, enable efficient response to security incidents. Additionally, OBELUS SOAR platforms foster collaboration among analysts, enhancing overall security posture.',
     cta: 'Unlock SOC automation',
@@ -52,7 +52,7 @@ export const products = [
     id: 'graph',
     label: 'Investigations By Graph',
     icon: 'graph',
-    image: '/assets/img/products/graph-diagram.png',
+    image: '/assets/img/products/graph-investigation.webp',
     description:
       'Cyber Threat Intelligence (CTI) within OBELUS provides actionable insights by analyzing and correlating various data points, including IPs, URLs, domains, and other contextual metadata. Integrated with our SIEM, UEBA, and SOAR components, CTI empowers organizations to proactively identify and mitigate emerging threats.',
     cta: 'Explore graph investigations',
@@ -61,9 +61,9 @@ export const products = [
     id: 'brand',
     label: 'Brand Monitoring',
     icon: 'brand',
-    image: '/assets/img/products/brand-monitoring-dashboard.png',
+    image: '/assets/img/products/brand-monitoring-dashboard.webp',
     description:
-      "OBELUS Brand Monitoring provides comprehensive insights into your brand's online reputation by conducting sentiment analysis across various social media platforms and other digital channels. Our user-friendly dashboard offers detailed information on public perception, mentions, and trending topics, helping your team respond quickly and protect your brand's reputation.",
+      "OBELUS Brand Monitoring provides comprehensive insights into your brand\u2019s online reputation by conducting sentiment analysis across various social media platforms and other digital channels. Our user-friendly dashboard offers detailed information on public perception, mentions, and trending topics, helping your team respond quickly and protect your brand\u2019s reputation.",
     cta: 'Explore Brand Monitoring',
   },
 ];
