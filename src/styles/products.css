@@ -261,3 +261,15 @@
     flex-direction: column-reverse;
   }
 }
+
+@media (max-width: 575.98px) {
+  /* 140px still clears the floating header; the space under the headline
+     does not need to be as deep on a phone. */
+  .prod-hero {
+    padding: 124px 0 48px;
+  }
+
+  .prod-section {
+    padding: 44px 0;
+  }
+}

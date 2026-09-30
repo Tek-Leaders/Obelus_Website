@@ -41,7 +41,10 @@
 
 .obelus-hero {
   position: relative;
-  min-height: 600px;
+  /* No min-height: the hero is just the product video now, so it sizes to
+     the clip. The old 600px floor dated from when the headline and buttons
+     sat beside the video; below 1200px it left ~380px of empty space under
+     a 194px-tall video. */
   padding-bottom: 0;
   overflow: hidden;
   background: transparent;
@@ -240,7 +243,6 @@
 
 @media (min-width: 1200px) {
   .obelus-hero {
-    min-height: auto;
     padding-top: 52px;
     padding-bottom: 120px;
   }

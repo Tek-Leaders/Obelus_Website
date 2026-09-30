@@ -265,6 +265,15 @@
   .site .section-space.mobile-pad-top-md { padding-top: 2.5rem !important; }
 }
 
+/* On a phone the section scale is proportionally much larger against a
+   narrow column, so it steps down again. */
+@media (max-width: 575.98px) {
+  .site .section-space.pad-top-lg { padding-top: 2.5rem; }
+  .site .section-space.pad-top-xl { padding-top: 3rem; }
+  .site .section-space.pad-bottom-md { padding-bottom: 2rem; }
+  .site .section-space.pad-bottom-lg { padding-bottom: 2.5rem; }
+}
+
 .site.site-shell .section-space.pad-top-0 {
   height: auto !important;
   overflow: hidden;
