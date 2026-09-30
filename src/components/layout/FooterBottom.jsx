@@ -34,8 +34,10 @@ export default function FooterBottom() {
         <div className="row align-items-center">
           <div className="col-12 col-md-6 order-md-1 col-xxl-12">
             <div className="obelus-logo d-flex">
+              {/* The footer is light, so it uses the dark logo file rather
+                  than the green-and-white one made for dark backgrounds. */}
               <LazyImage
-                src="/assets/img/obelus/obelus.png"
+                src="/assets/img/obelus/obelus-dark.webp"
                 alt="Obelus - Realtime Security"
               />
             </div>

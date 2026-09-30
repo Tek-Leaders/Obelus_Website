@@ -54,13 +54,12 @@
   }
 }
 
-/* Footer logo: site/footer.css stretches the img to fill a fixed box sized for a
-   wide text-only wordmark; keep the Obelus lockup's proportions instead.
-   obelus.png has a white wordmark made for dark backgrounds, so it is shown
-   as a solid dark silhouette on the white footer. Swap in a dark-on-light
-   logo file here if one is produced. */
+/* Footer logo: site/footer.css stretches the img to fill a fixed box sized for
+   a wide text-only wordmark; keep the Obelus lockup's proportions instead.
+   The footer now uses obelus-dark.webp, the real dark-on-light logo, so the
+   brightness(0) filter that used to flatten the green-and-white file into a
+   black silhouette is gone. */
 .site-footer .footer-bar .obelus-logo img {
   object-fit: contain;
   object-position: left center;
-  filter: brightness(0);
 }
