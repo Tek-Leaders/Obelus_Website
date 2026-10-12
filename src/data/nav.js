@@ -50,13 +50,6 @@ export const navLeftLinks = [
     track: 'obelusNav:About Us',
   },
   {
-    label: 'Our Team',
-    href: '/team',
-    internal: true,
-    target: '_self',
-    track: 'obelusNav:Our Team',
-  },
-  {
     label: 'Contact Us',
     href: '/contact',
     internal: true,
