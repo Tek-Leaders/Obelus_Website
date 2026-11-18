@@ -164,7 +164,7 @@ export const footerSocials = [
     alt: 'Facebook',
   },
   {
-    href: '#',
+    href: 'https://www.linkedin.com/company/obelussiem/',
     track: 'obelus:footer:socials-2:linkedin',
     src: '/assets/img/ui/social/linkedin-black.svg',
     alt: 'LinkedIn',
