@@ -3,15 +3,15 @@
  *
  * Left-aligned at the page inset: the headline, then the supporting
  * sentence beneath it - nothing centred in a narrow column.
- * The site header is transparent and overlays the page, so this section
- * carries the top padding that clears it. Colours are set explicitly because
- * styles/site/ styles unscoped h1 and p elements.
+ * AiGuardIntroHero now sits above this (and clears the overlaying header
+ * itself), so this section only needs normal section spacing, not
+ * header-clearance padding. Colours are set explicitly because styles/site/
+ * styles unscoped h1 and p elements.
  */
 
 .csm-intro {
   position: relative;
-  /* Clears the overlaying header (100px at >=1200px, 75px below that). */
-  padding: clamp(100px, 8vw, 124px) 0 0;
+  padding: clamp(28px, 3vw, 44px) 0 0;
 }
 
 .csm-intro-inner {
@@ -56,10 +56,6 @@
 }
 
 @media (max-width: 575.98px) {
-  .csm-intro {
-    padding-top: 104px;
-  }
-
   /* Break after the brand name rather than leaving 'a' stranded at the end
      of the first line. */
   .csm-intro-dash {

@@ -1,8 +1,13 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 export default function NotFound() {
   return (
     <div>
+      <Helmet>
+        <title>Page Not Found | OBELUS</title>
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
       <section
         className="section-bg plain"
         style={{ backgroundColor: '#141414' }}

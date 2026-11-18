@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import PlaceholderImage from '../common/PlaceholderImage';
 import Reveal from '../common/Reveal';
 import ProductIcon from '../layout/ProductIcon';
@@ -38,10 +39,17 @@ export default function ProductSection({ product, index }) {
         {product.label}
       </h2>
       <p className="prod-body">{product.description}</p>
-      <a className="prod-cta" href="#">
-        {product.cta}
-        <span aria-hidden="true">→</span>
-      </a>
+      {product.href ? (
+        <Link className="prod-cta" to={product.href}>
+          {product.cta}
+          <span aria-hidden="true">→</span>
+        </Link>
+      ) : (
+        <a className="prod-cta" href="#">
+          {product.cta}
+          <span aria-hidden="true">→</span>
+        </a>
+      )}
     </Reveal>
   );
 

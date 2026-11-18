@@ -11,6 +11,11 @@ export const navLeftLinks = [
     id: 'nav_products',
     dropdown: [
       {
+        label: 'AI Guard',
+        href: '/products/ai-guard',
+        text: 'Secure enterprise AI at the point of use: visibility, inline control and audit-ready proof.',
+      },
+      {
         label: 'SIEM',
         href: '/products#siem',
         text: 'Event management, information management and correlation in one detection hub.',
@@ -34,11 +39,6 @@ export const navLeftLinks = [
         label: 'Investigations By Graph',
         href: '/products#graph',
         text: 'Correlate IPs, URLs, domains and metadata to trace a threat end to end.',
-      },
-      {
-        label: 'Brand Monitoring',
-        href: '/products#brand',
-        text: 'Track mentions and sentiment across social and digital channels.',
       },
     ],
   },

@@ -5,5 +5,5 @@ export const csmIntro = {
   brand: 'OBELUS',
   title: 'a Combined Security Management (CSM) Platform',
   body:
-    'A single platform to provide SIEM + UEBA + Threat Intel + SOAR solution to automate investigation, response, and threat hunting for your SOC.',
+    'A single platform to provide AI Guard + SIEM + UEBA + Threat Intel + SOAR solution to automate investigation, response, and threat hunting for your SOC.',
 };

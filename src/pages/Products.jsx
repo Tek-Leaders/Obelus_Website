@@ -2,11 +2,28 @@ import { productsIntro, products } from '../data/products';
 import ProductSection from '../components/products/ProductSection';
 import Reveal from '../components/common/Reveal';
 import NetworkBackground from '../components/common/NetworkBackground';
+import Seo from '../components/seo/Seo';
 import '../styles/products.css';
+
+const structuredData = products.map((product) => ({
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: `OBELUS ${product.label}`,
+  applicationCategory: 'SecurityApplication',
+  operatingSystem: 'Web',
+  description: product.description,
+  brand: { '@type': 'Brand', name: 'OBELUS' },
+}));
 
 export default function Products() {
   return (
     <div className="prod-page">
+      <Seo
+        title="Security Platform Products: SIEM, UEBA, SOAR & TIP"
+        description="Explore OBELUS products: AI Guard, SIEM, UEBA, Threat Intelligence Platform, SOAR automation and graph-based investigations - one AI-driven platform for your SOC."
+        path="/products"
+        structuredData={structuredData}
+      />
       <section className="prod-hero">
         <NetworkBackground
           className="prod-hero-bg"

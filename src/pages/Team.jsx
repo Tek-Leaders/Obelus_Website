@@ -2,12 +2,18 @@ import NetworkBackground from '../components/common/NetworkBackground';
 import Reveal from '../components/common/Reveal';
 import FounderSpotlight from '../components/team/FounderSpotlight';
 import TeamMemberCard from '../components/team/TeamMemberCard';
+import Seo from '../components/seo/Seo';
 import { teamIntro, founder, teams } from '../data/team';
 import '../styles/team.css';
 
 export default function Team() {
   return (
     <div className="team-page">
+      <Seo
+        title="Our Team"
+        description="Meet the OBELUS team behind our AI-driven SIEM, UEBA, threat intelligence and SOAR security operations platform."
+        path="/team"
+      />
       <section className="team-hero">
         <NetworkBackground
           className="team-hero-bg"

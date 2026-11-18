@@ -4,17 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="content-type" content="text/html; charset=UTF-8">
-    <title>Obelus Realtime Security</title>
-    <meta name="keywords" content="OBELUS, SIEM, UEBA, SOAR, threat intelligence, security operations, SOC platform">
-    <meta name="description" content="OBELUS unites SIEM, UEBA, threat intelligence and SOAR in one AI-driven security operations platform, so your team cuts risk, shortens response times, and lowers the cost of running a SOC.">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
     <!--
-      TODO: once the production domain is live, add
-        <link rel="canonical" href="https://<your-domain>/" />
-        <meta property="og:url" content="https://<your-domain>/" />
-      and, if Obelus has a Google Search Console property, its own
-      google-site-verification token.
+      title, meta description, canonical, og:url/title/description/image and
+      twitter:title/description/image are all rendered per-page by
+      src/components/seo/Seo.jsx (react-helmet-async) instead of living here -
+      duplicating them in this static template would leave two competing
+      <meta name="description"> (etc.) tags once Helmet adds its own, and
+      crawlers would be free to pick either one.
     -->
+    <title>Obelus Realtime Security</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <!-- TODO: paste the verification meta tag from Google Search Console
+         (search.google.com/search-console) once the property is added, e.g.
+         <meta name="google-site-verification" content="..." /> -->
     <meta name="msapplication-TileImage" content="/assets/img/obelus/obelus-icon.png">
     <meta name="msapplication-TileColor" content="#141414">
     <meta name="theme-color" content="#8ad3de">
@@ -24,13 +26,51 @@
     <meta property="og:site_name" content="Obelus" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="OBELUS: AI-Driven Security Operations Platform" />
-    <meta property="og:description" content="OBELUS unites SIEM, UEBA, threat intelligence and SOAR in one AI-driven security operations platform." />
-    <meta property="og:image" content="/assets/img/obelus/obelus-mark-large.webp" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="OBELUS: AI-Driven Security Operations Platform" />
-    <meta name="twitter:description" content="OBELUS unites SIEM, UEBA, threat intelligence and SOAR in one AI-driven security operations platform." />
-    <meta name="twitter:image" content="/assets/img/obelus/obelus-mark-large.webp" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "OBELUS",
+      "url": "https://obelus.in/",
+      "logo": "https://obelus.in/assets/img/obelus/obelus-icon.png",
+      "description": "OBELUS unites SIEM, UEBA, threat intelligence and SOAR in one AI-driven security operations platform.",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+1-214-851-2396",
+          "contactType": "customer service",
+          "email": "info@obelus.in"
+        }
+      ],
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "Sarvotham, Plot No. 12, Deloitte Drive, Phase 2, HITEC City",
+          "addressLocality": "Hyderabad",
+          "addressRegion": "Telangana",
+          "postalCode": "500081",
+          "addressCountry": "IN"
+        },
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "5151 Headquarters Drive, Suite 105",
+          "addressLocality": "Plano",
+          "addressRegion": "TX",
+          "postalCode": "75024",
+          "addressCountry": "US"
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "OBELUS",
+      "url": "https://obelus.in/"
+    }
+    </script>
 </head>
 <body>
     <div id="root"></div>

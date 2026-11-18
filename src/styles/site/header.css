@@ -16,6 +16,20 @@
   transition: transform 0.25s linear, visibility 0.25s linear;
 }
 
+/*
+ * .site-nav below is `position: absolute; top: 0`, and nothing up the tree
+ * sets a position otherwise, so without this it resolves against the page's
+ * initial containing block - the very top of the document - rather than
+ * this header. That is fine when the header is the first thing on the page,
+ * but components/layout/AnnouncementBar.jsx now sits above it in normal
+ * flow; this gives the nav a containing block of its own so it renders at
+ * the top of *this* box (pushed down below the bar) instead of overlapping
+ * it at the document's actual y: 0.
+ */
+.site .site-header.absolute {
+  position: relative;
+}
+
 .site .site-header.absolute .site-nav {
   position: absolute;
   top: 0;

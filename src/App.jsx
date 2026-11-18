@@ -3,6 +3,7 @@ import Layout from './components/layout/Layout';
 import ScrollToHash from './components/common/ScrollToHash';
 import Home from './pages/Home';
 import Products from './pages/Products';
+import AiGuard from './pages/AiGuard';
 import RequestDemo from './pages/RequestDemo';
 import Team from './pages/Team';
 import About from './pages/About';
@@ -22,6 +23,7 @@ export default function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/products/ai-guard" element={<AiGuard />} />
           <Route path="/request-demo" element={<RequestDemo />} />
           <Route path="/team" element={<Team />} />
           <Route path="/about" element={<About />} />

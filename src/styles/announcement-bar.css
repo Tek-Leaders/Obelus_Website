@@ -1,0 +1,103 @@
+/*
+ * Sitewide bar above the header (see components/layout/AnnouncementBar.jsx).
+ * The matching `.site-header.absolute { position: relative; }` rule lives in
+ * styles/site/header.css - it is what makes .site-nav's `top: 0` resolve
+ * against the header box (which this bar pushes down in normal flow)
+ * instead of the page's initial containing block, which is how .site-nav
+ * was positioned before this bar existed.
+ */
+
+.announcement-bar {
+  position: relative;
+  z-index: 998;
+  background: linear-gradient(90deg, #063a21, #0a2a3d);
+  border-bottom: 1px solid rgba(0, 198, 94, 0.3);
+}
+
+.announcement-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 10px 44px 10px 16px;
+  position: relative;
+}
+
+.announcement-bar-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+.announcement-bar-link:hover {
+  text-decoration: none;
+}
+
+.announcement-bar-link:hover .announcement-bar-cta {
+  text-decoration: underline;
+}
+
+.announcement-bar-badge {
+  flex: 0 0 auto;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: #00c65e;
+  color: #06120b;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.announcement-bar-text {
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: #e8ecf3;
+}
+
+.announcement-bar-cta {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #4ee08f;
+  white-space: nowrap;
+}
+
+.announcement-bar-dismiss {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.announcement-bar-dismiss:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 640px) {
+  .announcement-bar-text {
+    display: none;
+  }
+
+  .announcement-bar-inner {
+    padding: 9px 40px 9px 14px;
+  }
+}

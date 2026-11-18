@@ -52,13 +52,6 @@ export const footerColumns = [
           track: 'obelus:footer:threat intelligence platform',
         },
         { label: 'SOAR', href: '/products#soar', target: '_self', sub: false, track: 'obelus:footer:soar' },
-        {
-          label: 'Brand Monitoring',
-          href: '/products#brand',
-          target: '_self',
-          sub: false,
-          track: 'obelus:footer:brand monitoring',
-        },
       ],
       [
         {

@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
+import AnnouncementBar from './AnnouncementBar';
 import Header from './Header';
 import Footer from './Footer';
+import '../../styles/announcement-bar.css';
 
 // Routes that render without the shared site footer.
-const NO_FOOTER_PATHS = ['/', '/request-demo', '/products', '/team', '/about', '/contact'];
+const NO_FOOTER_PATHS = ['/', '/request-demo', '/products', '/products/ai-guard', '/team', '/about', '/contact'];
 
 /**
  * Shared page shell. The outer div carries the `site` / `site-shell`
@@ -32,6 +34,7 @@ export default function Layout() {
       <a className="skip-to-content" href="#main-content">
         Skip to main content
       </a>
+      <AnnouncementBar />
       <Header />
       <main id="main-content">
         <Outlet />

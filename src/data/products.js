@@ -7,10 +7,20 @@ export const productsIntro = {
   eyebrow: 'Products',
   title: 'One platform, built to cover every stage of the SOC',
   body:
-    'From detection to response, OBELUS brings SIEM, UEBA, threat intelligence, SOAR, graph-based investigation, and brand monitoring together into a single, AI-driven security platform.',
+    'From detection to response, OBELUS brings SIEM, UEBA, threat intelligence, SOAR, and graph-based investigation together into a single, AI-driven security platform.',
 };
 
 export const products = [
+  {
+    id: 'ai-guard',
+    label: 'AI Guard',
+    icon: 'aiguard',
+    href: '/products/ai-guard',
+    image: '/assets/img/products/ai-guard-dashboard.webp',
+    description:
+      'OBELUS AI Guard is the unified AI security and governance layer for the enterprise: real-time visibility, inline control, and audit-ready proof across people, apps, autonomous agents, models, and MCP tools.',
+    cta: 'Explore AI Guard',
+  },
   {
     id: 'siem',
     label: 'SIEM',
@@ -56,14 +66,5 @@ export const products = [
     description:
       'Cyber Threat Intelligence (CTI) within OBELUS provides actionable insights by analyzing and correlating various data points, including IPs, URLs, domains, and other contextual metadata. Integrated with our SIEM, UEBA, and SOAR components, CTI empowers organizations to proactively identify and mitigate emerging threats.',
     cta: 'Explore graph investigations',
-  },
-  {
-    id: 'brand',
-    label: 'Brand Monitoring',
-    icon: 'brand',
-    image: '/assets/img/products/brand-monitoring-dashboard.webp',
-    description:
-      "OBELUS Brand Monitoring provides comprehensive insights into your brand\u2019s online reputation by conducting sentiment analysis across various social media platforms and other digital channels. Our user-friendly dashboard offers detailed information on public perception, mentions, and trending topics, helping your team respond quickly and protect your brand\u2019s reputation.",
-    cta: 'Explore Brand Monitoring',
   },
 ];

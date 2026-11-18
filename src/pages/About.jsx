@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import NetworkBackground from '../components/common/NetworkBackground';
 import Reveal from '../components/common/Reveal';
 import PlatformDiagram from '../components/about/PlatformDiagram';
+import Seo from '../components/seo/Seo';
 import {
   aboutHero,
   aboutApproach,
@@ -21,6 +22,11 @@ import '../styles/about.css';
 export default function About() {
   return (
     <div className="about-page">
+      <Seo
+        title="About Us"
+        description="Learn why OBELUS was built: to unite SIEM, UEBA, threat intelligence and SOAR into one AI-driven platform that cuts SOC cost and response time."
+        path="/about"
+      />
       <section className="about-hero">
         <NetworkBackground
           className="about-hero-bg"

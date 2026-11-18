@@ -1,8 +1,26 @@
 import NetworkBackground from '../components/common/NetworkBackground';
 import Reveal from '../components/common/Reveal';
 import ContactForm from '../components/contact/ContactForm';
+import Seo from '../components/seo/Seo';
 import { contactIntro, offices } from '../data/contact';
 import '../styles/contact.css';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact OBELUS',
+  mainEntity: {
+    '@type': 'Organization',
+    name: 'OBELUS',
+    contactPoint: offices.map((office) => ({
+      '@type': 'ContactPoint',
+      telephone: office.phone,
+      email: office.email,
+      contactType: 'customer service',
+      areaServed: office.country,
+    })),
+  },
+};
 
 const mapHref = (query) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 
@@ -30,6 +48,12 @@ const MailIcon = () => (
 export default function Contact() {
   return (
     <div className="contact-page">
+      <Seo
+        title="Contact Us"
+        description="Talk to the OBELUS team. Reach our offices in India, the USA and Canada, or send us a message about SIEM, UEBA, SOAR and threat intelligence."
+        path="/contact"
+        structuredData={structuredData}
+      />
       <section className="contact-section">
         <NetworkBackground
           className="contact-bg"
