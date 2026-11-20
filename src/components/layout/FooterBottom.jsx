@@ -65,7 +65,7 @@ export default function FooterBottom() {
           <div className="col-12 col-md-6 order-md-2 col-xxl-4 order-xxl-3">
             <ul className="list-unstyled social-links d-flex justify-content-start justify-content-md-end align-items-center">
               {footerSocials.map((social) => (
-                <li key={social.href}>
+                <li key={social.alt}>
                   <a
                     href={social.href}
                     target="_blank"

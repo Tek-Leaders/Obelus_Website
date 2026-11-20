@@ -1,0 +1,169 @@
+/*
+ * Site search overlay (components/layout/SearchOverlay.jsx). Replaces the
+ * old placeholder panel - its markup had no CSS behind it at all beyond a
+ * `display: none` on the contents - with a real, styled, centered search
+ * modal and live results list.
+ */
+
+.search-ov {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: flex;
+  justify-content: center;
+  padding: 10vh 20px 0;
+}
+
+.search-ov-backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  background: rgba(4, 6, 12, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  cursor: pointer;
+}
+
+.search-ov-panel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 560px;
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
+  background: #10161f;
+  box-shadow: 0 30px 80px rgba(2, 6, 16, 0.6);
+  overflow: hidden;
+}
+
+.search-ov-form {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 0 0 auto;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.search-ov-icon {
+  flex: 0 0 auto;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.search-ov-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 0;
+  background: none;
+  color: #fff;
+  font-size: 1.05rem;
+  font-family: var(--font-primary);
+}
+
+.search-ov-input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.search-ov-input:focus {
+  outline: none;
+}
+
+/* Browsers add their own clear/cancel button to type="search" inputs;
+   it looks out of place against this panel's own close button beside it. */
+.search-ov-input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.search-ov-close {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+}
+
+.search-ov-close:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.search-ov-close svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.search-ov-results {
+  margin: 0;
+  padding: 0.5rem;
+  list-style: none;
+  overflow-y: auto;
+}
+
+.search-ov-result {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 0;
+  border-radius: 0.6rem;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.search-ov-result:hover,
+.search-ov-result.active {
+  background: rgba(0, 198, 94, 0.1);
+}
+
+.search-ov-result-title {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.search-ov-result:hover .search-ov-result-title,
+.search-ov-result.active .search-ov-result-title {
+  color: var(--c-brand, #00c65e);
+}
+
+.search-ov-result-desc {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: rgba(190, 202, 218, 0.85);
+}
+
+.search-ov-empty {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-size: 0.92rem;
+  color: rgba(190, 202, 218, 0.7);
+}
+
+@media (max-width: 575.98px) {
+  .search-ov {
+    padding: 0;
+  }
+
+  .search-ov-panel {
+    max-width: none;
+    max-height: 100%;
+    height: 100%;
+    border-radius: 0;
+    border: 0;
+  }
+}

@@ -54,15 +54,32 @@ export default function Header() {
 
   const toggleMenu = (id) => setOpenMenu((current) => (current === id ? null : id));
 
+  // Touch devices fire a synthetic mouseenter on tap (to support legacy
+  // hover-dependent sites), which otherwise races a tap on "Products"
+  // against its own Link navigation: the dropdown pops open mid-tap and can
+  // swallow the touch before the navigation completes, so the link needs a
+  // second tap to actually go anywhere - unlike the plain links beside it
+  // (About Us, Contact Us), which have no hover handlers to race against.
+  // Gating on `(hover: hover)` restricts the open-on-hover behavior to
+  // pointers that can genuinely hover (a mouse), so a tap always just
+  // navigates, exactly like those other links; the chevron button is the
+  // dedicated way to open the panel without navigating on touch/keyboard.
+  const canHover = () =>
+    typeof window !== 'undefined' &&
+    typeof window.matchMedia === 'function' &&
+    window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
   // Hover open/close for mouse pointers, matching how a desktop mega-nav is
   // normally driven. Closing is delayed slightly so moving the pointer from
   // the trigger down into the panel doesn't clip it shut on the way past;
   // moving back over either one within that window cancels the close.
   const openOnHover = (id) => {
+    if (!canHover()) return;
     clearTimeout(closeTimerRef.current);
     setOpenMenu(id);
   };
   const closeOnHoverLeave = () => {
+    if (!canHover()) return;
     clearTimeout(closeTimerRef.current);
     closeTimerRef.current = setTimeout(() => setOpenMenu(null), 150);
   };

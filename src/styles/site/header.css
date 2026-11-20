@@ -141,10 +141,6 @@
     z-index: 997;
   }
 
-  .site .site-header .site-nav .obelus-nav-search {
-    position: absolute;
-  }
-
   /* Slide-in menu panel, parked off-canvas to the left */
   .site .site-header .site-nav-panel {
     position: fixed;
@@ -467,10 +463,4 @@
     padding: 0.625rem 1.25rem;
     font-size: 0.875rem;
   }
-}
-
-/* Site search panel: its contents stay hidden until a search backend exists
-   (see SearchOverlay.jsx). */
-.site.site-shell .search-interface {
-  display: none;
 }
