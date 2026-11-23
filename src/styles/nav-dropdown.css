@@ -24,11 +24,17 @@
  * is open closes that gap without changing anything when nothing is open.
  */
 .site .site-nav.has-open-dropdown {
+  /*
+   * No backdrop-filter/filter/transform here: any of those on an ancestor
+   * creates a new containing block for `position: fixed` descendants, and
+   * .site-nav-panel (the mobile slide-in menu, also inside .site-nav) is
+   * exactly that - it broke the panel's full-viewport fixed positioning,
+   * squashing it down to this bar's own height and letting the page
+   * underneath show through where the nav list should be.
+   */
   background:
     linear-gradient(180deg, rgba(0, 198, 94, 0.07), transparent 70%),
     #0d1117;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
