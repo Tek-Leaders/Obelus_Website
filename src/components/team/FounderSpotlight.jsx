@@ -1,3 +1,4 @@
+import NetworkBackground from '../common/NetworkBackground';
 import Reveal from '../common/Reveal';
 import TeamSocials from './TeamSocials';
 
@@ -12,6 +13,15 @@ export default function FounderSpotlight({ founder }) {
 
   return (
     <section className="team-founder" aria-labelledby="team_founder_name">
+      <NetworkBackground
+        className="team-founder-bg"
+        density={0.00007}
+        maxLinkDistance={140}
+        dotColor="rgba(110, 165, 255, 1)"
+        glowColor="rgba(110, 165, 255, 0.95)"
+        lineColor="rgba(110, 165, 255, 0.45)"
+        orbColor="rgba(110, 165, 255, 0)"
+      />
       <div className="team-container team-founder-grid">
         <Reveal className="team-founder-media">
           <div className="team-founder-frame">

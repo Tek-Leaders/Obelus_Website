@@ -59,7 +59,7 @@ export const searchIndex = [
     keywords: 'about company mission vision pillars',
   },
   {
-    title: 'Our Team',
+    title: 'Leadership',
     description: 'Meet the people behind OBELUS.',
     path: '/team',
     keywords: 'team people founder leadership',

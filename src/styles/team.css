@@ -88,8 +88,23 @@
 /* ---------- Founder spotlight ---------- */
 
 .team-founder {
-  padding: 52px 0 64px;
-  border-top: 1px solid var(--team-line);
+  position: relative;
+  overflow: hidden;
+  /* First section on the page now; 140px clears the fixed header. */
+  padding: 140px 0 64px;
+  background: radial-gradient(ellipse 80% 60% at 25% 20%, rgba(15, 45, 110, 0.55) 0%, var(--team-bg) 70%);
+}
+
+.team-founder-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.75;
+}
+
+.team-founder .team-container {
+  position: relative;
 }
 
 .team-founder-grid {
@@ -364,7 +379,10 @@
     padding: 120px 0 56px;
   }
 
-  .team-founder,
+  .team-founder {
+    padding: 120px 0 44px;
+  }
+
   .team-group {
     padding: 44px 0;
   }

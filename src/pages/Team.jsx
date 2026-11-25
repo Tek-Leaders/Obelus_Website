@@ -1,37 +1,18 @@
-import NetworkBackground from '../components/common/NetworkBackground';
 import Reveal from '../components/common/Reveal';
 import FounderSpotlight from '../components/team/FounderSpotlight';
 import TeamMemberCard from '../components/team/TeamMemberCard';
 import Seo from '../components/seo/Seo';
-import { teamIntro, founder, teams } from '../data/team';
+import { founder, teams } from '../data/team';
 import '../styles/team.css';
 
 export default function Team() {
   return (
     <div className="team-page">
       <Seo
-        title="Our Team"
+        title="Leadership"
         description="Meet the OBELUS team behind our AI-driven SIEM, UEBA, threat intelligence and SOAR security operations platform."
         path="/team"
       />
-      <section className="team-hero">
-        <NetworkBackground
-          className="team-hero-bg"
-          density={0.00007}
-          maxLinkDistance={140}
-          dotColor="rgba(110, 165, 255, 1)"
-          glowColor="rgba(110, 165, 255, 0.95)"
-          lineColor="rgba(110, 165, 255, 0.45)"
-          orbColor="rgba(110, 165, 255, 0)"
-        />
-        <div className="team-container">
-          <Reveal>
-            <p className="team-eyebrow">{teamIntro.eyebrow}</p>
-            <h1 className="team-hero-title">{teamIntro.title}</h1>
-            <p className="team-hero-body">{teamIntro.body}</p>
-          </Reveal>
-        </div>
-      </section>
 
       <FounderSpotlight founder={founder} />
 
